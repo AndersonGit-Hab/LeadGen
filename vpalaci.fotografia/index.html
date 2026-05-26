@@ -1,0 +1,1869 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliza Diniz | Fotografia de Casamentos & Ensaios de Luxo</title>
+    <!-- Google Fonts for Elegance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+      /* --- Root Luxury Color Palette & Definitions --- */
+      :root {
+        --champagne-light: #faf8f5;
+        --champagne-gold: #e2cca9;
+        --gold-accent: #c5a47e;
+        --luxury-charcoal: #1c1a17;
+        --luxury-black: #0c0b09;
+        --text-muted: #625c56;
+        --border-gold: rgba(197, 164, 126, 0.25);
+        
+        --font-serif: "Cormorant Garamond", serif;
+        --font-sans: "Montserrat", sans-serif;
+      }
+
+      /* --- Reset & Global Aesthetics --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+        background-color: var(--champagne-light);
+        color: var(--luxury-charcoal);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+      }
+
+      /* --- Scrollbar Custom styling --- */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--luxury-black);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold-accent);
+      }
+
+      /* --- Elegant Typography & Helpers --- */
+      h1, h2, h3, h4 {
+        font-family: var(--font-serif);
+        font-weight: 300;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        font-weight: 300;
+        color: var(--text-muted);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* --- Animation reveals on Scroll --- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(35px);
+        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- Header Fixo --- */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        background-color: transparent;
+        padding: 24px 0;
+        transition: all 0.4s ease;
+      }
+
+      header.scrolled {
+        background-color: rgba(12, 11, 9, 0.95);
+        backdrop-filter: blur(8px);
+        padding: 16px 0;
+        border-b: 1px solid var(--border-gold);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      .logo-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-circle {
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--gold-accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle, var(--luxury-charcoal) 0%, var(--luxury-black) 100%);
+      }
+
+      .logo-text {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #fff;
+      }
+
+      .logo-sub {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: 7px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold-accent);
+        margin-top: 2px;
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 28px;
+      }
+
+      .nav-link {
+        font-family: var(--font-sans);
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 400;
+        position: relative;
+        padding: 6px 0;
+      }
+
+      .nav-link:hover, .nav-link.active {
+        color: var(--champagne-gold);
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--gold-accent);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after, .nav-link.active::after {
+        width: 100%;
+      }
+
+      .btn-header-wpp {
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+        padding: 10px 20px;
+        font-family: var(--font-sans);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        box-shadow: 0 4px 15px rgba(197, 164, 128, 0.15);
+      }
+
+      .btn-header-wpp:hover {
+        background-color: var(--champagne-gold);
+        transform: translateY(-1px);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 6px;
+      }
+
+      /* --- Hero Section --- */
+      .hero-section {
+        position: relative;
+        min-h: 100vh;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--luxury-black);
+        overflow: hidden;
+      }
+
+      .hero-bg-wrapper {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+      }
+
+      .hero-bg-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.45;
+        filter: brightness(60%) contrast(105%);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(12, 11, 9, 0.7) 0%, transparent 60%, var(--luxury-black) 100%);
+        z-index: 2;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 100px 24px 0 24px;
+        color: #fff;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border: 1px solid rgba(197, 164, 126, 0.3);
+        background-color: rgba(12, 11, 9, 0.6);
+        border-radius: 50px;
+        margin-bottom: 24px;
+      }
+
+      .hero-badge span {
+        font-family: var(--font-sans);
+        font-size: 9px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--champagne-gold);
+        font-weight: 500;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+        font-weight: 300;
+        line-height: 1.1;
+        margin-bottom: 24px;
+      }
+
+      .hero-title span.italic {
+        font-style: italic;
+        color: var(--champagne-gold);
+      }
+
+      .hero-description {
+        font-size: 1.05rem;
+        max-width: 600px;
+        margin: 0 auto 40px auto;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .hero-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+        padding: 16px 36px;
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-cta-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: var(--champagne-gold);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1;
+      }
+
+      .hero-cta-btn:hover::before {
+        transform: translateX(100%);
+      }
+
+      .hero-cta-btn span {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* --- Section Header Helper --- */
+      .section-header {
+        text-align: center;
+        max-width: 650px;
+        margin: 0 auto 60px auto;
+      }
+
+      .section-badge {
+        font-family: var(--font-sans);
+        font-size: 10px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold-accent);
+        font-weight: 600;
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: var(--luxury-charcoal);
+        font-weight: 300;
+      }
+
+      .section-title span.italic {
+        font-style: italic;
+        color: var(--gold-accent);
+      }
+
+      .text-light .section-title {
+        color: #fff;
+      }
+
+      /* --- Sobre Section --- */
+      .about-section {
+        padding: 120px 0;
+        background-color: var(--champagne-light);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-cols: 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about-media {
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .about-img-frame {
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 80%;
+        height: 105%;
+        border: 1px solid var(--border-gold);
+        z-index: 1;
+      }
+
+      .about-img-container {
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      }
+
+      .about-img-container img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .about-experience-tag {
+        position: absolute;
+        bottom: -20px;
+        right: -10px;
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+        padding: 20px 24px;
+        z-index: 3;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        text-align: center;
+      }
+
+      .about-experience-num {
+        display: block;
+        font-family: var(--font-serif);
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .about-experience-lbl {
+        display: block;
+        font-size: 8px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 4px;
+      }
+
+      .about-quote {
+        font-family: var(--font-serif);
+        font-size: 1.35rem;
+        color: var(--luxury-charcoal);
+        font-style: italic;
+        line-height: 1.5;
+        border-left: 2px solid var(--gold-accent);
+        padding-left: 24px;
+        margin-bottom: 30px;
+      }
+
+      .about-paragraph {
+        margin-bottom: 30px;
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-cols: repeat(2, 1fr);
+        gap: 20px;
+        border-top: 1px solid var(--border-gold);
+        padding-top: 30px;
+      }
+
+      .stat-item-num {
+        font-family: var(--font-serif);
+        font-size: 2.2rem;
+        color: var(--gold-accent);
+        font-weight: 300;
+        display: block;
+      }
+
+      .stat-item-lbl {
+        font-family: var(--font-sans);
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* --- Portfólio Section --- */
+      .portfolio-section {
+        padding: 120px 0;
+        background-color: var(--luxury-black);
+        color: #fff;
+      }
+
+      .portfolio-filter-bar {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 48px;
+        border-bottom: 1px solid rgba(226, 204, 169, 0.15);
+        padding-bottom: 24px;
+      }
+
+      .portfolio-filter-btn {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        font-family: var(--font-sans);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .portfolio-filter-btn:hover, .portfolio-filter-btn.active {
+        color: var(--champagne-gold);
+      }
+
+      /* Asymmetric Collage Grid */
+      .portfolio-grid {
+        display: grid;
+        grid-template-cols: 1fr;
+        gap: 24px;
+      }
+
+      .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(197, 164, 126, 0.15);
+        background-color: #121110;
+        transition: all 0.5s ease;
+      }
+
+      /* Simulated collage classes */
+      .item-portrait {
+        aspect-ratio: 2/3;
+      }
+      .item-landscape {
+        aspect-ratio: 3/2;
+      }
+      .item-square {
+        aspect-ratio: 1/1;
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+        display: block;
+      }
+
+      .portfolio-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .portfolio-item-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(12, 11, 9, 0.9) 0%, rgba(12, 11, 9, 0.3) 60%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+        pointer-events: none;
+      }
+
+      .portfolio-item:hover .portfolio-item-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-item-category {
+        font-family: var(--font-sans);
+        font-size: 8px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-accent);
+        font-weight: 600;
+        margin-bottom: 4px;
+        display: block;
+      }
+
+      .portfolio-item-title {
+        font-serif: var(--font-serif);
+        font-size: 1.35rem;
+        color: #fff;
+        font-weight: 300;
+        margin-bottom: 2px;
+      }
+
+      .portfolio-item-location {
+        font-family: var(--font-sans);
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: 0.1em;
+      }
+
+      /* --- Serviços & Pacotes Section --- */
+      .services-section {
+        padding: 120px 0;
+        background-color: var(--champagne-light);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-cols: 1fr;
+        gap: 32px;
+        align-items: stretch;
+      }
+
+      .service-card {
+        background-color: #fff;
+        border: 1px solid var(--border-gold);
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.4s ease;
+        position: relative;
+      }
+
+      .service-card.popular {
+        background-color: var(--luxury-black);
+        color: #fff;
+        border-color: var(--gold-accent);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(197, 164, 126, 0.08);
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+        padding: 4px 16px;
+        font-family: var(--font-sans);
+        font-size: 8px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .service-title {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+      }
+
+      .service-subtitle {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 30px;
+      }
+
+      .popular .service-subtitle {
+        color: rgba(255,255,255,0.6);
+      }
+
+      .service-price-block {
+        border-top: 1px solid var(--border-gold);
+        border-bottom: 1px solid var(--border-gold);
+        padding: 20px 0;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+
+      .price-lbl {
+        font-family: var(--font-sans);
+        font-size: 10px;
+        color: var(--gold-accent);
+        text-transform: uppercase;
+      }
+
+      .price-val {
+        font-family: var(--font-serif);
+        font-size: 2.2rem;
+        color: var(--gold-accent);
+        font-weight: 300;
+      }
+
+      .service-features {
+        list-style: none;
+        margin-bottom: 40px;
+      }
+
+      .service-features li {
+        font-family: var(--font-sans);
+        font-size: 12px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: var(--luxury-charcoal);
+      }
+
+      .popular .service-features li {
+        color: rgba(255,255,255,0.85);
+      }
+
+      .service-features li svg {
+        width: 14px;
+        height: 14px;
+        color: var(--gold-accent);
+        margin-top: 3px;
+        flex-shrink: 0;
+      }
+
+      .btn-service {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        font-family: var(--font-sans);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        background-color: var(--luxury-black);
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+
+      .popular .btn-service {
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+      }
+
+      .btn-service:hover {
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+      }
+
+      .popular .btn-service:hover {
+        background-color: var(--champagne-gold);
+      }
+
+      /* --- Depoimentos Section --- */
+      .testimonials-section {
+        padding: 120px 0;
+        background-color: var(--luxury-black);
+        color: #fff;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-cols: 1fr;
+        gap: 32px;
+      }
+
+      .testimonial-card {
+        background-color: #1c1a17;
+        border: 1px solid rgba(197, 164, 126, 0.15);
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .testimonial-quote-icon {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        color: rgba(197, 164, 126, 0.1);
+        display: block;
+      }
+
+      .star-rating {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 24px;
+        color: var(--gold-accent);
+      }
+
+      .testimonial-text {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        font-weight: 300;
+        color: rgba(255,255,255,0.8);
+        margin-bottom: 30px;
+        font-style: italic;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-top: 1px solid rgba(197, 164, 126, 0.15);
+        padding-top: 24px;
+      }
+
+      .author-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid var(--border-gold);
+      }
+
+      .author-name {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 300;
+        color: #fff;
+      }
+
+      .author-info {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: 8px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--gold-accent);
+        margin-top: 2px;
+      }
+
+      /* --- Seção CTA Final --- */
+      .cta-final-section {
+        padding: 120px 0;
+        background-color: var(--luxury-black);
+        color: #fff;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-final-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        opacity: 0.2;
+      }
+
+      .cta-final-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: blur(4px) brightness(40%);
+      }
+
+      .cta-final-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle, transparent 20%, var(--luxury-black) 80%);
+        z-index: 2;
+      }
+
+      .cta-final-content {
+        position: relative;
+        z-index: 10;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .cta-final-title {
+        font-size: 3rem;
+        font-weight: 300;
+        margin-bottom: 24px;
+      }
+
+      .cta-final-title span.italic {
+        font-style: italic;
+        color: var(--champagne-gold);
+      }
+
+      .cta-final-text {
+        color: rgba(255,255,255,0.85);
+        max-width: 550px;
+        margin: 0 auto 40px auto;
+        font-size: 1.05rem;
+      }
+
+      .btn-luxury-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+        padding: 16px 40px;
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-luxury-cta:hover {
+        background-color: var(--champagne-gold);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(197, 164, 126, 0.25);
+      }
+
+      /* --- Footer --- */
+      footer {
+        background-color: var(--luxury-black);
+        color: #fff;
+        padding: 80px 0 40px 0;
+        border-t: 1px solid rgba(197, 164, 126, 0.15);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-cols: 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .footer-brand-desc {
+        margin-top: 16px;
+        max-width: 320px;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.6);
+      }
+
+      .footer-title {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        color: var(--champagne-gold);
+        margin-bottom: 24px;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .footer-links a:hover {
+        color: var(--champagne-gold);
+        padding-left: 4px;
+      }
+
+      .footer-contacts {
+        list-style: none;
+      }
+
+      .footer-contacts li {
+        font-family: var(--font-sans);
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-contacts a:hover {
+        color: var(--champagne-gold);
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .social-icon-btn {
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(197, 164, 126, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold-accent);
+        transition: all 0.3s ease;
+      }
+
+      .social-icon-btn:hover {
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+        border-color: var(--gold-accent);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(197, 164, 126, 0.15);
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .copyright-text {
+        font-size: 11px;
+        color: rgba(255,255,255,0.45);
+      }
+
+      /* --- Responsive Styles (Mobile-first definitions) --- */
+      @media (min-width: 576px) {
+        .portfolio-grid {
+          grid-template-cols: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .about-grid {
+          grid-template-cols: repeat(12, 1fr);
+          gap: 60px;
+        }
+        .about-media {
+          grid-column: span 6;
+        }
+        .about-content {
+          grid-column: span 6;
+        }
+        .portfolio-grid {
+          grid-template-cols: repeat(3, 1fr);
+        }
+        .services-grid {
+          grid-template-cols: repeat(2, 1fr);
+        }
+        .footer-grid {
+          grid-template-cols: repeat(3, 1fr);
+        }
+        .hero-title {
+          font-size: 4.5rem;
+        }
+        .section-title {
+          font-size: 3rem;
+        }
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+          text-align: left;
+        }
+      }
+
+      @media (min-width: 994px) {
+        .services-grid {
+          grid-template-cols: repeat(3, 1fr);
+        }
+        .testimonials-grid {
+          grid-template-cols: repeat(3, 1fr);
+        }
+        .hero-title {
+          font-size: 5.5rem;
+        }
+      }
+
+      @media (max-width: 994px) {
+        .nav-menu {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          max-width: 400px;
+          height: 100vh;
+          background-color: var(--luxury-black);
+          z-index: 99;
+          flex-direction: column;
+          justify-content: center;
+          gap: 32px;
+          padding: 80px 40px;
+          box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+          transition: right 0.4s ease;
+        }
+
+        .nav-menu.open {
+          right: 0;
+        }
+
+        .menu-toggle {
+          display: block;
+          z-index: 100;
+        }
+
+        .btn-header-wpp {
+          display: none;
+        }
+      }
+
+      /* --- Simple Scroll top button --- */
+      .scroll-top-btn {
+        position: fixed;
+        bottom: 30px;
+        right: -60px;
+        background-color: var(--gold-accent);
+        color: var(--luxury-black);
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 90;
+        transition: all 0.4s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      }
+
+      .scroll-top-btn.visible {
+        right: 30px;
+      }
+
+      .scroll-top-btn:hover {
+        background-color: var(--champagne-gold);
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- 1. HEADER FIXO -->
+    <header id="main-header">
+      <div class="header-container">
+        <!-- Logo -->
+        <a href="#inicio" class="logo-brand">
+          <div class="logo-circle">
+            <!-- Camera Vector Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--gold-accent);"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          </div>
+          <div>
+            <span class="logo-text">ELIZA DINIZ</span>
+            <span class="logo-sub">FOTOGRAFIA</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu Nav -->
+        <nav>
+          <ul class="nav-menu" id="nav-drawer">
+            <li><a href="#inicio" class="nav-link active">Início</a></li>
+            <li><a href="#sobre" class="nav-link">Sobre</a></li>
+            <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+            <li><a href="#servicos" class="nav-link">Pacotes</a></li>
+            <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+            <li><a href="#contato" class="nav-link">Contato</a></li>
+            <!-- Show only in mobile drawer -->
+            <li class="mobile-only" style="display: none;">
+              <a href="https://wa.me/5547988477053?text=Olá Eliza, vim através do seu site!" target="_blank" class="btn-header-wpp" style="display: inline-block;">Falar WhatsApp</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- CTA Header Action -->
+        <a href="https://wa.me/5547988477053?text=Olá Eliza, vim através do seu site de luxo!" target="_blank" class="btn-header-wpp">Falar com Eliza</a>
+
+        <!-- Hamburger Icon Mobile -->
+        <button class="menu-toggle" id="menu-btn" aria-label="Abrir Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero-section" id="inicio">
+      <div class="hero-bg-wrapper">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1800" alt="Fotografia de alta costura e casamentos por Eliza Diniz">
+      </div>
+      <div class="hero-overlay"></div>
+      
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <!-- Spark icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--champagne-gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>FOTOGRAFIA ATEMPORAL & COBERTURA DE LUXO</span>
+        </div>
+        
+        <h1 class="hero-title reveal">
+          Guardando o que <br>
+          <span class="italic">no tempo seria efêmero</span>.
+        </h1>
+        
+        <p class="hero-description reveal">
+          Retratos editoriais de luxo e recordações que transbordam sensibilidade e afeto. Fotografia especializada em casamento, gestante e ensaio infantil em Santa Catarina.
+        </p>
+        
+        <div class="reveal">
+          <a href="#portfolio" class="hero-cta-btn">
+            <span>
+              VER MEU TRABALHO
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SOBRE -->
+    <section class="about-section" id="sobre">
+      <div class="container">
+        <div class="about-grid">
+          
+          <!-- Column Media Left -->
+          <div class="about-media reveal">
+            <div class="about-img-frame"></div>
+            <div class="about-img-container">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200" alt="Eliza Diniz - Retrato Fotógrafa">
+            </div>
+            <div class="about-experience-tag">
+              <span class="about-experience-num">8+</span>
+              <span class="about-experience-lbl">Anos Refinando o Olhar</span>
+            </div>
+          </div>
+
+          <!-- Column Text Right -->
+          <div class="about-content reveal">
+            <span class="section-badge">A artista por trás da câmera</span>
+            <h2 class="section-title" style="margin-bottom: 30px;">
+              Prazer, me chamo <br><span class="italic">Eliza Diniz</span>
+            </h2>
+            
+            <p class="about-quote">
+              "A fotografia me ensinou que o tempo é um tecido delicado e que cada momento carrega uma poesia invisível."
+            </p>
+            
+            <p class="about-paragraph text-muted">
+              Sediada no litoral de Santa Catarina e com olhar sensível refinado pela fotografia editorial clássica, me dedico a traduzir momentos únicos em relíquias visuais. Meu foco não é apenas capturar o que acontece, mas documentar a atmosfera, a textura dos sorrisos e a elegância silenciosa do afeto. Seja na suntuosidade de um altar, no ninho sagrado da gestação ou nas descobertas puras da infância, busco criar retratos eternos, unindo preciosismo estético à verdade espontânea do sentir.
+            </p>
+            
+            <div class="about-stats">
+              <div>
+                <span class="stat-item-num">150+</span>
+                <span class="stat-item-lbl">Casamentos Eternizados</span>
+              </div>
+              <div>
+                <span class="stat-item-num">SC</span>
+                <span class="stat-item-lbl">Santa Catarina & Destinos</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PORTFÓLIO / GALERIA -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-badge">GALERIA DE MEMÓRIAS</span>
+          <h2 class="section-title text-light" style="color: #fff;">
+            O invisível tornado <span class="italic">eterno</span>
+          </h2>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="portfolio-filter-bar reveal">
+          <button class="portfolio-filter-btn active" data-filter="todos">Todos</button>
+          <button class="portfolio-filter-btn" data-filter="casamento">Casamentos</button>
+          <button class="portfolio-filter-btn" data-filter="gestante">Gestante</button>
+          <button class="portfolio-filter-btn" data-filter="ensaio infantil">Ensaio Infantil</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="portfolio-grid reveal" id="gallery-mesh">
+          <!-- 1. Casamento (Portrait) -->
+          <div class="portfolio-item item-portrait" data-cat="casamento">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Casamento Eliza Diniz">
+            <div class="portfolio-item-overlay">
+              <span class="portfolio-item-category">Casamento</span>
+              <h3 class="portfolio-item-title">O Primeiro Olhar</h3>
+              <p class="portfolio-item-location">Florianópolis, SC</p>
+            </div>
+          </div>
+
+          <!-- 2. Gestante (Landscape) -->
+          <div class="portfolio-item item-landscape" data-cat="gestante">
+            <img src="https://images.unsplash.com/photo-1590102421318-7588b3f18e90?auto=format&fit=crop&q=80&w=800" alt="Gestante Eliza Diniz">
+            <div class="portfolio-item-overlay">
+              <span class="portfolio-item-category">Gestante</span>
+              <h3 class="portfolio-item-title">Suavidade Maternal</h3>
+              <p class="portfolio-item-location">Praia Brava, SC</p>
+            </div>
+          </div>
+
+          <!-- 3. Infantil (Square) -->
+          <div class="portfolio-item item-square" data-cat="ensaio infantil">
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=800" alt="Ensaio Infantil Eliza Diniz">
+            <div class="portfolio-item-overlay">
+              <span class="portfolio-item-category">Ensaio Infantil</span>
+              <h3 class="portfolio-item-title">Olhar Inocente</h3>
+              <p class="portfolio-item-location">Joinville, SC</p>
+            </div>
+          </div>
+
+          <!-- 4. Gestante (Portrait) -->
+          <div class="portfolio-item item-portrait" data-cat="gestante">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" alt="Gestante Poético Eliza Diniz">
+            <div class="portfolio-item-overlay">
+              <span class="portfolio-item-category">Gestante</span>
+              <h3 class="portfolio-item-title">Doce Espera ao Entardecer</h3>
+              <p class="portfolio-item-location">Blumenau, SC</p>
+            </div>
+          </div>
+
+          <!-- 5. Casamento (Square) -->
+          <div class="portfolio-item item-square" data-cat="casamento">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800" alt="Promessa Casamento Eliza Diniz">
+            <div class="portfolio-item-overlay">
+              <span class="portfolio-item-category">Casamento</span>
+              <h3 class="portfolio-item-title">Promessa sob o Sol</h3>
+              <p class="portfolio-item-location">Balneário Camboriú, SC</p>
+            </div>
+          </div>
+
+          <!-- 6. Infantil (Landscape) -->
+          <div class="portfolio-item item-landscape" data-cat="ensaio infantil">
+            <img src="https://images.unsplash.com/photo-1476703719129-7ec352c2f82c?auto=format&fit=crop&q=80&w=800" alt="Infantil Luz Externa Eliza Diniz">
+            <div class="portfolio-item-overlay">
+              <span class="portfolio-item-category">Ensaio Infantil</span>
+              <h3 class="portfolio-item-title">Infância na Natureza</h3>
+              <p class="portfolio-item-location">Brusque, SC</p>
+            </div>
+          </div>
+
+          <!-- 7. Casamento (Portrait) -->
+          <div class="portfolio-item item-portrait" data-cat="casamento">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800" alt="Dança Casal Eliza Diniz">
+            <div class="portfolio-item-overlay">
+              <span class="portfolio-item-category">Casamento</span>
+              <h3 class="portfolio-item-title">Dança Cênica dos Noivos</h3>
+              <p class="portfolio-item-location">Praia do Rosa, SC</p>
+            </div>
+          </div>
+
+          <!-- 8. Gestante (Landscape) -->
+          <div class="portfolio-item item-landscape" data-cat="gestante">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=800" alt="Retrato Materno Eliza Diniz">
+            <div class="portfolio-item-overlay">
+              <span class="portfolio-item-category">Gestante</span>
+              <h3 class="portfolio-item-title">Gerando Luz</h3>
+              <p class="portfolio-item-location">Itapema, SC</p>
+            </div>
+          </div>
+
+          <!-- 9. Infantil (Square) -->
+          <div class="portfolio-item item-square" data-cat="ensaio infantil">
+            <img src="https://images.unsplash.com/photo-1481697950241-47ba4279fab2?auto=format&fit=crop&q=80&w=800" alt="Criança Eliza Diniz">
+            <div class="portfolio-item-overlay">
+              <span class="portfolio-item-category">Ensaio Infantil</span>
+              <h3 class="portfolio-item-title">Espontaneidade Pura</h3>
+              <p class="portfolio-item-location">Jaraguá do Sul, SC</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. SERVIÇOS / PACOTES -->
+    <section class="services-section" id="servicos">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-badge">INVESTIMENTOS COERENTES</span>
+          <h2 class="section-title">
+            Serviços e <span class="italic">Pacotes</span>
+          </h2>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Card 1: Essencial -->
+          <div class="service-card reveal">
+            <div>
+              <h3 class="service-title">Essencial</h3>
+              <p class="service-subtitle">Para Gestante & Infantil</p>
+              
+              <div class="service-price-block">
+                <span class="price-lbl">A partir de</span>
+                <span class="price-val">R$ 3.500,00</span>
+              </div>
+              
+              <ul class="service-features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>2 a 3 horas de sessão fotográfica externa ou interna</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Sessão Gestante ou Ensaio Infantil autoral</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Consultoria completa de figurino e paleta de cores</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>35 fotos digitais de altíssima definição tratadas</span>
+                </li>
+              </ul>
+            </div>
+            
+            <a href="https://wa.me/5547988477053?text=Olá Eliza! Gostaria de orçamento para o pacote *Essencial*." target="_blank" class="btn-service">Conhecer Pacote</a>
+          </div>
+
+          <!-- Card 2: Clássico -->
+          <div class="service-card popular reveal">
+            <span class="popular-badge">Mais Solicitado</span>
+            <div>
+              <h3 class="service-title" style="color: #fff;">Clássico</h3>
+              <p class="service-subtitle">Cobertura Completa Casamento</p>
+              
+              <div class="service-price-block" style="border-color: rgba(197, 164, 126, 0.4);">
+                <span class="price-lbl">Consulte valor</span>
+                <span class="price-val" style="color: var(--champagne-gold);">Sob Medida</span>
+              </div>
+              
+              <ul class="service-features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Até 10 horas de cobertura integral (making of, cerimônia e festa)</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Fotografia por Eliza Diniz como artista principal</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Ensaio Pré-Casamento (Pre-Wedding) incluído</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Galeria online privativa ativa por 1 ano</span>
+                </li>
+              </ul>
+            </div>
+            
+            <a href="https://wa.me/5547988477053?text=Olá Eliza! Gostaria de conversar sobre a cobertura do meu casamento no pacote *Clássico*." target="_blank" class="btn-service">Solicitar Disponibilidade</a>
+          </div>
+
+          <!-- Card 3: Premium -->
+          <div class="service-card reveal">
+            <div>
+              <h3 class="service-title">Premium</h3>
+              <p class="service-subtitle">Patrimônio Visual em Fine Art</p>
+              
+              <div class="service-price-block">
+                <span class="price-lbl">A partir de</span>
+                <span class="price-val">Consulte</span>
+              </div>
+              
+              <ul class="service-features">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Cobertura completa sem limite de horas no evento</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Sessão Pré-Wedding e Pós-Casamento inclusas</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Álbum de Luxo físico costurado à mão na Itália</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Estojo revestido em linho ou couro legítimo</span>
+                </li>
+              </ul>
+            </div>
+            
+            <a href="https://wa.me/5547988477053?text=Olá Eliza! Gostaria de conhecer o requinte do pacote *Premium Fine Art*." target="_blank" class="btn-service">Conversar Direto</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. DEPOIMENTOS -->
+    <section class="testimonials-section" id="depoimentos">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-badge">DEPOIMENTOS DE CLIENTES</span>
+          <h2 class="section-title text-light" style="color: #fff;">
+            O carinho que <span class="italic">nos move</span>
+          </h2>
+        </div>
+
+        <div class="testimonials-grid">
+          
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card reveal">
+            <div class="testimonial-quote-icon">
+              <!-- Quote svg icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10zm-12 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            </div>
+            <div>
+              <div class="star-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-text">
+                "O trabalho da Eliza foi celestial. Ela tem o dom de capturar risos invisíveis de um modo tão poético que transpira sentimentos verdadeiros. Cada detalhe do nosso casamento foi registrado com extrema delicadeza, como uma obra de arte digna de exposição."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150" alt="Carolina e Henrique" class="author-avatar">
+              <div>
+                <h4 class="author-name">Carolina & Henrique</h4>
+                <span class="author-info">Balneário Camboriú, SC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card reveal">
+            <div class="testimonial-quote-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10zm-12 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            </div>
+            <div>
+              <div class="star-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-text">
+                "Eu estava bastante insegura sobre as mudanças que acontecem com meu corpo durante a gestação, mas a Eliza me guiou de uma forma tão poética e acolhedora. Ela criou retratos poéticos com refinamento clássico incomparável."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=150" alt="Mariana Medeiros" class="author-avatar">
+              <div>
+                <h4 class="author-name">Mariana Medeiros</h4>
+                <span class="author-info">Ensaio Gestante, SC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card reveal">
+            <div class="testimonial-quote-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10zm-12 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            </div>
+            <div>
+              <div class="star-rating">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="testimonial-text">
+                "Não é fácil fazer com que crianças cooperem para um ensaio de fotos formais, mas Eliza transformou o dia em brincadeira espontânea. As fotos do Theo de 2 anos correndo pelo jardim revelam toda a doçura da infância real."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150" alt="Gabriela Vasconcellos" class="author-avatar">
+              <div>
+                <h4 class="author-name">Gabriela Vasconcellos</h4>
+                <span class="author-info">Joinville, SC</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. SEÇÃO CTA FINAL -->
+    <section class="cta-final-section">
+      <div class="cta-final-bg">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1800" alt="Ensaio romântico de luxo ao ar livre">
+      </div>
+      <div class="cta-final-overlay"></div>
+      
+      <div class="cta-final-content container reveal">
+        <h2 class="cta-final-title">
+          Pronta para dar este <span class="italic">passo conosco?</span>
+        </h2>
+        <p class="cta-final-text">
+          As vagas para casamentos e ensaios exclusivos são limitadas anualmente para assegurar a curadoria impecável de cada registro do litoral ao interior de {Eliza Diniz Fotografia}.
+        </p>
+        
+        <a href="#contato" class="btn-luxury-cta">
+          SOLICITAR DISPONIBILIDADE DA MINHA DATA
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA / FORM SECTION -->
+    <section class="services-section" id="contato" style="background-color: var(--champagne-light);">
+      <div class="container" style="max-width: 900px;">
+        <div class="section-header reveal">
+          <span class="section-badge">CONTATO E CONSULTORIA</span>
+          <h2 class="section-title">Compor sua <span class="italic">Obra Visual</span></h2>
+          <p style="margin-top: 15px;">Fale diretamente comigo para reservas ou planejamentos customizados em Santa Catarina.</p>
+        </div>
+
+        <div class="reveal" style="background-color: #fff; padding: 40px; border: 1px solid var(--border-gold); box-shadow: 0 15px 35px rgba(0,0,0,0.05);">
+          <!-- Contact Direct Callout Box -->
+          <div style="text-align: center; margin-bottom: 30px;">
+            <p style="font-size: 1.15rem; color: var(--luxury-charcoal); font-family: var(--font-serif); font-style: italic; margin-bottom: 15px;">
+              "Deseja um ensaio personalizado ou cobertura de casamento exclusiva?"
+            </p>
+            <p style="margin-bottom: 24px; font-size: 0.9rem;">
+              O WhatsApp direto é a forma mais ágil de consultar agenda ativa, alinhar figurino e tirar dúvidas particulares.
+            </p>
+          </div>
+
+          <!-- Action block Grid for WhatsApp -->
+          <div style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
+            <a href="https://wa.me/5547988477053?text=Olá Eliza! Visitei seu portfólio de luxo e gostaria de conversar sobre a cobertura fotográfica do meu evento." target="_blank" class="btn-luxury-cta" style="width: 100%; justify-content: center; font-size: 11px; padding: 18px;">
+              <!-- Message box icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              INICIAR CONVERSA NO WHATSAPP COM ELIZA DINIZ
+            </a>
+            
+            <p style="font-size: 12px; color: var(--text-muted); font-family: var(--font-sans); margin-top: 8px;">
+              Disponível pelo telefone direto: <strong>+55 (47) 98847-7053</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer>
+      <div class="container">
+        
+        <div class="footer-grid">
+          <!-- Col 1: Brand -->
+          <div>
+            <div class="logo-brand" style="margin-bottom: 20px;">
+              <div class="logo-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--gold-accent);"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+              </div>
+              <div>
+                <span class="logo-text" style="font-size: 1.15rem;">ELIZA DINIZ</span>
+                <span class="logo-sub">FOTOGRAFIA</span>
+              </div>
+            </div>
+            <p class="footer-brand-desc">
+              Unindo preciosidade clássica à verdade do momento. Especializada em registrar amor eterno nos cenários deslumbrantes do Sul.
+            </p>
+          </div>
+
+          <!-- Col 2: Navigation -->
+          <div>
+            <h4 class="footer-title">Navegação</h4>
+            <ul class="footer-links">
+              <li><a href="#inicio">Início</a></li>
+              <li><a href="#sobre">Sobre Eliza</a></li>
+              <li><a href="#portfolio">Portfólio Editorial</a></li>
+              <li><a href="#servicos">Serviços & Pacotes</a></li>
+              <li><a href="#depoimentos">Depoimentos</a></li>
+              <li><a href="#contato">Reservar Data</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Contacts / Socials -->
+          <div>
+            <h4 class="footer-title">Contatos Rápidos</h4>
+            <ul class="footer-contacts">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--gold-accent);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <a href="https://wa.me/5547988477053" target="_blank">+55 (47) 98847-7053</a>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--gold-accent);"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Santa Catarina, Brasil</span>
+              </li>
+            </ul>
+
+            <div class="footer-socials">
+              <!-- Instagram -->
+              <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              <!-- Pinterest -->
+              <a href="https://pinterest.com" target="_blank" class="social-icon-btn" aria-label="Pinterest">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.947-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.168 1.777 2.168 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.634 0-3.77 2.737-7.229 7.892-7.229 4.15 0 7.372 2.957 7.372 6.9 0 4.12-2.593 7.436-6.191 7.436-1.21 0-2.35-.629-2.737-1.37 0 0-.599 2.282-.746 2.833-.27 1.05-.1 2.36-.15 2.5C10.86 23.86 11.43 24 12.02 24 18.63 24 24 18.63 24 11.99 24 5.37 18.63 0 12.02 0z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Master Copyright Bottom -->
+        <div class="footer-bottom">
+          <p class="copyright-text">
+            &copy; <span id="year-num">2026</span> Eliza Diniz Fotografia. Todos os direitos reservados.
+          </p>
+          <p class="copyright-text" style="display: flex; align-items: center; gap: 4px; justify-content: center;">
+            Feito com carinho e luz em SC.
+          </p>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- Floating scroll to top -->
+    <button class="scroll-top-btn" id="btn-scroll-top" aria-label="Voltar para o topo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    </button>
+
+    <!-- --- Vanilla JS Operations for High-End UX --- -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Header Scroll State ---
+        const mainHeader = document.getElementById("main-header");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            mainHeader.classList.add("scrolled");
+          } else {
+            mainHeader.classList.remove("scrolled");
+          }
+        });
+
+        // --- Sticky Active Navigation Link with observer ---
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop - 150) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("active");
+            }
+          });
+        });
+
+        // --- Intersection Observer for Elegant Transitions ---
+        const scrollRevealItems = document.querySelectorAll(".reveal");
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // Reveal only once for smoothness
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px" // Slight offset for natural eyes level
+        });
+
+        scrollRevealItems.forEach((item) => {
+          revealObserver.observe(item);
+        });
+
+        // --- Asymmetric Portfolio category filters ---
+        const filterButtons = document.querySelectorAll(".portfolio-filter-btn");
+        const galleryItems = document.querySelectorAll(".portfolio-item");
+
+        filterButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // Remove active from other btns
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filterValue = btn.getAttribute("data-filter");
+
+            galleryItems.forEach((item) => {
+              const cat = item.getAttribute("data-cat");
+              if (filterValue === "todos" || cat === filterValue) {
+                item.style.display = "block";
+                setTimeout(() => {
+                  item.style.opacity = "1";
+                  item.style.transform = "scale(1)";
+                }, 50);
+              } else {
+                item.style.opacity = "0";
+                item.style.transform = "scale(0.95)";
+                setTimeout(() => {
+                  item.style.display = "none";
+                }, 400);
+              }
+            });
+          });
+        });
+
+        // --- Mobile drawer overlay handler ---
+        const menuBtn = document.getElementById("menu-btn");
+        const navDrawer = document.getElementById("nav-drawer");
+        
+        if (menuBtn && navDrawer) {
+          menuBtn.addEventListener("click", () => {
+            navDrawer.classList.toggle("open");
+            const isOpen = navDrawer.classList.contains("open");
+            menuBtn.innerHTML = isOpen 
+              ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+              : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>';
+          });
+
+          // Close menu drawer on clicking link items
+          navDrawer.querySelectorAll("a").forEach((lnk) => {
+            lnk.addEventListener("click", () => {
+              navDrawer.classList.remove("open");
+              menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>';
+            });
+          });
+        }
+
+        // --- Scroll to top button ---
+        const scrollTopBtn = document.getElementById("btn-scroll-top");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 400) {
+            scrollTopBtn.classList.add("visible");
+          } else {
+            scrollTopBtn.classList.remove("visible");
+          }
+        });
+
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          });
+        }
+
+        // --- Year Number automatic offset ---
+        const yearSpan = document.getElementById("year-num");
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear().toString();
+        }
+      });
+    </script>
+  </body>
+</html>
