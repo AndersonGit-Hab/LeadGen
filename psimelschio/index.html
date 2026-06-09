@@ -65,7 +65,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 1.25rem 2.5rem;
+            padding: 1.25rem max(2.5rem, calc((100% - 1200px) / 2));
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -853,7 +853,7 @@
         /* ── RODAPÉ ── */
         footer {
             background: #1C1411;
-            padding: 2.5rem 2.5rem;
+            padding: 2.5rem max(2.5rem, calc((100% - 1200px) / 2));
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
