@@ -70,7 +70,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 1.25rem 5%;
+            padding: 1.25rem max(5%, calc((100% - 1280px) / 2));
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -191,21 +191,10 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            padding: clamp(5rem, 8vw, 7rem) 5% clamp(3rem, 5vw, 5rem);
+            padding-block: clamp(5rem, 8vw, 7rem) clamp(3rem, 5vw, 5rem);
             gap: 4rem;
             position: relative;
             overflow: hidden;
-        }
-
-        #hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            background: svg-load('wave');
-            pointer-events: none;
         }
 
         .hero-content {
@@ -376,11 +365,12 @@
 
         .wave-divider svg {
             display: block;
+            width: 100%;
         }
 
         /* --- ESPECIALIDADES --- */
         #especialidades {
-            padding: clamp(4rem, 8vw, 7rem) 5%;
+            padding-block: clamp(4rem, 8vw, 7rem);
             background: var(--bg-warm);
         }
 
@@ -479,7 +469,7 @@
 
         /* --- SOBRE --- */
         #sobre {
-            padding: clamp(4rem, 8vw, 7rem) 5%;
+            padding-block: clamp(4rem, 8vw, 7rem);
             display: grid;
             grid-template-columns: 1fr 1.15fr;
             gap: clamp(3rem, 6vw, 6rem);
@@ -578,7 +568,7 @@
 
         /* --- COMO FUNCIONA --- */
         #como-funciona {
-            padding: clamp(4rem, 8vw, 7rem) 5%;
+            padding-block: clamp(4rem, 8vw, 7rem);
             background: var(--ink);
             color: var(--white);
             position: relative;
@@ -654,7 +644,7 @@
 
         /* --- FRASES --- */
         #frases {
-            padding: clamp(4rem, 8vw, 7rem) 5%;
+            padding-block: clamp(4rem, 8vw, 7rem);
             background: var(--bg-warm);
         }
 
@@ -703,7 +693,7 @@
 
         /* --- CTA FINAL --- */
         #contato {
-            padding: clamp(4rem, 8vw, 7rem) 5%;
+            padding-block: clamp(4rem, 8vw, 7rem);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -759,7 +749,7 @@
         footer {
             background: var(--ink);
             color: rgba(255, 255, 255, 0.5);
-            padding: 3rem 5% 2rem;
+            padding: 3rem max(5%, calc((100% - 1280px) / 2)) 2rem;
         }
 
         .footer-inner {
@@ -844,56 +834,6 @@
         #wa-float:hover {
             transform: scale(1.08);
             box-shadow: 0 6px 24px rgba(181, 113, 74, 0.55);
-        }
-
-        /* --- LGPD MODAL --- */
-        #lgpd-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(44, 33, 24, 0.55);
-            backdrop-filter: blur(4px);
-            z-index: 1000;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        #lgpd-banner {
-            background: var(--white);
-            border-radius: 0.75rem 0.75rem 0.5rem 0.5rem;
-            padding: 1.5rem 1.75rem;
-            max-width: 680px;
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        #lgpd-banner p {
-            flex: 1;
-            font-size: 0.8rem;
-            color: var(--ink-muted);
-            line-height: 1.65;
-            min-width: 200px;
-        }
-
-        .lgpd-accept {
-            background: var(--terra);
-            color: var(--white);
-            border: none;
-            border-radius: 0.35rem;
-            padding: 0.6rem 1.35rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            cursor: pointer;
-            font-family: var(--font-body);
-            transition: background 0.2s;
-        }
-
-        .lgpd-accept:hover {
-            background: var(--terra-light);
         }
 
         /* --- REVEAL ANIMATION --- */
@@ -1200,16 +1140,6 @@
         </svg>
     </a>
 
-    <!-- LGPD MODAL -->
-    <div id="lgpd-overlay">
-        <div id="lgpd-banner">
-            <p>Este site utiliza apenas cookies essenciais de funcionamento. Nenhum dado pessoal é coletado sem o seu
-                consentimento. Ao continuar navegando, você concorda com nossa política de privacidade.</p>
-            <button class="lgpd-accept"
-                onclick="document.getElementById('lgpd-overlay').style.display='none'; localStorage.setItem('lgpd','1')">Entendi</button>
-        </div>
-    </div>
-
     <script>
         // Nav scroll
         const nav = document.getElementById('main-nav');
@@ -1223,9 +1153,6 @@
         }, { threshold: 0.12 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // LGPD
-        if (localStorage.getItem('lgpd')) document.getElementById('lgpd-overlay').style.display = 'none';
     </script>
 </body>
 
