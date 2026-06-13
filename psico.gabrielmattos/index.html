@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Gonçalves Mattos — Psicólogo Clínico | Garça SP</title>
+    <meta name="description"
+        content="Gabriel Gonçalves Mattos, Psicólogo Clínico (CRP 06/95394) em Garça, SP. Atendimento online e presencial. Especialista em ansiedade, autoconhecimento, relacionamentos e resiliência.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+        :root {
+            --areia: #F5EFE3;
+            --areia-escura: #EDE3D1;
+            --musgo: #4A5E4F;
+            --musgo-claro: #6B7F6F;
+            --musgo-translucido: rgba(74, 94, 79, 0.08);
+            --terracota: #C07755;
+            --terracota-claro: #D4967A;
+            --texto: #2A2A24;
+            --texto-muted: #6B6860;
+            --branco: #FDFAF5;
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background: var(--areia);
+            color: var(--texto);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ──── GRÃO GLOBAL ──── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.028;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23grain)' opacity='1'/%3E%3C/svg%3E");
+        }
+
+        /* ──── NAV ──── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: clamp(1rem, 2vw, 1.25rem) clamp(1.5rem, 5vw, 4rem);
+            transition: background 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav.scrolled {
+            background: rgba(245, 239, 227, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 1px 0 rgba(74, 94, 79, 0.12);
+        }
+
+        .nav-marca {
+            line-height: 1.15;
+        }
+
+        .nav-marca span:first-child {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            color: var(--musgo);
+            letter-spacing: 0.01em;
+        }
+
+        .nav-marca span:last-child {
+            display: block;
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--musgo-claro);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(1.2rem, 3vw, 2.5rem);
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--texto-muted);
+            transition: color 0.25s;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-links a:hover {
+            color: var(--musgo);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.55rem 1.15rem;
+            border: 1.5px solid var(--terracota);
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--terracota);
+            letter-spacing: 0.03em;
+            transition: background 0.3s, color 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            background: var(--terracota);
+            color: var(--branco);
+        }
+
+        .nav-cta svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+        }
+
+        /* ──── HERO ──── */
+        #hero {
+            min-height: 100svh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: clamp(6rem, 12vw, 9rem) max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2)) clamp(4rem, 8vw, 6rem);
+            gap: clamp(2rem, 5vw, 4rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C360,120 1080,0 1440,80 L1440,120 L0,120 Z' fill='%23EDE3D1'/%3E%3C/svg%3E") no-repeat bottom / 100%;
+            pointer-events: none;
+        }
+
+        .hero-conteudo {
+            max-width: 560px;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--musgo-claro);
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1.5px;
+            background: var(--terracota);
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: clamp(2.6rem, 5.5vw, 4rem);
+            line-height: 1.15;
+            color: var(--musgo);
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--terracota);
+        }
+
+        .hero-sub {
+            font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+            color: var(--texto-muted);
+            margin-bottom: 2.25rem;
+            max-width: 430px;
+            line-height: 1.75;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 2rem;
+            background: var(--musgo);
+            color: var(--branco);
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: background 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+        }
+
+        .hero-btn:hover {
+            background: var(--musgo-claro);
+            transform: translateY(-2px);
+        }
+
+        .hero-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-selos {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .selo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--texto-muted);
+            letter-spacing: 0.04em;
+        }
+
+        .selo::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--terracota);
+            flex-shrink: 0;
+        }
+
+        .hero-foto-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-foto-container {
+            position: relative;
+            width: min(420px, 90%);
+            aspect-ratio: 4/5;
+            clip-path: polygon(0 6%, 100% 0%, 100% 94%, 0% 100%);
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .hero-foto-container img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .foto-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--musgo) 0%, var(--musgo-claro) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .foto-bg svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+        }
+
+        .hero-detalhe {
+            position: absolute;
+            right: -30px;
+            top: 10%;
+            width: 120px;
+            height: 120px;
+            border: 1.5px solid rgba(192, 119, 85, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-detalhe-2 {
+            position: absolute;
+            left: -20px;
+            bottom: 15%;
+            width: 70px;
+            height: 70px;
+            border: 1px solid rgba(74, 94, 79, 0.25);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 7rem;
+            }
+
+            .hero-foto-wrap {
+                order: -1;
+            }
+
+            .hero-foto-container {
+                width: min(300px, 80vw);
+            }
+
+            .hero-eyebrow {
+                justify-content: center;
+            }
+
+            .hero-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-selos {
+                justify-content: center;
+            }
+
+            .hero-sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* ──── ESPECIALIDADES ──── */
+        #especialidades {
+            background: var(--areia-escura);
+            padding: clamp(5rem, 10vw, 8rem) max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+        }
+
+        .secao-label {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--terracota);
+            margin-bottom: 0.75rem;
+        }
+
+        .secao-titulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--musgo);
+            line-height: 1.2;
+            margin-bottom: 3.5rem;
+            max-width: 520px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card-esp {
+            background: var(--areia);
+            padding: 2.25rem 2rem;
+            border-radius: 2px;
+            border-left: 3px solid transparent;
+            transition: border-color 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-esp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--terracota), transparent);
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+
+        .card-esp:hover {
+            border-left-color: var(--terracota);
+            transform: translateY(-4px);
+        }
+
+        .card-esp:hover::before {
+            opacity: 1;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--musgo-claro);
+            background: var(--musgo-translucido);
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+        }
+
+        .card-titulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--musgo);
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-queixa {
+            font-size: 0.87rem;
+            color: var(--texto-muted);
+            font-style: italic;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .card-seta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--terracota);
+            font-weight: 400;
+        }
+
+        .card-seta svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        /* ──── SOBRE ──── */
+        #sobre {
+            padding: clamp(5rem, 10vw, 8rem) max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(3rem, 6vw, 6rem);
+            align-items: center;
+        }
+
+        .sobre-foto-wrap {
+            position: relative;
+        }
+
+        .sobre-foto-container {
+            width: 100%;
+            aspect-ratio: 3/4;
+            clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+            overflow: hidden;
+        }
+
+        .sobre-foto-container img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .sobre-foto-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, var(--areia-escura), var(--musgo-translucido));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sobre-foto-bg svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.25;
+        }
+
+        .sobre-detalhe {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 160px;
+            height: 160px;
+            border: 1px dashed rgba(192, 119, 85, 0.35);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .sobre-conteudo {}
+
+        .crp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--musgo);
+            color: var(--branco);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            padding: 0.35rem 0.9rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .sobre-texto {
+            font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+            line-height: 1.85;
+            color: var(--texto-muted);
+            margin-bottom: 2rem;
+        }
+
+        .sobre-texto strong {
+            color: var(--texto);
+            font-weight: 500;
+        }
+
+        .sobre-formacao {
+            list-style: none;
+        }
+
+        .sobre-formacao li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(74, 94, 79, 0.12);
+            font-size: 0.87rem;
+            color: var(--texto-muted);
+        }
+
+        .sobre-formacao li:first-child {
+            border-top: 1px solid rgba(74, 94, 79, 0.12);
+        }
+
+        .sobre-formacao li svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 3px;
+            color: var(--musgo-claro);
+        }
+
+        @media (max-width: 768px) {
+            #sobre {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-foto-container {
+                aspect-ratio: 4/3;
+            }
+        }
+
+        /* ──── COMO FUNCIONA ──── */
+        #como-funciona {
+            background: var(--areia-escura);
+            padding: clamp(5rem, 10vw, 8rem) max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+        }
+
+        .passos-wrap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            position: relative;
+            margin-top: 3.5rem;
+        }
+
+        .passos-linha {
+            position: absolute;
+            top: 52px;
+            left: calc(16.67% + 1rem);
+            right: calc(16.67% + 1rem);
+            height: 2px;
+            background: repeating-linear-gradient(90deg,
+                    var(--musgo-claro) 0, var(--musgo-claro) 8px,
+                    transparent 8px, transparent 18px);
+            opacity: 0.4;
+        }
+
+        .passo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 1.5rem 3rem;
+            position: relative;
+        }
+
+        .passo-num {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--musgo);
+            color: var(--branco);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .passo-titulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--musgo);
+            margin-bottom: 0.75rem;
+        }
+
+        .passo-texto {
+            font-size: 0.87rem;
+            color: var(--texto-muted);
+            line-height: 1.75;
+        }
+
+        @media (max-width: 768px) {
+            .passos-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .passos-linha {
+                display: none;
+            }
+
+            .passo {
+                align-items: flex-start;
+                text-align: left;
+                flex-direction: row;
+                gap: 1.25rem;
+                padding: 0 0 2rem;
+            }
+
+            .passo-num {
+                margin-bottom: 0;
+            }
+        }
+
+        /* ──── FRASES ──── */
+        #frases {
+            padding: clamp(5rem, 10vw, 8rem) max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+            background: var(--musgo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #frases::before {
+            content: '"';
+            position: absolute;
+            top: -0.15em;
+            left: clamp(1rem, 4vw, 3rem);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22rem;
+            color: rgba(255, 255, 255, 0.04);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .frases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .frase-card {
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 2px;
+            transition: border-color 0.35s, transform 0.35s var(--ease-out);
+        }
+
+        .frase-card:hover {
+            border-color: rgba(192, 119, 85, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .frase-texto {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.15rem, 2vw, 1.35rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--areia);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .frase-autor {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--terracota-claro);
+        }
+
+        /* ──── CTA FINAL ──── */
+        #cta-final {
+            background: var(--areia-escura);
+            padding: clamp(5rem, 10vw, 8rem) max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .cta-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--terracota);
+            margin-bottom: 1rem;
+        }
+
+        .cta-titulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            color: var(--musgo);
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .cta-titulo em {
+            font-style: italic;
+        }
+
+        .cta-texto {
+            font-size: 1rem;
+            color: var(--texto-muted);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 1.05rem 2.5rem;
+            background: var(--terracota);
+            color: var(--branco);
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: background 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+        }
+
+        .cta-btn:hover {
+            background: var(--musgo);
+            transform: translateY(-2px);
+        }
+
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .cta-info {
+            margin-top: 1.5rem;
+            font-size: 0.82rem;
+            color: var(--texto-muted);
+            letter-spacing: 0.04em;
+        }
+
+        /* ──── RODAPÉ ──── */
+        footer {
+            background: var(--musgo);
+            color: rgba(245, 239, 227, 0.65);
+            padding: clamp(3rem, 6vw, 4.5rem) max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-nome {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--areia);
+            margin-bottom: 0.35rem;
+        }
+
+        .footer-crp {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--terracota-claro);
+            margin-bottom: 1rem;
+        }
+
+        .footer-desc {
+            font-size: 0.82rem;
+            line-height: 1.75;
+        }
+
+        .footer-col h4 {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--areia);
+            margin-bottom: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a {
+            color: rgba(245, 239, 227, 0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.25s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--areia);
+        }
+
+        .footer-divider {
+            border: none;
+            border-top: 1px solid rgba(245, 239, 227, 0.12);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.75rem;
+        }
+
+        .footer-aviso {
+            font-size: 0.75rem;
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .footer-aviso a {
+            color: var(--terracota-claro);
+            text-decoration: none;
+        }
+
+        .footer-cvv {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(192, 119, 85, 0.2);
+            color: var(--terracota-claro);
+            padding: 0.4rem 0.9rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid rgba(192, 119, 85, 0.35);
+            transition: background 0.25s;
+        }
+
+        .footer-cvv:hover {
+            background: rgba(192, 119, 85, 0.35);
+        }
+
+        @media (max-width: 768px) {
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* ──── FLOAT WHATSAPP ──── */
+        .float-wa {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 200;
+            width: 58px;
+            height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+            transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .float-wa svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* ──── REVEAL ANIMAÇÕES ──── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <div class="nav-inner">
+        <div class="nav-marca">
+            <span>Gabriel Gonçalves Mattos</span>
+            <span>Psicólogo</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li>
+                <a class="nav-cta"
+                    href="https://wa.me/5514997263370?text=Ol%C3%A1%2C%20Gabriel%21%20Gostaria%20de%20agendar%20uma%20consulta."
+                    target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Agendar consulta
+                </a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-conteudo">
+            <p class="hero-eyebrow reveal">Garça, SP · Online e Presencial</p>
+            <h1 class="reveal reveal-delay-1">Um espaço para você <em>se entender</em> melhor</h1>
+            <p class="hero-sub reveal reveal-delay-2">Se a ansiedade aperta, os relacionamentos pesam ou você sente que
+                perdeu o fio de si mesmo — estou aqui para caminhar junto com você.</p>
+            <a href="https://wa.me/5514997263370?text=Ol%C3%A1%2C%20Gabriel%21%20Gostaria%20de%20agendar%20uma%20consulta."
+                class="hero-btn reveal reveal-delay-3" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Falar pelo WhatsApp
+            </a>
+            <div class="hero-selos reveal reveal-delay-4">
+                <span class="selo">Online e Presencial</span>
+                <span class="selo">CRP 06/95394</span>
+                <span class="selo">50 minutos</span>
+            </div>
+        </div>
+        <div class="hero-foto-wrap reveal reveal-delay-2">
+            <div class="hero-foto-container">
+                <div class="foto-bg">
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="28" r="16" stroke="white" stroke-width="2" />
+                        <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" stroke="white" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+                <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/2858bdd4-be81-4f89-bc9f-4c2fffed3c8d/hero-1780926778020.png" alt="Gabriel Gonçalves Mattos — Psicólogo Clínico">
+            </div>
+            <div class="hero-detalhe"></div>
+            <div class="hero-detalhe-2"></div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades">
+        <p class="secao-label reveal">Áreas de atuação</p>
+        <h2 class="secao-titulo reveal reveal-delay-1">O que traz você até aqui?</h2>
+        <div class="cards-grid">
+            <div class="card-esp reveal reveal-delay-1">
+                <span class="card-tag">Ansiedade</span>
+                <h3 class="card-titulo">Quando a mente não para de correr</h3>
+                <p class="card-queixa">"Esse aperto no peito sem saber o porquê, a cabeça acelerada, a sensação de que
+                    algo ruim vai acontecer..."</p>
+                <div class="card-seta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Respirar e viver mais no presente
+                </div>
+            </div>
+            <div class="card-esp reveal reveal-delay-2">
+                <span class="card-tag">Autoconhecimento</span>
+                <h3 class="card-titulo">Entender quem você é de verdade</h3>
+                <p class="card-queixa">"Faço coisas que não combinam com o que quero pra mim, e não entendo por que
+                    repito os mesmos padrões..."</p>
+                <div class="card-seta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Clareza, autonomia e propósito
+                </div>
+            </div>
+            <div class="card-esp reveal reveal-delay-3">
+                <span class="card-tag">Relacionamentos</span>
+                <h3 class="card-titulo">Vínculos que cansam mais do que nutrem</h3>
+                <p class="card-queixa">"Os mesmos conflitos, a mesma sensação de não ser ouvido — parece que não consigo
+                    me conectar de verdade..."</p>
+                <div class="card-seta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Relações mais seguras e honestas
+                </div>
+            </div>
+            <div class="card-esp reveal reveal-delay-4">
+                <span class="card-tag">Resiliência</span>
+                <h3 class="card-titulo">Atravessar as fases difíceis de pé</h3>
+                <p class="card-queixa">"Perdi o chão, não sei como seguir. Parece que a vida cobrou mais do que eu tinha
+                    pra dar..."</p>
+                <div class="card-seta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Reconstruir com mais leveza e força
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="sobre-foto-wrap reveal">
+            <div class="sobre-foto-container">
+                <div class="sobre-foto-bg">
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="28" r="16" stroke="rgba(74,94,79,0.6)" stroke-width="2" />
+                        <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" stroke="rgba(74,94,79,0.6)"
+                            stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/2858bdd4-be81-4f89-bc9f-4c2fffed3c8d/sobre-1780926780270.png" alt="Gabriel Gonçalves Mattos">
+            </div>
+            <div class="sobre-detalhe"></div>
+        </div>
+        <div class="sobre-conteudo">
+            <p class="secao-label reveal">Sobre Gabriel</p>
+            <span class="crp-badge reveal reveal-delay-1">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>
+                CRP 06/95394
+            </span>
+            <p class="sobre-texto reveal reveal-delay-2">
+                Escolhi a psicologia porque acredito que <strong>todo mundo merece um espaço honesto para se
+                    entender</strong>. Ao longo dos anos, percebi que as maiores transformações não acontecem quando eu
+                dou respostas — mas quando a pessoa começa a se escutar de verdade.
+            </p>
+            <p class="sobre-texto reveal reveal-delay-3">
+                Trabalho com <strong>escuta atenta, sem julgamento</strong>, no seu ritmo. Seja no consultório em Garça
+                ou pelo online, o espaço é construído para que você possa ser quem você é — sem filtros.
+            </p>
+            <ul class="sobre-formacao reveal reveal-delay-4">
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                    Graduação em Psicologia — Psicologia Clínica
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 8v4l3 3" />
+                    </svg>
+                    Atendimento online e presencial — Garça, SP (Centro)
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+        <p class="secao-label reveal">Processo terapêutico</p>
+        <h2 class="secao-titulo reveal reveal-delay-1">Como funciona o atendimento?</h2>
+        <div class="passos-wrap">
+            <div class="passos-linha"></div>
+            <div class="passo reveal reveal-delay-1">
+                <div class="passo-num">1</div>
+                <div>
+                    <h3 class="passo-titulo">Primeiro contato</h3>
+                    <p class="passo-texto">Me manda uma mensagem pelo WhatsApp. Vamos conversar brevemente, entender o
+                        que você está buscando e encontrar um horário que funcione para você.</p>
+                </div>
+            </div>
+            <div class="passo reveal reveal-delay-2">
+                <div class="passo-num">2</div>
+                <div>
+                    <h3 class="passo-titulo">Sua escolha de formato</h3>
+                    <p class="passo-texto">Atendo presencialmente em Garça (Centro) ou pelo online — você decide o que
+                        funciona melhor. As sessões têm 50 minutos, com frequência semanal.</p>
+                </div>
+            </div>
+            <div class="passo reveal reveal-delay-3">
+                <div class="passo-num">3</div>
+                <div>
+                    <h3 class="passo-titulo">Construindo juntos</h3>
+                    <p class="passo-texto">A partir da primeira sessão, construímos um espaço só seu. Sem pressa, sem
+                        julgamento — o processo é seu, e meu papel é caminhar junto enquanto você encontra seus próprios
+                        caminhos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRASES DE ACOLHIMENTO -->
+    <section id="frases">
+        <div class="frases-grid">
+            <div class="frase-card reveal reveal-delay-1">
+                <p class="frase-texto">"Aqui você encontra um espaço para falar o que não consegue falar em nenhum outro
+                    lugar — com calma, com respeito e sem julgamento."</p>
+                <span class="frase-autor">— Gabriel Gonçalves Mattos, Psicólogo</span>
+            </div>
+            <div class="frase-card reveal reveal-delay-2">
+                <p class="frase-texto">"O processo terapêutico é construído no seu ritmo. Não existe resposta certa, nem
+                    velocidade obrigatória — apenas o que faz sentido para você."</p>
+                <span class="frase-autor">— Gabriel Gonçalves Mattos, Psicólogo</span>
+            </div>
+            <div class="frase-card reveal reveal-delay-3">
+                <p class="frase-texto">"Meu trabalho é te ajudar a desenvolver clareza sobre quem você é, autonomia
+                    emocional e os caminhos possíveis para uma vida que faça mais sentido."</p>
+                <span class="frase-autor">— Gabriel Gonçalves Mattos, Psicólogo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="cta-final">
+        <div class="cta-inner">
+            <p class="cta-eyebrow reveal">Pronto para dar o primeiro passo?</p>
+            <h2 class="cta-titulo reveal reveal-delay-1">Dar o primeiro passo é <em>a parte mais difícil.</em></h2>
+            <p class="cta-texto reveal reveal-delay-2">Faz sentido ter dúvidas, sentir que "talvez não seja hora ainda".
+                Mas se você está lendo isso, uma parte de você já está pronta. Me manda uma mensagem quando estiver —
+                sem compromisso.</p>
+            <a href="https://wa.me/5514997263370?text=Ol%C3%A1%2C%20Gabriel%21%20Gostaria%20de%20agendar%20uma%20consulta."
+                class="cta-btn reveal reveal-delay-3" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Falar com Gabriel
+            </a>
+            <p class="cta-info reveal reveal-delay-4">Online e Presencial · Garça, SP — Centro</p>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-nome">Gabriel Gonçalves Mattos</div>
+                <div class="footer-crp">CRP 06/95394 — Psicólogo Clínico</div>
+                <p class="footer-desc">Atendimento online e presencial em Garça, SP. Um espaço seguro para você se
+                    entender melhor.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#sobre">Sobre Gabriel</a></li>
+                    <li><a href="#como-funciona">Como funciona</a></li>
+                    <li><a href="#cta-final">Agendar consulta</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="https://wa.me/5514997263370" target="_blank" rel="noopener">(14) 99726-3370</a></li>
+                    <li><a href="mailto:gabriel.psicologo.professor@gmail.com">gabriel.psicologo.professor@gmail.com</a>
+                    </li>
+                    <li><a href="https://instagram.com/psico.gabrielmattos" target="_blank" rel="noopener">@psico.gabrielmattos</a></li>
+                    <li><a href="#hero">Garça — SP — Centro</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p class="footer-aviso">
+                Este site é informativo e não substitui consulta psicológica. Em caso de crise, acione o
+                <a href="tel:188" class="footer-cvv">CVV 188 · 24h · gratuito</a>
+            </p>
+            <span style="font-size:0.75rem;">© 2026 Gabriel Gonçalves Mattos</span>
+        </div>
+    </footer>
+
+    <!-- FLOAT WHATSAPP -->
+    <a class="float-wa"
+        href="https://wa.me/5514997263370?text=Ol%C3%A1%2C%20Gabriel%21%20Gostaria%20de%20agendar%20uma%20consulta."
+        target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+        <svg viewBox="0 0 24 24" fill="white">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // Reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => observer.observe(el));
+
+        // Trigger hero reveals immediately
+        setTimeout(() => {
+            document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible'));
+        }, 100);
+    </script>
+</body>
+
+</html>
