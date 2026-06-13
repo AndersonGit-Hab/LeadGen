@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Carolina Ferreira — Psicóloga em Piraúba | TCC, Ansiedade e Saúde Mental</title>
+    <meta name="description"
+        content="Ana Carolina Ferreira, Psicóloga CRP 04/59198. Atendimento online e presencial em Piraúba-MG. Especialista em ansiedade, saúde mental e autoconhecimento pela Terapia Cognitivo Comportamental.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+        :root {
+            --rose: #C8A99A;
+            --rose-lt: #EDE0D9;
+            --sand: #F5EDE4;
+            --sage: #7A9E8A;
+            --sage-dk: #5C8270;
+            --bark: #4A3728;
+            --bark-lt: #7A6055;
+            --cream: #FAF6F2;
+            --white: #FFFFFF;
+
+            --ff-display: 'Cormorant Garamond', Georgia, serif;
+            --ff-body: 'DM Sans', system-ui, sans-serif;
+
+            --ease-out: cubic-bezier(.22, 1, .36, 1);
+            --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+
+            --space-xs: .5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 7rem;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--ff-body);
+            background: var(--cream);
+            color: var(--bark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ─── GRAIN ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: .5;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 5vw;
+            transition: background 400ms var(--ease-out), box-shadow 400ms var(--ease-out);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav.scrolled {
+            background: rgba(250, 246, 242, .88);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 rgba(74, 55, 40, .1);
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            gap: .1rem;
+            text-decoration: none;
+        }
+
+        .nav-brand-name {
+            font-family: var(--ff-display);
+            font-weight: 400;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--bark);
+            letter-spacing: -.01em;
+            line-height: 1.1;
+        }
+
+        .nav-brand-role {
+            font-size: .62rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--bark-lt);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: .82rem;
+            text-decoration: none;
+            color: var(--bark-lt);
+            letter-spacing: .04em;
+            transition: color 300ms;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage-dk);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .5rem 1.1rem;
+            border: 1.5px solid var(--sage);
+            border-radius: 999px;
+            font-family: var(--ff-body);
+            font-size: .8rem;
+            color: var(--sage-dk);
+            text-decoration: none;
+            letter-spacing: .04em;
+            transition: background 300ms, color 300ms;
+        }
+
+        .nav-cta:hover {
+            background: var(--sage);
+            color: var(--white);
+        }
+
+        .nav-cta svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+        }
+
+        /* ─── HERO ─── */
+        #hero {
+            min-height: 100svh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: calc(var(--space-xl) + 2rem) 5vw var(--space-xl);
+            gap: var(--space-lg);
+            background: var(--sand);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--cream);
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .72rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--sage-dk);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-eyebrow span {
+            width: 28px;
+            height: 1px;
+            background: var(--sage);
+            display: inline-block;
+        }
+
+        h1 {
+            font-family: var(--ff-display);
+            font-weight: 300;
+            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+            line-height: 1.1;
+            color: var(--bark);
+            letter-spacing: -.02em;
+            margin-bottom: 1.2rem;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--sage-dk);
+        }
+
+        .hero-sub {
+            font-size: clamp(.95rem, 1.5vw, 1.1rem);
+            color: var(--bark-lt);
+            max-width: 44ch;
+            line-height: 1.7;
+            margin-bottom: 2.2rem;
+            font-weight: 300;
+        }
+
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: .65rem;
+            background: var(--sage);
+            color: var(--white);
+            text-decoration: none;
+            padding: .85rem 1.75rem;
+            border-radius: 999px;
+            font-size: .9rem;
+            letter-spacing: .03em;
+            transition: background 300ms var(--ease-out), transform 300ms var(--ease-out);
+            box-shadow: 0 4px 20px rgba(90, 130, 112, .25);
+        }
+
+        .btn-wa:hover {
+            background: var(--sage-dk);
+            transform: translateY(-2px);
+        }
+
+        .btn-wa svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .72rem;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: var(--bark-lt);
+            background: rgba(255, 255, 255, .6);
+            border: 1px solid rgba(74, 55, 40, .1);
+            padding: .35rem .75rem;
+            border-radius: 4px;
+        }
+
+        .badge svg {
+            width: 12px;
+            height: 12px;
+            color: var(--sage);
+        }
+
+        /* Photo parallelogram */
+        .hero-photo-wrap {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-frame {
+            position: relative;
+            width: min(400px, 80vw);
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+            background: var(--rose-lt);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 600ms var(--ease-out);
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.03);
+        }
+
+        .photo-deco {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            border: 1.5px solid var(--rose);
+            border-radius: 50%;
+            opacity: .5;
+        }
+
+        .photo-deco-2 {
+            position: absolute;
+            bottom: 30px;
+            left: -30px;
+            width: 60px;
+            height: 60px;
+            background: var(--sage);
+            opacity: .15;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                grid-template-columns: 1fr;
+                padding-top: calc(5rem + 60px);
+                text-align: center;
+            }
+
+            .hero-sub {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-badges {
+                justify-content: center;
+            }
+
+            .hero-photo-wrap {
+                order: -1;
+            }
+
+            .photo-frame {
+                width: min(260px, 70vw);
+            }
+
+            .photo-deco,
+            .photo-deco-2 {
+                display: none;
+            }
+        }
+
+        /* ─── WAVE DIVIDER ─── */
+        .wave-div {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-div svg {
+            display: block;
+            width: 100%;
+        }
+
+        /* ─── SECTION SHARED ─── */
+        section {
+            padding: var(--space-xl) 5vw;
+        }
+
+        .section-eyebrow {
+            font-size: .7rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--sage-dk);
+            margin-bottom: .75rem;
+            display: block;
+        }
+
+        h2 {
+            font-family: var(--ff-display);
+            font-weight: 300;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            color: var(--bark);
+            letter-spacing: -.02em;
+        }
+
+        /* ─── ESPECIALIDADES ─── */
+        #especialidades {
+            background: var(--cream);
+        }
+
+        .esp-header {
+            max-width: 50ch;
+            margin-bottom: 3.5rem;
+        }
+
+        .esp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .esp-card {
+            background: var(--sand);
+            border: 1px solid rgba(74, 55, 40, .08);
+            border-radius: 12px;
+            padding: 2rem 1.75rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 400ms var(--ease-out), box-shadow 400ms var(--ease-out);
+        }
+
+        .esp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(74, 55, 40, .1);
+        }
+
+        .esp-num {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            font-family: var(--ff-display);
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--rose);
+            opacity: .25;
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .esp-tag {
+            display: inline-block;
+            font-size: .65rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--sage-dk);
+            background: rgba(122, 158, 138, .12);
+            padding: .25rem .6rem;
+            border-radius: 3px;
+            margin-bottom: .9rem;
+        }
+
+        .esp-card h3 {
+            font-family: var(--ff-display);
+            font-size: clamp(1.15rem, 2vw, 1.4rem);
+            font-weight: 400;
+            color: var(--bark);
+            line-height: 1.3;
+            margin-bottom: .75rem;
+        }
+
+        .esp-queixa {
+            font-size: .88rem;
+            color: var(--bark-lt);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: .75rem;
+        }
+
+        .esp-transform {
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            font-size: .85rem;
+            color: var(--sage-dk);
+            font-weight: 500;
+        }
+
+        .esp-transform svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        /* ─── SOBRE ─── */
+        #sobre {
+            background: var(--sand);
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 5vw;
+            align-items: center;
+        }
+
+        .sobre-photo-wrap {
+            position: relative;
+        }
+
+        .sobre-frame {
+            width: 100%;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border-radius: 120px 12px 120px 12px;
+            background: var(--rose-lt);
+        }
+
+        .sobre-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sobre-badge-crp {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            background: var(--sage);
+            color: var(--white);
+            padding: .75rem 1.25rem;
+            border-radius: 8px;
+            font-size: .75rem;
+            letter-spacing: .08em;
+            font-weight: 500;
+            box-shadow: 0 6px 20px rgba(90, 130, 112, .3);
+        }
+
+        .sobre-content {}
+
+        .sobre-text {
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            color: var(--bark);
+            line-height: 1.8;
+            font-weight: 300;
+            margin: 1.5rem 0 2rem;
+            max-width: 55ch;
+        }
+
+        .sobre-formacao {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+        }
+
+        .sobre-formacao li {
+            display: flex;
+            align-items: flex-start;
+            gap: .75rem;
+            font-size: .88rem;
+            color: var(--bark-lt);
+            line-height: 1.5;
+        }
+
+        .sobre-formacao li svg {
+            width: 16px;
+            height: 16px;
+            color: var(--sage);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            #sobre {
+                grid-template-columns: 1fr;
+                padding: var(--space-lg) 5vw;
+            }
+
+            .sobre-badge-crp {
+                right: 0;
+            }
+        }
+
+        /* ─── COMO FUNCIONA ─── */
+        #como-funciona {
+            background: var(--cream);
+        }
+
+        .como-header {
+            text-align: center;
+            max-width: 48ch;
+            margin: 0 auto 4rem;
+        }
+
+        .passos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .passos::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: calc(16.7% + 12px);
+            right: calc(16.7% + 12px);
+            height: 1px;
+            background: linear-gradient(90deg, var(--rose) 0%, var(--sage) 100%);
+            opacity: .4;
+        }
+
+        .passo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .passo-num {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--sand);
+            border: 1.5px solid var(--rose);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--ff-display);
+            font-size: 1.5rem;
+            color: var(--rose);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .passo h3 {
+            font-family: var(--ff-display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--bark);
+        }
+
+        .passo p {
+            font-size: .85rem;
+            color: var(--bark-lt);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .passos {
+                grid-template-columns: 1fr;
+            }
+
+            .passos::before {
+                display: none;
+            }
+        }
+
+        /* ─── FRASES ─── */
+        #frases {
+            background: var(--bark);
+            padding: var(--space-xl) 5vw;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #frases::before {
+            content: '"';
+            position: absolute;
+            top: -3rem;
+            left: 3vw;
+            font-family: var(--ff-display);
+            font-size: 30rem;
+            color: rgba(255, 255, 255, .03);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .frases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .frase-card {
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .frase-card p {
+            font-family: var(--ff-display);
+            font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+            font-style: italic;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .9);
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .frase-attr {
+            font-size: .72rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--rose);
+        }
+
+        .frase-line {
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: var(--sage);
+            margin-bottom: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .frases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ─── CTA FINAL ─── */
+        #cta {
+            background: var(--sand);
+            text-align: center;
+            padding: var(--space-xl) 5vw;
+        }
+
+        #cta h2 {
+            margin-bottom: 1rem;
+            max-width: 18ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #cta p {
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            color: var(--bark-lt);
+            max-width: 46ch;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .cta-meta {
+            margin-top: 1.5rem;
+            font-size: .75rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--bark-lt);
+        }
+
+        .cta-meta span {
+            color: var(--sage);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--bark);
+            color: rgba(255, 255, 255, .65);
+            padding: 3rem 5vw 2rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .footer-brand-name {
+            font-family: var(--ff-display);
+            font-size: 1.25rem;
+            color: var(--white);
+            display: block;
+            margin-bottom: .25rem;
+        }
+
+        .footer-crp {
+            font-size: .75rem;
+            letter-spacing: .1em;
+        }
+
+        .footer-contatos {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            font-size: .85rem;
+        }
+
+        .footer-contatos a {
+            color: rgba(255, 255, 255, .65);
+            text-decoration: none;
+            transition: color 300ms;
+        }
+
+        .footer-contatos a:hover {
+            color: var(--rose);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 1.5rem auto 0;
+            font-size: .72rem;
+            letter-spacing: .04em;
+        }
+
+        .footer-aviso {
+            max-width: 55ch;
+            line-height: 1.6;
+        }
+
+        .cvv-link {
+            color: var(--rose) !important;
+            text-decoration: underline;
+        }
+
+        /* ─── WHATSAPP FLOAT ─── */
+        .wa-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 200;
+            background: var(--sage);
+            color: var(--white);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(90, 130, 112, .45);
+            transition: background 300ms, transform 300ms var(--ease-out);
+        }
+
+        .wa-float:hover {
+            background: var(--sage-dk);
+            transform: scale(1.08);
+        }
+
+        .wa-float svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        /* ─── SCROLL REVEAL ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 100ms;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 200ms;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 300ms;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 400ms;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <div class="nav-inner">
+        <a href="#hero" class="nav-brand" aria-label="Início">
+            <span class="nav-brand-name">Ana Carolina Ferreira</span>
+            <span class="nav-brand-role">Psicóloga · CRP 04/59198</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li>
+                <a href="https://wa.me/5532999027552?text=Ol%C3%A1%2C+Ana+Carolina!+Gostaria+de+saber+mais+sobre+as+consultas."
+                    class="nav-cta" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.14 1.535 5.874L.057 23.886a.5.5 0 0 0 .606.606l6.012-1.478A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.67-.497-5.207-1.365l-.374-.213-3.87.952.97-3.77-.231-.387A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                    </svg>
+                    WhatsApp
+                </a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow"><span></span>Piraúba · Online e Presencial</p>
+            <h1>Um espaço seguro<br>para você se <em>entender melhor</em></h1>
+            <p class="hero-sub">Quando os pensamentos pesam e as emoções parecem difíceis de administrar, a terapia pode
+                ser o caminho para encontrar mais clareza e leveza.</p>
+            <a href="https://wa.me/5532999027552?text=Ol%C3%A1%2C+Ana+Carolina!+Gostaria+de+saber+mais+sobre+as+consultas."
+                class="btn-wa" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path
+                        d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.14 1.535 5.874L.057 23.886a.5.5 0 0 0 .606.606l6.012-1.478A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.67-.497-5.207-1.365l-.374-.213-3.87.952.97-3.77-.231-.387A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                </svg>
+                Agendar pelo WhatsApp
+            </a>
+            <div class="hero-badges">
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                    Online e Presencial
+                </span>
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    CRP 04/59198
+                </span>
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    50 minutos
+                </span>
+            </div>
+        </div>
+        <div class="hero-photo-wrap">
+            <div class="photo-deco" aria-hidden="true"></div>
+            <div class="photo-deco-2" aria-hidden="true"></div>
+            <div class="photo-frame">
+                <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/6db29a44-0966-4185-9182-00054a7daaa4/hero-1780926133675.png" alt="Ana Carolina Ferreira, psicóloga">
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades">
+        <div class="esp-header reveal">
+            <span class="section-eyebrow">Especialidades</span>
+            <h2>O que traz você até aqui?</h2>
+        </div>
+        <div class="esp-grid">
+            <div class="esp-card reveal reveal-delay-1">
+                <span class="esp-num" aria-hidden="true">01</span>
+                <span class="esp-tag">Ansiedade</span>
+                <h3>E se eu não conseguir parar de me preocupar?</h3>
+                <p class="esp-queixa">"Fico presa nos pensamentos, antecipando o pior o tempo todo."</p>
+                <p class="esp-transform">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    Aprender a viver com mais presença e menos peso
+                </p>
+            </div>
+            <div class="esp-card reveal reveal-delay-2">
+                <span class="esp-num" aria-hidden="true">02</span>
+                <span class="esp-tag">Saúde Mental</span>
+                <h3>Por que me sinto assim, mesmo sem motivo claro?</h3>
+                <p class="esp-queixa">"Acordo cansada, sem ânimo, e não sei explicar para ninguém."</p>
+                <p class="esp-transform">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    Encontrar equilíbrio e reconectar com o que faz sentido
+                </p>
+            </div>
+            <div class="esp-card reveal reveal-delay-3">
+                <span class="esp-num" aria-hidden="true">03</span>
+                <span class="esp-tag">Autoconhecimento</span>
+                <h3>Quem eu sou fora das expectativas dos outros?</h3>
+                <p class="esp-queixa">"Ajo para agradar, mas por dentro me sinto vazia e perdida."</p>
+                <p class="esp-transform">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    Construir uma relação mais honesta consigo mesma
+                </p>
+            </div>
+            <div class="esp-card reveal reveal-delay-4">
+                <span class="esp-num" aria-hidden="true">04</span>
+                <span class="esp-tag">Psicologia da Saúde</span>
+                <h3>Como cuido de mim durante um processo difícil de saúde?</h3>
+                <p class="esp-queixa">"O lado emocional da doença é pesado demais para carregar sozinha."</p>
+                <p class="esp-transform">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    Ter suporte emocional e ferramentas para atravessar esse momento
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAVE -->
+    <div class="wave-div" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#EDE0D9" opacity="0.4" />
+        </svg>
+    </div>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="sobre-photo-wrap reveal">
+            <div class="sobre-frame">
+                <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/6db29a44-0966-4185-9182-00054a7daaa4/sobre-1780926142953.webp" alt="Ana Carolina Ferreira">
+            </div>
+            <div class="sobre-badge-crp" aria-label="Número de registro CRP">CRP 04/59198</div>
+        </div>
+        <div class="sobre-content">
+            <span class="section-eyebrow reveal">Sobre mim</span>
+            <h2 class="reveal">Escolhi a psicologia por acreditar que todo mundo merece ser ouvido de verdade</h2>
+            <p class="sobre-text reveal">Trabalho com escuta atenta e sem julgamento, dentro da Terapia Cognitivo
+                Comportamental — uma abordagem que une compreensão emocional e ferramentas práticas. Acredito que cada
+                pessoa tem um ritmo próprio, e meu papel é caminhar junto, no seu tempo.</p>
+            <ul class="sobre-formacao reveal">
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                    Psicóloga — Terapia Cognitivo Comportamental (TCC)
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                    Especialização em Psicologia Hospitalar e da Saúde
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+        <div class="como-header reveal">
+            <span class="section-eyebrow">Como funciona</span>
+            <h2>Três passos para começar</h2>
+        </div>
+        <div class="passos">
+            <div class="passo reveal reveal-delay-1">
+                <div class="passo-num" aria-hidden="true">1</div>
+                <h3>Entre em contato</h3>
+                <p>Me mande uma mensagem pelo WhatsApp. Conversamos brevemente e combinamos o melhor horário para você.
+                </p>
+            </div>
+            <div class="passo reveal reveal-delay-2">
+                <div class="passo-num" aria-hidden="true">2</div>
+                <h3>Escolha o formato</h3>
+                <p>Atendo online (de qualquer lugar) e presencialmente em Piraúba. As sessões têm 50 minutos.</p>
+            </div>
+            <div class="passo reveal reveal-delay-3">
+                <div class="passo-num" aria-hidden="true">3</div>
+                <h3>Construímos juntas</h3>
+                <p>Em um espaço de escuta real, trabalhamos no seu ritmo — com clareza, respeito e foco no que você
+                    precisa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRASES -->
+    <section id="frases">
+        <div class="frases-grid">
+            <div class="frase-card reveal reveal-delay-1">
+                <span class="frase-line" aria-hidden="true"></span>
+                <p>Aqui você encontra um espaço seguro para falar, refletir e compreender melhor seus sentimentos.</p>
+                <span class="frase-attr">— Ana Carolina, Psicóloga</span>
+            </div>
+            <div class="frase-card reveal reveal-delay-2">
+                <span class="frase-line" aria-hidden="true"></span>
+                <p>O processo terapêutico é construído com escuta atenta, respeito e foco no seu ritmo.</p>
+                <span class="frase-attr">— Ana Carolina, Psicóloga</span>
+            </div>
+            <div class="frase-card reveal reveal-delay-3">
+                <span class="frase-line" aria-hidden="true"></span>
+                <p>Meu trabalho é te ajudar a desenvolver clareza, autonomia emocional e caminhos possíveis.</p>
+                <span class="frase-attr">— Ana Carolina, Psicóloga</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+        <span class="section-eyebrow reveal">Próximo passo</span>
+        <h2 class="reveal">Dar o primeiro passo é a parte mais difícil.</h2>
+        <p class="reveal">Me manda uma mensagem quando estiver pronta. Sem pressa, sem julgamento.</p>
+        <a href="https://wa.me/5532999027552?text=Ol%C3%A1%2C+Ana+Carolina!+Gostaria+de+saber+mais+sobre+as+consultas."
+            class="btn-wa reveal" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.14 1.535 5.874L.057 23.886a.5.5 0 0 0 .606.606l6.012-1.478A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.67-.497-5.207-1.365l-.374-.213-3.87.952.97-3.77-.231-.387A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+            </svg>
+            Falar pelo WhatsApp
+        </a>
+        <p class="cta-meta reveal">Atendimento <span>online e presencial</span> · Piraúba — Centro</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <span class="footer-brand-name">Ana Carolina Ferreira</span>
+                <span class="footer-crp">Psicóloga · CRP 04/59198</span>
+            </div>
+            <div class="footer-contatos">
+                <a href="https://wa.me/5532999027552" target="_blank" rel="noopener">WhatsApp: (32) 99902-7552</a>
+                <a href="https://instagram.com/psianacarolinaferreira" target="_blank" rel="noopener">@psianacarolinaferreira</a>
+                <span>Piraúba — Centro, MG</span>
+                <span>Online e Presencial</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-aviso">
+                Este site é informativo e não substitui atendimento clínico ou avaliação profissional. Em caso de
+                crise, ligue <a href="tel:188" class="cvv-link">CVV 188</a> — gratuito, 24h.
+            </p>
+            <span>© 2026 Ana Carolina Ferreira</span>
+        </div>
+    </footer>
+
+    <!-- WA FLOAT -->
+    <a href="https://wa.me/5532999027552?text=Ol%C3%A1%2C+Ana+Carolina!+Gostaria+de+saber+mais+sobre+as+consultas."
+        class="wa-float" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.14 1.535 5.874L.057 23.886a.5.5 0 0 0 .606.606l6.012-1.478A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.67-.497-5.207-1.365l-.374-.213-3.87.952.97-3.77-.231-.387A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+        </svg>
+    </a>
+
+    <script>
+        // NAV scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    revealObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => revealObs.observe(el));
+    </script>
+</body>
+
+</html>
