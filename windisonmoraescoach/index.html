@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windison Moraes | Psicólogo — Psicanálise Online | Salvador, BA</title>
+    <meta name="description"
+        content="Windison Moraes, psicólogo (CRP-03/7915), atendimento online em abordagem psicanalítica. Ansiedade, depressão, autoestima e inteligência emocional. Salvador, BA.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap');
+
+        :root {
+            --bg: #F6EFE4;
+            --bg-alt: #EEE2CC;
+            --ink: #2A241D;
+            --ink-soft: #5B4E3D;
+            --accent: #B1502C;
+            --accent-dark: #8C3D20;
+            --olive: #4B5842;
+            --line: #D9CBAC;
+            --paper: #FBF7EF;
+            --ease: cubic-bezier(.22, .9, .32, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Karla', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: .035;
+            mix-blend-mode: multiply;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        section {
+            position: relative;
+        }
+
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ===== signature squiggle ===== */
+        .squiggle {
+            display: block;
+            width: 88px;
+            height: 14px;
+            margin: 18px 0;
+        }
+
+        .squiggle path {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 2.4;
+            stroke-linecap: round;
+        }
+
+        .squiggle.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== NAV ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 22px 0;
+            transition: background .5s var(--ease), box-shadow .5s var(--ease), padding .4s var(--ease);
+        }
+
+        header.scrolled {
+            background: rgba(246, 239, 228, .86);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 1px 0 var(--line);
+            padding: 14px 0;
+        }
+
+        header .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+        }
+
+        .brand .name {
+            font-family: 'Fraunces', serif;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .brand .role {
+            font-size: 10.5px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        nav.links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+        }
+
+        nav.links a.section-link {
+            font-size: 14.5px;
+            color: var(--ink-soft);
+            position: relative;
+            transition: color .3s var(--ease);
+        }
+
+        nav.links a.section-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width .35s var(--ease);
+        }
+
+        nav.links a.section-link:hover {
+            color: var(--accent);
+        }
+
+        nav.links a.section-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-whats {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 11px 22px;
+            border-radius: 999px;
+            border: 1.4px solid var(--accent);
+            color: var(--accent-dark);
+            font-size: 14px;
+            font-weight: 600;
+            transition: background .35s var(--ease), color .35s var(--ease), transform .3s var(--ease);
+            white-space: nowrap;
+        }
+
+        .btn-whats svg {
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+        }
+
+        .btn-whats:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .btn-whats:hover svg {
+            fill: #fff;
+        }
+
+        .btn-whats svg {
+            fill: var(--accent-dark);
+            transition: fill .35s var(--ease);
+        }
+
+        @media(max-width:768px) {
+            nav.links a.section-link {
+                display: none;
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 168px 0 120px;
+            position: relative;
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 640px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12.5px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--olive);
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 22px;
+            height: 1px;
+            background: var(--olive);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 4.6vw, 3.6rem);
+            max-width: 11.5em;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent-dark);
+        }
+
+        .hero .sub {
+            margin-top: 26px;
+            max-width: 46ch;
+            font-size: 17.5px;
+            color: var(--ink-soft);
+        }
+
+        .hero .actions {
+            margin-top: 38px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .btn-whats.large {
+            padding: 15px 30px;
+            font-size: 15px;
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-whats.large svg {
+            fill: #fff;
+        }
+
+        .btn-whats.large:hover {
+            background: var(--accent-dark);
+            border-color: var(--accent-dark);
+        }
+
+        .selos {
+            margin-top: 52px;
+            display: flex;
+            gap: 34px;
+            flex-wrap: wrap;
+        }
+
+        .selo {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .selo .n {
+            font-family: 'Fraunces', serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .selo .l {
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+
+        .hero-photo-wrap {
+            position: relative;
+        }
+
+        .hero-photo {
+            aspect-ratio: 4/5;
+            width: 100%;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 82% 100%, 0 100%);
+            background: var(--bg-alt);
+            box-shadow: 0 30px 60px -28px rgba(43, 32, 15, .35);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-photo-wrap::after {
+            content: "";
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            right: -22px;
+            bottom: -22px;
+            border: 1.4px solid var(--accent);
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 82% 100%, 0 100%);
+            z-index: -1;
+        }
+
+        /* reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity .8s var(--ease), transform .8s var(--ease);
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ===== section heads ===== */
+        .section-head {
+            max-width: 640px;
+            margin: 0 0 56px;
+        }
+
+        .section-head.center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .section-head .kicker {
+            font-size: 12.5px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+        }
+
+        .section-head p {
+            margin-top: 18px;
+            color: var(--ink-soft);
+            font-size: 16px;
+        }
+
+        /* ===== DORES / ESPECIALIDADES ===== */
+        .dores {
+            background: var(--bg-alt);
+            padding: 112px 0;
+        }
+
+        .dores-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .dor-card {
+            background: var(--paper);
+            padding: 44px 42px;
+            transition: background .4s var(--ease);
+        }
+
+        .dor-card:hover {
+            background: #fff;
+        }
+
+        .dor-tag {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--olive);
+            font-weight: 700;
+            border: 1px solid var(--olive);
+            border-radius: 999px;
+            padding: 5px 13px;
+            margin-bottom: 22px;
+        }
+
+        .dor-card h3 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            max-width: 16em;
+        }
+
+        .dor-card .queixa {
+            font-style: italic;
+            color: var(--ink-soft);
+            font-size: 15.5px;
+        }
+
+        .dor-card .transf {
+            margin-top: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 15.5px;
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .dor-card .transf svg {
+            flex-shrink: 0;
+            margin-top: 3px;
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent);
+        }
+
+        @media(max-width:768px) {
+            .dores-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== SOBRE ===== */
+        .sobre {
+            padding: 120px 0;
+        }
+
+        .sobre .wrap {
+            display: grid;
+            grid-template-columns: .82fr 1.18fr;
+            gap: 76px;
+            align-items: center;
+        }
+
+        .sobre-photo {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: var(--bg-alt);
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 82% 100%, 0 100%);
+            box-shadow: 0 26px 50px -26px rgba(43, 32, 15, .3);
+        }
+
+        .sobre-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sobre-text .kicker {
+            font-size: 12.5px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .sobre-text h2 {
+            font-size: clamp(1.9rem, 3vw, 2.4rem);
+            margin-bottom: 22px;
+            max-width: 12em;
+        }
+
+        .sobre-text p {
+            color: var(--ink-soft);
+            font-size: 16.5px;
+            max-width: 52ch;
+        }
+
+        .crp-badge {
+            margin-top: 32px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--paper);
+        }
+
+        .crp-badge svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--olive);
+        }
+
+        .crp-badge span {
+            font-size: 14px;
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ===== COMO FUNCIONA ===== */
+        .como {
+            background: var(--olive);
+            color: #F2EEE2;
+            padding: 112px 0;
+        }
+
+        .como .section-head h2,
+        .como .section-head .kicker {
+            color: #F2EEE2;
+        }
+
+        .como .section-head .kicker {
+            opacity: .85;
+        }
+
+        .como .section-head p {
+            color: #D9D6C4;
+        }
+
+        .passos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-top: 20px;
+        }
+
+        .passo {
+            position: relative;
+            padding-top: 8px;
+        }
+
+        .passo .num {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 52px;
+            color: #C77E5A;
+            line-height: 1;
+            margin-bottom: 22px;
+            display: block;
+        }
+
+        .passo h3 {
+            color: #F5F1E6;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .passo p {
+            color: #D9D6C4;
+            font-size: 15px;
+        }
+
+        @media(max-width:768px) {
+            .passos {
+                grid-template-columns: 1fr;
+                gap: 44px;
+            }
+        }
+
+        /* ===== FRASES ===== */
+        .frases {
+            padding: 120px 0;
+            background: var(--bg);
+        }
+
+        .frases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 44px;
+            margin-top: 10px;
+        }
+
+        .frase-card {
+            position: relative;
+            padding: 38px 34px 32px;
+            background: var(--paper);
+            border-radius: 2px;
+        }
+
+        .frase-card .quote-mark {
+            font-family: 'Fraunces', serif;
+            font-size: 56px;
+            font-style: italic;
+            color: var(--accent);
+            line-height: 1;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .frase-card p {
+            font-family: 'Fraunces', serif;
+            font-size: 19px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--ink);
+            line-height: 1.45;
+        }
+
+        .frase-card .autor {
+            margin-top: 22px;
+            font-family: 'Karla', sans-serif;
+            font-style: normal;
+            font-size: 13px;
+            color: var(--ink-soft);
+            letter-spacing: .02em;
+        }
+
+        @media(max-width:900px) {
+            .frases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== CTA FINAL ===== */
+        .cta-final {
+            padding: 130px 0;
+            text-align: center;
+            position: relative;
+            background: var(--bg-alt);
+        }
+
+        .cta-final .wrap {
+            max-width: 660px;
+        }
+
+        .cta-final h2 {
+            font-size: clamp(2rem, 3.6vw, 2.7rem);
+        }
+
+        .cta-final p {
+            margin-top: 22px;
+            color: var(--ink-soft);
+            font-size: 17px;
+        }
+
+        .cta-final .actions {
+            margin-top: 38px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cta-final .modal-line {
+            margin-top: 26px;
+            font-size: 13.5px;
+            color: var(--ink-soft);
+            letter-spacing: .02em;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--ink);
+            color: #D9D0BC;
+            padding: 70px 0 34px;
+        }
+
+        .foot-top {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 44px;
+            border-bottom: 1px solid rgba(217, 208, 188, .18);
+        }
+
+        .foot-brand .name {
+            font-family: 'Fraunces', serif;
+            font-size: 24px;
+            color: #F5F1E6;
+        }
+
+        .foot-brand .crp {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #B9AE93;
+        }
+
+        .foot-col h4 {
+            font-family: 'Karla', sans-serif;
+            font-size: 12px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #B9AE93;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .foot-col a,
+        .foot-col p {
+            display: block;
+            font-size: 14.5px;
+            color: #D9D0BC;
+            margin-bottom: 10px;
+            transition: color .3s;
+        }
+
+        .foot-col a:hover {
+            color: var(--accent);
+        }
+
+        .foot-bottom {
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 12.5px;
+            color: #9C9078;
+        }
+
+        .foot-bottom .cvv {
+            color: #C77E5A;
+            font-weight: 600;
+        }
+
+        @media(max-width:768px) {
+            .foot-top {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* ===== FLOAT WHATSAPP ===== */
+        .float-whats {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            z-index: 900;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 14px 28px -10px rgba(177, 80, 44, .55);
+            transition: transform .35s var(--ease), background .35s var(--ease);
+        }
+
+        .float-whats:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: var(--accent-dark);
+        }
+
+        .float-whats svg {
+            width: 27px;
+            height: 27px;
+            fill: #fff;
+        }
+
+        /* focus visible */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        @media(max-width:1024px) {
+            .hero .wrap {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-photo {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .sobre .wrap {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .sobre-photo {
+                max-width: 420px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .wrap {
+                padding: 0 22px;
+            }
+
+            .hero {
+                padding: 130px 0 80px;
+            }
+
+            .dor-card {
+                padding: 36px 28px;
+            }
+
+            .foot-bottom {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="siteHeader">
+        <div class="wrap">
+            <div class="brand">
+                <span class="name">Windison Moraes</span>
+                <span class="role">Psicólogo</span>
+            </div>
+            <nav class="links">
+                <a class="section-link" href="#inicio">Início</a>
+                <a class="section-link" href="#especialidades">Especialidades</a>
+                <a class="section-link" href="#sobre">Sobre</a>
+                <a class="section-link" href="#como-funciona">Como funciona</a>
+                <a class="btn-whats" href="https://wa.me/557183554945" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12c0 2.137.558 4.145 1.531 5.887L.053 23.947l6.282-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.86 9.86 0 01-5.031-1.374l-.361-.214-3.741.981.998-3.648-.235-.374A9.868 9.868 0 012.118 12C2.118 6.535 6.535 2.118 12 2.118S21.882 6.535 21.882 12 17.465 21.882 12 21.882z" />
+                    </svg>
+                    <span>WhatsApp</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+        <div class="wrap">
+            <div class="hero-text">
+                <span class="eyebrow">Salvador, BA · Atendimento online</span>
+                <h1 class="reveal">Um espaço para escutar aquilo que <em>você ainda não conseguiu dizer</em></h1>
+                <p class="sub reveal">Atendimento psicológico em abordagem psicanalítica, para quem sente que carrega
+                    mais do que consegue nomear — e quer um lugar sem pressa para entender o que se passa por dentro.
+                </p>
+                <div class="actions reveal">
+                    <a class="btn-whats large" href="https://wa.me/557183554945" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                                d="M12 0C5.373 0 0 5.373 0 12c0 2.137.558 4.145 1.531 5.887L.053 23.947l6.282-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.86 9.86 0 01-5.031-1.374l-.361-.214-3.741.981.998-3.648-.235-.374A9.868 9.868 0 012.118 12C2.118 6.535 6.535 2.118 12 2.118S21.882 6.535 21.882 12 17.465 21.882 12 21.882z" />
+                        </svg>
+                        <span>Falar pelo WhatsApp</span>
+                    </a>
+                </div>
+                <div class="selos reveal">
+                    <div class="selo"><span class="n">Online</span><span class="l">Todo o Brasil</span></div>
+                    <div class="selo"><span class="n">CRP-03/7915</span><span class="l">Registro ativo</span></div>
+                    <div class="selo"><span class="n">50 min</span><span class="l">Duração da sessão</span></div>
+                </div>
+            </div>
+            <div class="hero-photo-wrap reveal">
+                <div class="hero-photo">
+                    <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/faae7445-7989-4ee1-a911-7f6e385b9158/hero-1782933179322.png"
+                        alt="Windison Moraes, psicólogo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== DORES / ESPECIALIDADES ===================== -->
+    <section class="dores" id="especialidades">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <span class="kicker">Com o que eu trabalho</span>
+                <h2>Coisas que a gente carrega em silêncio</h2>
+                <p>Cada pessoa chega por um motivo diferente. Alguns caminhos que costumam trazer as pessoas até aqui:
+                </p>
+            </div>
+            <div class="dores-grid reveal">
+                <div class="dor-card">
+                    <span class="dor-tag">Ansiedade</span>
+                    <h3>Por que a mente não desliga?</h3>
+                    <p class="queixa">"Meu peito aperta antes mesmo de eu entender o motivo."</p>
+                    <p class="transf"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                            <path d="M5 12h14M13 5l7 7-7 7" />
+                        </svg> Reconhecer os sinais do corpo e responder com mais calma</p>
+                </div>
+                <div class="dor-card">
+                    <span class="dor-tag">Depressão</span>
+                    <h3>De onde vem esse cansaço que não passa?</h3>
+                    <p class="queixa">"Faço tudo no automático, sem sentir de verdade."</p>
+                    <p class="transf"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                            <path d="M5 12h14M13 5l7 7-7 7" />
+                        </svg> Reencontrar sentido nas coisas simples do dia</p>
+                </div>
+                <div class="dor-card">
+                    <span class="dor-tag">Autoestima</span>
+                    <h3>O que você diz de si mesmo, quando ninguém escuta?</h3>
+                    <p class="queixa">"Sempre acho que não sou o suficiente."</p>
+                    <p class="transf"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                            <path d="M5 12h14M13 5l7 7-7 7" />
+                        </svg> Construir uma relação mais gentil com quem você é</p>
+                </div>
+                <div class="dor-card">
+                    <span class="dor-tag">Inteligência Emocional</span>
+                    <h3>O que os seus sentimentos estão tentando te dizer?</h3>
+                    <p class="queixa">"Reajo antes mesmo de entender o que sinto."</p>
+                    <p class="transf"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                            <path d="M5 12h14M13 5l7 7-7 7" />
+                        </svg> Reconhecer e nomear o que se passa por dentro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section class="sobre" id="sobre">
+        <div class="wrap">
+            <div class="sobre-photo reveal">
+                <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/faae7445-7989-4ee1-a911-7f6e385b9158/sobre-1782933181835.png"
+                    alt="Windison Moraes em seu espaço de atendimento">
+            </div>
+            <div class="sobre-text reveal">
+                <span class="kicker">Sobre mim</span>
+                <h2>Um pouco de quem está do outro lado da tela</h2>
+                <p>Escolhi a psicanálise porque acredito que boa parte do que nos faz sofrer é aquilo que ainda não
+                    conseguimos nomear. Meu trabalho é abrir espaço para que isso apareça — no seu tempo, sem pressa e
+                    sem julgamento. Atendo online, o que permite que esse processo aconteça de onde você estiver, com a
+                    mesma escuta atenta de um consultório.</p>
+                <div class="crp-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4z" />
+                        <path d="M9 12l2 2 4-4" />
+                    </svg>
+                    <span>CRP-03/7915</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== COMO FUNCIONA ===================== -->
+    <section class="como" id="como-funciona">
+        <div class="wrap">
+            <div class="section-head center reveal">
+                <span class="kicker">Como funciona</span>
+                <h2>Três passos simples para começar</h2>
+            </div>
+            <div class="passos">
+                <div class="passo reveal">
+                    <span class="num">01</span>
+                    <h3>Contato</h3>
+                    <p>Você me chama no WhatsApp e combinamos juntos o melhor horário para conversarmos.</p>
+                </div>
+                <div class="passo reveal">
+                    <span class="num">02</span>
+                    <h3>Sessão online</h3>
+                    <p>Atendimento por videochamada, com sessões de 50 minutos, no dia e horário combinados.</p>
+                </div>
+                <div class="passo reveal">
+                    <span class="num">03</span>
+                    <h3>Processo contínuo</h3>
+                    <p>A partir daí, seguimos juntos: escuta atenta, respeito ao seu tempo e construção conjunta do
+                        caminho.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FRASES DE ACOLHIMENTO ===================== -->
+    <section class="frases">
+        <div class="wrap">
+            <div class="section-head center reveal">
+                <span class="kicker">Palavras que carrego no consultório</span>
+                <h2>Algumas coisas em que acredito</h2>
+            </div>
+            <div class="frases-grid">
+                <div class="frase-card reveal">
+                    <span class="quote-mark">"</span>
+                    <p>Nem tudo que sentimos precisa ser resolvido na hora — às vezes só precisa ser escutado.</p>
+                    <div class="autor">— Windison Moraes, Psicólogo</div>
+                </div>
+                <div class="frase-card reveal">
+                    <span class="quote-mark">"</span>
+                    <p>O inconsciente fala antes que a gente entenda o que está dizendo. Meu trabalho é te ajudar a
+                        escutar.</p>
+                    <div class="autor">— Windison Moraes, Psicólogo</div>
+                </div>
+                <div class="frase-card reveal">
+                    <span class="quote-mark">"</span>
+                    <p>Terapia não é sobre ter respostas prontas. É sobre ter espaço para perguntar.</p>
+                    <div class="autor">— Windison Moraes, Psicólogo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="cta-final" id="contato">
+        <div class="wrap">
+            <span class="squiggle center" aria-hidden="true">
+                <svg viewBox="0 0 88 14" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 8c6-10 12 10 18 0s12 10 18 0 12 10 18 0 12 10 18 0" />
+                </svg>
+            </span>
+            <h2 class="reveal">Sei que dar o primeiro passo pode parecer difícil</h2>
+            <p class="reveal">Você não precisa ter tudo resolvido para começar — só precisa estar disposto a olhar para
+                dentro. Quando fizer sentido para você, estarei aqui.</p>
+            <div class="actions reveal">
+                <a class="btn-whats large" href="https://wa.me/557183554945" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12c0 2.137.558 4.145 1.531 5.887L.053 23.947l6.282-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.86 9.86 0 01-5.031-1.374l-.361-.214-3.741.981.998-3.648-.235-.374A9.868 9.868 0 012.118 12C2.118 6.535 6.535 2.118 12 2.118S21.882 6.535 21.882 12 17.465 21.882 12 21.882z" />
+                    </svg>
+                    <span>Conversar no WhatsApp</span>
+                </a>
+            </div>
+            <p class="modal-line">Atendimento online · Salvador, BA</p>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <div class="wrap">
+            <div class="foot-top">
+                <div class="foot-brand">
+                    <span class="name">Windison Moraes</span>
+                    <p class="crp">Psicólogo — CRP-03/7915</p>
+                </div>
+                <div class="foot-col">
+                    <h4>Contato</h4>
+                    <a href="https://wa.me/557183554945" target="_blank" rel="noopener">WhatsApp</a>
+                    <a href="https://instagram.com/windisonmoraescoach" target="_blank"
+                        rel="noopener">@windisonmoraescoach</a>
+                </div>
+                <div class="foot-col">
+                    <h4>Atendimento</h4>
+                    <p>Online · Todo o Brasil</p>
+                    <p>Sessões de 50 minutos</p>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>Site informativo — não substitui consulta psicológica. Em caso de crise, ligue para o <span
+                        class="cvv">CVV: 188</span> (24h, gratuito).</span>
+            </div>
+            <div class="foot-bottom" style="margin-top:14px;">
+                <span>© 2026 Windison Moraes. Todos os direitos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== FLOAT WHATSAPP ===================== -->
+    <a class="float-whats" href="https://wa.me/557183554945" target="_blank" rel="noopener"
+        aria-label="Conversar no WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.137.558 4.145 1.531 5.887L.053 23.947l6.282-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.86 9.86 0 01-5.031-1.374l-.361-.214-3.741.981.998-3.648-.235-.374A9.868 9.868 0 012.118 12C2.118 6.535 6.535 2.118 12 2.118S21.882 6.535 21.882 12 17.465 21.882 12 21.882z" />
+        </svg>
+    </a>
+
+    <script>
+        // header on scroll
+        const header = document.getElementById('siteHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+        });
+
+        // reveal on scroll
+        const revealEls = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => io.observe(el));
+    </script>
+
+</body>
+
+</html>
