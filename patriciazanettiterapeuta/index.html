@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrícia Zanetti | Psicóloga Online — Saúde Emocional Masculina & Ansiedade</title>
+    <meta name="description"
+        content="Patrícia Zanetti, psicóloga clínica (CRP 00/000000). Atendimento online para homens que buscam entender suas emoções, lidar com ansiedade e desenvolver autoconhecimento.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+
+        :root {
+            --bg: #F5EFE6;
+            --bg-dark: #1A1612;
+            --ink: #1A1612;
+            --ink-mid: #4A3F36;
+            --ink-light: #8C7B6E;
+            --accent: #C4714A;
+            --accent-dark: #A05838;
+            --cream: #EDE5D8;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', sans-serif;
+            --ease: cubic-bezier(.4, 0, .2, 1);
+            --ease-out: cubic-bezier(0, .55, .45, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--ink);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── GRAIN ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.2rem 5%;
+            transition: background .4s var(--ease), box-shadow .4s var(--ease);
+        }
+
+        nav.scrolled {
+            background-color: rgba(245, 239, 230, .92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 rgba(26, 22, 18, .08);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            line-height: 1.1;
+        }
+
+        .nav-brand strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -.01em;
+        }
+
+        .nav-brand span {
+            font-size: .62rem;
+            font-weight: 500;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: .82rem;
+            font-weight: 400;
+            letter-spacing: .04em;
+            text-decoration: none;
+            color: var(--ink-mid);
+            transition: color .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .5rem 1.1rem;
+            border: 1.5px solid var(--accent);
+            border-radius: 100px;
+            font-size: .8rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--accent);
+            transition: background .3s, color .3s;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--accent);
+            color: #fff;
+        }
+
+        .nav-cta svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        @media(max-width:768px) {
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+        }
+
+        /* ─── HERO ─── */
+        #hero {
+            min-height: 100vh;
+            padding-block: 9rem 6rem;
+            padding-inline: max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            position: relative;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .72rem;
+            font-weight: 500;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.6rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 1.5px;
+            background-color: var(--accent);
+        }
+
+        .hero-h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 4.5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.12;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--ink-mid);
+            max-width: 430px;
+            margin-bottom: 2.4rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .85rem 1.8rem;
+            background-color: var(--accent);
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: .88rem;
+            font-weight: 500;
+            letter-spacing: .03em;
+            transition: background .3s var(--ease), transform .2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .hero-seals {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .seal {
+            font-size: .7rem;
+            font-weight: 500;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            padding: .35rem .8rem;
+            border: 1px solid var(--cream);
+            border-radius: 2px;
+            background-color: rgba(237, 229, 216, .4);
+        }
+
+        /* ─── FOTO HERO ─── */
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .photo-frame {
+            width: min(380px, 90vw);
+            aspect-ratio: 4/5;
+            border-radius: 40% 8% 8% 8% / 8% 8% 8% 40%;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 14px 22px 48px rgba(26, 22, 18, .16);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .photo-ring {
+            position: absolute;
+            inset: -16px;
+            border-radius: 40% 8% 8% 8% / 8% 8% 8% 40%;
+            border: 1.5px solid rgba(196, 113, 74, .3);
+            pointer-events: none;
+        }
+
+        .photo-label {
+            position: absolute;
+            bottom: -2.5rem;
+            right: 0;
+            font-size: .65rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        @media(max-width:768px) {
+            #hero {
+                grid-template-columns: 1fr;
+                padding-top: 7rem;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-sub {
+                max-width: 100%;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-seals {
+                justify-content: center;
+            }
+
+            .hero-photo {
+                order: -1;
+            }
+
+            .photo-frame {
+                width: min(260px, 80vw);
+            }
+        }
+
+        /* ─── DIVIDER ─── */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 0 5%;
+            margin: 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(26, 22, 18, .12), transparent);
+        }
+
+        .divider-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            opacity: .6;
+        }
+
+        /* ─── ESPECIALIDADES ─── */
+        #especialidades {
+            padding-block: 7rem;
+            padding-inline: max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+            background-color: var(--bg-dark);
+            color: #f0e8de;
+        }
+
+        .section-label {
+            font-size: .68rem;
+            font-weight: 500;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 600;
+            line-height: 1.2;
+            color: #f0e8de;
+            margin-bottom: 4rem;
+            max-width: 540px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1px;
+            border: 1px solid rgba(196, 113, 74, .15);
+        }
+
+        .card {
+            padding: 2.4rem 2rem;
+            border-right: 1px solid rgba(196, 113, 74, .12);
+            border-bottom: 1px solid rgba(196, 113, 74, .12);
+            position: relative;
+            overflow: hidden;
+            transition: background .3s;
+        }
+
+        .card:hover {
+            background-color: rgba(196, 113, 74, .06);
+        }
+
+        .card-roman {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 400;
+            color: rgba(196, 113, 74, .18);
+            line-height: 1;
+            margin-bottom: .8rem;
+            transition: color .3s;
+        }
+
+        .card:hover .card-roman {
+            color: rgba(196, 113, 74, .35);
+        }
+
+        .card-tag {
+            font-size: .64rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: .8rem;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #f0e8de;
+            margin-bottom: .7rem;
+        }
+
+        .card-queixa {
+            font-size: .85rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: rgba(240, 232, 222, .5);
+            margin-bottom: .9rem;
+        }
+
+        .card-transform {
+            font-size: .82rem;
+            font-weight: 500;
+            line-height: 1.5;
+            color: rgba(240, 232, 222, .75);
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .card-transform::before {
+            content: '→';
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ─── SOBRE ─── */
+        #sobre {
+            padding-block: 7rem;
+            padding-inline: max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .sobre-photo-wrap {
+            position: relative;
+        }
+
+        .sobre-photo-frame {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 96%);
+            position: relative;
+        }
+
+        .sobre-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sobre-accent-line {
+            position: absolute;
+            top: 2.5rem;
+            left: -1.5rem;
+            width: 3px;
+            height: 60%;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+
+        .crp-badge {
+            position: absolute;
+            bottom: -1.2rem;
+            right: 0;
+            background-color: var(--accent);
+            color: #fff;
+            font-size: .72rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            padding: .5rem 1rem;
+            border-radius: 2px;
+        }
+
+        .sobre-text .section-label {
+            color: var(--accent);
+        }
+
+        .sobre-text .section-title {
+            color: var(--ink);
+            max-width: 100%;
+            margin-bottom: 1.4rem;
+        }
+
+        .sobre-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--ink-mid);
+            margin-bottom: 2rem;
+        }
+
+        .formacao {
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+        }
+
+        .formacao-item {
+            display: flex;
+            align-items: flex-start;
+            gap: .8rem;
+            font-size: .85rem;
+            line-height: 1.5;
+            color: var(--ink-mid);
+        }
+
+        .formacao-item::before {
+            content: '';
+            display: block;
+            flex-shrink: 0;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            margin-top: .55rem;
+        }
+
+        @media(max-width:768px) {
+            #sobre {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .sobre-photo-frame {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .sobre-accent-line {
+                display: none;
+            }
+        }
+
+        /* ─── COMO FUNCIONA ─── */
+        #como-funciona {
+            padding-block: 7rem;
+            padding-inline: max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+            background-color: var(--cream);
+        }
+
+        .steps-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .steps-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 3rem;
+            left: 16.66%;
+            right: 16.66%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .step {
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-num {
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: 50%;
+            border: 1.5px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.4rem;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            background-color: var(--cream);
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .6rem;
+        }
+
+        .step-desc {
+            font-size: .87rem;
+            line-height: 1.65;
+            color: var(--ink-mid);
+            font-weight: 300;
+        }
+
+        @media(max-width:768px) {
+            .steps-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .steps-wrapper::before {
+                display: none;
+            }
+        }
+
+        /* ─── FRASES ─── */
+        #frases {
+            padding-block: 7rem;
+            padding-inline: max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+            background-color: var(--bg-dark);
+            text-align: center;
+        }
+
+        .frases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .frase-card {
+            padding: 2.4rem 1.8rem;
+            border: 1px solid rgba(196, 113, 74, .18);
+            position: relative;
+        }
+
+        .frase-card::before {
+            content: '"';
+            font-family: var(--font-display);
+            font-size: 5rem;
+            line-height: .6;
+            color: rgba(196, 113, 74, .18);
+            position: absolute;
+            top: 1.2rem;
+            left: 1.4rem;
+        }
+
+        .frase-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: rgba(240, 232, 222, .82);
+            margin-bottom: 1.2rem;
+        }
+
+        .frase-attr {
+            font-size: .7rem;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        @media(max-width:768px) {
+            .frases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ─── CTA FINAL ─── */
+        #cta-final {
+            padding-block: 7rem;
+            padding-inline: max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .cta-text .section-title {
+            color: var(--ink);
+            max-width: 100%;
+            margin-bottom: 1.2rem;
+        }
+
+        .cta-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--ink-mid);
+            margin-bottom: 2.4rem;
+        }
+
+        .cta-meta {
+            font-size: .78rem;
+            color: var(--ink-light);
+            letter-spacing: .04em;
+            margin-top: 1rem;
+        }
+
+        .cta-decoration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .cta-circle {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 1px solid rgba(196, 113, 74, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .cta-inner {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(196, 113, 74, .08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .cta-inner strong {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--ink);
+        }
+
+        .cta-inner span {
+            font-size: .72rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        @media(max-width:768px) {
+            #cta-final {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .cta-decoration {
+                display: none;
+            }
+        }
+
+        /* ─── RODAPÉ ─── */
+        footer {
+            background-color: var(--bg-dark);
+            color: rgba(240, 232, 222, .6);
+            padding-block: 4rem 2.5rem;
+            padding-inline: max(clamp(1.5rem, 6vw, 5rem), calc((100% - 1280px) / 2));
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(196, 113, 74, .15);
+        }
+
+        .footer-brand strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: rgba(240, 232, 222, .9);
+            margin-bottom: .3rem;
+        }
+
+        .footer-brand span {
+            font-size: .68rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: .8rem;
+            text-decoration: none;
+            color: rgba(240, 232, 222, .5);
+            transition: color .3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: .72rem;
+        }
+
+        .footer-cvv {
+            color: rgba(240, 232, 222, .45);
+        }
+
+        .footer-cvv strong {
+            color: var(--accent);
+        }
+
+        .footer-legal {
+            color: rgba(240, 232, 222, .3);
+        }
+
+        /* ─── FLOAT WHATSAPP ─── */
+        .wpp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 200;
+            width: 3.4rem;
+            height: 3.4rem;
+            border-radius: 50%;
+            background-color: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .35);
+            text-decoration: none;
+            transition: transform .25s var(--ease-out), box-shadow .25s;
+        }
+
+        .wpp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, .45);
+        }
+
+        .wpp-float svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+        /* ─── REVEAL ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <div class="nav-inner">
+            <div class="nav-brand">
+                <strong>Patrícia Zanetti</strong>
+                <span>Psicóloga</span>
+            </div>
+            <div class="nav-links">
+                <a href="#especialidades">Especialidades</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="https://wa.me/5534984344754?text=Olá%2C%20Patrícia!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+                    class="nav-cta" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Agendar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-text reveal">
+            <div class="hero-eyebrow">Atendimento Online</div>
+            <h1 class="hero-h1">
+                Você sente,<br>
+                mas não sabe<br>
+                <em>como nomear.</em>
+            </h1>
+            <p class="hero-sub">
+                Um espaço seguro para você entender o que acontece dentro de você — sem julgamento, no seu ritmo.
+            </p>
+            <div class="hero-actions">
+                <a href="https://wa.me/5534984344754?text=Olá%2C%20Patrícia!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+                    class="btn-primary" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Falar pelo WhatsApp
+                </a>
+            </div>
+            <div class="hero-seals">
+                <span class="seal">Online</span>
+                <span class="seal">CRP 00/000000</span>
+                <span class="seal">50 min / sessão</span>
+            </div>
+        </div>
+        <div class="hero-photo reveal" style="transition-delay:.2s">
+            <div style="position:relative; display:inline-block;">
+                <div class="photo-frame">
+                    <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/71a9ed1c-9b48-44db-98e4-bda81ca8abde/hero-1780924279599.jpg"
+                        alt="Patrícia Zanetti, psicóloga clínica">
+                </div>
+                <div class="photo-ring"></div>
+                <div class="photo-label">Patrícia Zanetti · CRP 00/000000</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <div class="divider-dot"></div>
+    </div>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades">
+        <p class="section-label reveal">Áreas de atuação</p>
+        <h2 class="section-title reveal">O que te trouxe até aqui</h2>
+        <div class="cards-grid">
+
+            <div class="card reveal">
+                <div class="card-roman">I</div>
+                <div class="card-tag">Saúde Emocional Masculina</div>
+                <h3 class="card-title">Você guarda tudo por dentro porque "homem não chora"?</h3>
+                <p class="card-queixa">"Sinto muito, mas não sei expressar. Parece que não tenho esse direito."</p>
+                <p class="card-transform">Reconectar-se com suas emoções sem perder quem você é.</p>
+            </div>
+
+            <div class="card reveal" style="transition-delay:.1s">
+                <div class="card-roman">II</div>
+                <div class="card-tag">Ansiedade</div>
+                <h3 class="card-title">Sua mente não para, mesmo quando o corpo já cansou?</h3>
+                <p class="card-queixa">"Fico ruminando tudo o que pode dar errado. Não consigo desligar."</p>
+                <p class="card-transform">Respirar fundo de verdade — no presente, sem o peso do futuro.</p>
+            </div>
+
+            <div class="card reveal" style="transition-delay:.2s">
+                <div class="card-roman">III</div>
+                <div class="card-tag">Autoconhecimento</div>
+                <h3 class="card-title">Você sente que não se conhece tão bem quanto deveria?</h3>
+                <p class="card-queixa">"Tomo decisões no automático. Às vezes ajo e não entendo por quê."</p>
+                <p class="card-transform">Clareza sobre quem você é e o que realmente quer.</p>
+            </div>
+
+            <div class="card reveal" style="transition-delay:.3s">
+                <div class="card-roman">IV</div>
+                <div class="card-tag">Reprocessamento Psicoemocional</div>
+                <h3 class="card-title">Certas memórias ou reações ainda te pegam de surpresa?</h3>
+                <p class="card-queixa">"Algumas situações me afetam mais do que deveriam. Não entendo de onde vem."</p>
+                <p class="card-transform">Ressignificar experiências passadas e reagir com mais liberdade.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="sobre-photo-wrap reveal">
+            <div class="sobre-photo-frame">
+                <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/71a9ed1c-9b48-44db-98e4-bda81ca8abde/sobre-1780924265101.jpg"
+                    alt="Patrícia Zanetti — psicóloga clínica">
+            </div>
+            <div class="sobre-accent-line"></div>
+            <div class="crp-badge">CRP 00/000000</div>
+        </div>
+        <div class="sobre-text reveal" style="transition-delay:.15s">
+            <p class="section-label">Sobre mim</p>
+            <h2 class="section-title">Escolhi a psicologia porque acredito em escuta honesta</h2>
+            <p class="sobre-desc">
+                Trabalho com pessoas que estão dispostas a se olhar com mais cuidado. Acredito que todo mundo merece um
+                espaço para falar o que guarda, entender o que sente e encontrar caminhos que façam sentido para a sua
+                história — não para a de mais ninguém.<br><br>
+                Minha prática é construída no respeito ao ritmo de cada pessoa, com escuta atenta e sem julgamento.
+            </p>
+            <div class="formacao">
+                <div class="formacao-item">Graduada em Psicologia</div>
+                <div class="formacao-item">Especialização em Psicologia Clínica</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <div class="divider-dot"></div>
+    </div>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+        <p class="section-label reveal">Processo</p>
+        <h2 class="section-title reveal" style="color:var(--ink)">Como funciona o atendimento</h2>
+        <div class="steps-wrapper">
+            <div class="step reveal">
+                <div class="step-num">1</div>
+                <h3 class="step-title">Primeiro contato</h3>
+                <p class="step-desc">Você manda uma mensagem pelo WhatsApp. Conversamos brevemente para entender o que
+                    você está buscando e combinar os próximos passos.</p>
+            </div>
+            <div class="step reveal" style="transition-delay:.12s">
+                <div class="step-num">2</div>
+                <h3 class="step-title">Sessões online</h3>
+                <p class="step-desc">Atendimento por videochamada, com 50 minutos de duração. Você acessa de onde
+                    estiver, com privacidade e conforto.</p>
+            </div>
+            <div class="step reveal" style="transition-delay:.24s">
+                <div class="step-num">3</div>
+                <h3 class="step-title">Seu processo</h3>
+                <p class="step-desc">Construímos juntos um caminho no seu ritmo — sem pressa, sem fórmulas. O foco é o
+                    que faz sentido para você.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRASES -->
+    <section id="frases">
+        <p class="section-label reveal" style="color:var(--accent)">Palavras</p>
+        <div class="frases-grid">
+            <div class="frase-card reveal">
+                <p class="frase-text">Aqui você encontra um espaço para falar o que normalmente fica guardado — sem
+                    julgamento e com escuta de verdade.</p>
+                <p class="frase-attr">— Patrícia Zanetti, Psicóloga</p>
+            </div>
+            <div class="frase-card reveal" style="transition-delay:.12s">
+                <p class="frase-text">O processo terapêutico é construído no seu ritmo, com respeito pela sua história e
+                    pelo que faz sentido para você.</p>
+                <p class="frase-attr">— Patrícia Zanetti, Psicóloga</p>
+            </div>
+            <div class="frase-card reveal" style="transition-delay:.24s">
+                <p class="frase-text">Meu trabalho é te ajudar a desenvolver clareza, autonomia emocional e caminhos
+                    possíveis — a partir de quem você é.</p>
+                <p class="frase-attr">— Patrícia Zanetti, Psicóloga</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="cta-final">
+        <div class="cta-text reveal">
+            <p class="section-label">Próximo passo</p>
+            <h2 class="section-title">Dar o primeiro passo é a parte mais difícil.</h2>
+            <p class="cta-desc">
+                Se você chegou até aqui, alguma parte de você já está pronta. Manda uma mensagem — sem compromisso, sem
+                pressão. É só uma conversa.
+            </p>
+            <a href="https://wa.me/5534984344754?text=Olá%2C%20Patrícia!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+                class="btn-primary" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Falar pelo WhatsApp
+            </a>
+            <p class="cta-meta">Atendimento online · 50 min por sessão</p>
+        </div>
+        <div class="cta-decoration reveal" style="transition-delay:.2s">
+            <div class="cta-circle">
+                <div class="cta-inner">
+                    <strong>Um espaço só seu</strong>
+                    <span>Online · No seu ritmo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <strong>Patrícia Zanetti</strong>
+                <span>Psicóloga Clínica · CRP 00/000000</span>
+            </div>
+            <div class="footer-links">
+                <a href="#especialidades">Especialidades</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="https://instagram.com/patriciazanettiterapeuta" target="_blank"
+                    rel="noopener">@patriciazanettiterapeuta</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-cvv">Em caso de crise: <strong>CVV 188</strong>, 24h, gratuito. Este site é informativo e
+                não substitui consulta clínica.</p>
+            <p class="footer-legal">© 2026 Patrícia Zanetti · Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- FLOAT WPP -->
+    <a href="https://wa.me/5534984344754?text=Olá%2C%20Patrícia!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+        class="wpp-float" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        // NAV SCROLL
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // REVEAL
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
