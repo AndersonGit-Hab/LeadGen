@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edna Cezar | Psicóloga — Psicanálise, atendimento online e presencial</title>
+    <meta name="description"
+        content="Edna Cezar, psicóloga com abordagem psicanalítica. Atendimento a adolescentes, adultos e casais, com foco em ansiedade, relacionamentos e autoconhecimento. Online e presencial.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap');
+
+        :root {
+            --ivory: #F6EFE4;
+            --ivory-soft: #EFE6D6;
+            --terracota: #C1694F;
+            --terracota-deep: #A2543D;
+            --sage: #7C8B6F;
+            --coffee: #2E2A26;
+            --coffee-muted: #6B6259;
+            --line: #E1D4BE;
+            --ease: cubic-bezier(.22, .61, .36, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Karla', sans-serif;
+            color: var(--coffee);
+            background: var(--ivory);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* grão sutil global */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: .035;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            color: var(--coffee);
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .eyebrow {
+            font-family: 'Karla', sans-serif;
+            font-weight: 700;
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--terracota-deep);
+        }
+
+        /* -------- NAV -------- */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 22px 0;
+            transition: background .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease);
+        }
+
+        .nav.scrolled {
+            background: rgba(246, 239, 228, .86);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 14px 0;
+            box-shadow: 0 1px 0 var(--line);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .brand-name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+        }
+
+        .brand-role {
+            font-size: .66rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--coffee-muted);
+            margin-top: 3px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: .92rem;
+            font-weight: 500;
+            color: var(--coffee-muted);
+            position: relative;
+            transition: color .3s var(--ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--terracota-deep);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 1px;
+            background: var(--terracota-deep);
+            transition: width .3s var(--ease);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-whats {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 11px 20px;
+            border: 1.5px solid var(--terracota-deep);
+            border-radius: 999px;
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--terracota-deep);
+            transition: background .35s var(--ease), color .35s var(--ease), transform .3s var(--ease);
+            white-space: nowrap;
+        }
+
+        .btn-whats:hover {
+            background: var(--terracota-deep);
+            color: var(--ivory);
+            transform: translateY(-1px);
+        }
+
+        .btn-whats svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
+        }
+
+        @media(max-width:768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* -------- HERO -------- */
+        .hero {
+            position: relative;
+            padding: 168px 0 120px;
+            overflow: hidden;
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+            color: var(--ivory-soft);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-text .eyebrow {
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.3rem, 4.2vw, 3.5rem);
+            line-height: 1.14;
+            max-width: 15ch;
+        }
+
+        .hero-text p.sub {
+            margin-top: 22px;
+            font-size: 1.08rem;
+            color: var(--coffee-muted);
+            max-width: 44ch;
+        }
+
+        .hero-cta {
+            margin-top: 34px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta .btn-whats {
+            padding: 15px 28px;
+            font-size: .95rem;
+        }
+
+        .badges {
+            margin-top: 52px;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .86rem;
+            color: var(--coffee-muted);
+        }
+
+        .badge svg {
+            width: 19px;
+            height: 19px;
+            stroke: var(--terracota-deep);
+            fill: none;
+        }
+
+        .hero-photo-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .hero-photo {
+            aspect-ratio: 4/5;
+            width: 100%;
+            border-radius: 4px 40px 4px 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 60px -20px rgba(46, 42, 38, .35);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-photo-ring {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            width: 130px;
+            height: 130px;
+            background: var(--sage);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: .35;
+        }
+
+        @media(max-width:1024px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .hero {
+                padding: 130px 0 90px;
+            }
+        }
+
+        /* -------- SECTION LABEL -------- */
+        .section {
+            padding: 110px 0;
+            position: relative;
+        }
+
+        .section-head {
+            max-width: 640px;
+            margin-bottom: 64px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.9rem, 3vw, 2.5rem);
+            margin-top: 14px;
+            line-height: 1.22;
+        }
+
+        /* divisor ondulado assinatura */
+        .thread-divider {
+            width: 100%;
+            height: 36px;
+            color: var(--terracota);
+            opacity: .55;
+        }
+
+        /* -------- ESPECIALIDADES -------- */
+        .especialidades {
+            background: var(--ivory-soft);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .card {
+            background: var(--ivory-soft);
+            padding: 38px 30px;
+            transition: background .4s var(--ease);
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease), background .4s var(--ease);
+        }
+
+        .card.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            background: #F3E9D6;
+        }
+
+        .card .tag {
+            display: inline-block;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 1.18rem;
+            line-height: 1.35;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .card .queixa {
+            font-style: italic;
+            color: var(--coffee-muted);
+            font-size: .93rem;
+            margin-bottom: 16px;
+        }
+
+        .card .transformacao {
+            font-size: .93rem;
+            font-weight: 600;
+            color: var(--terracota-deep);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card .transformacao svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        @media(max-width:1024px) {
+            .cards-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:600px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* -------- SOBRE -------- */
+        .sobre-inner {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .sobre-photo-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .sobre-photo {
+            aspect-ratio: 4/5;
+            width: 100%;
+            border-radius: 4px 40px 4px 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 26px 50px -22px rgba(46, 42, 38, .32);
+        }
+
+        .sobre-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .sobre-photo-accent {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            width: 120px;
+            height: 120px;
+            background: var(--sage);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: .35;
+        }
+
+        .sobre-text p {
+            color: var(--coffee-muted);
+            font-size: 1.03rem;
+            margin-bottom: 20px;
+            max-width: 52ch;
+        }
+
+        .sobre-list {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .sobre-list-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            font-size: .95rem;
+            color: var(--coffee);
+        }
+
+        .sobre-list-item svg {
+            width: 19px;
+            height: 19px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            stroke: var(--terracota-deep);
+            fill: none;
+        }
+
+        @media(max-width:1024px) {
+            .sobre-inner {
+                grid-template-columns: 1fr;
+                gap: 44px;
+            }
+
+            .sobre-photo-wrap {
+                margin: 0 auto;
+            }
+        }
+
+        /* -------- COMO FUNCIONA -------- */
+        .como-funciona {
+            background: var(--coffee);
+            color: var(--ivory);
+        }
+
+        .como-funciona .eyebrow {
+            color: #E3B49B;
+        }
+
+        .como-funciona h2 {
+            color: var(--ivory);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 44px;
+            margin-top: 20px;
+        }
+
+        .step {
+            position: relative;
+            padding-top: 52px;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+
+        .step.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-num {
+            font-family: 'Fraunces', serif;
+            font-size: 2.6rem;
+            font-weight: 500;
+            color: #8A7A6A;
+            position: absolute;
+            top: -14px;
+            left: 0;
+        }
+
+        .step h3 {
+            color: var(--ivory);
+            font-size: 1.12rem;
+            margin-bottom: 10px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(246, 239, 228, .22);
+        }
+
+        .step p {
+            color: #C9BEB1;
+            font-size: .94rem;
+        }
+
+        @media(max-width:768px) {
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+        }
+
+        /* -------- FRASES -------- */
+        .frases-inner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+        }
+
+        .frase {
+            padding: 40px 32px;
+            border-left: 2px solid var(--terracota);
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+
+        .frase.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .frase p {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 1.18rem;
+            line-height: 1.5;
+            color: var(--coffee);
+            margin-bottom: 18px;
+        }
+
+        .frase span {
+            font-size: .82rem;
+            color: var(--coffee-muted);
+            font-weight: 600;
+        }
+
+        @media(max-width:900px) {
+            .frases-inner {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .frase {
+                border-left: none;
+                border-top: 2px solid var(--terracota);
+                padding: 32px 0;
+            }
+        }
+
+        /* -------- CTA FINAL -------- */
+        .cta-final {
+            background: var(--terracota);
+            color: var(--ivory);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-final .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 680px;
+        }
+
+        .cta-final .eyebrow {
+            color: rgba(246, 239, 228, .75);
+        }
+
+        .cta-final h2 {
+            color: var(--ivory);
+            font-size: clamp(2rem, 3.6vw, 2.7rem);
+            margin: 16px 0 20px;
+            line-height: 1.2;
+        }
+
+        .cta-final p {
+            color: rgba(246, 239, 228, .88);
+            font-size: 1.06rem;
+            margin-bottom: 38px;
+        }
+
+        .cta-final .btn-whats {
+            border-color: var(--ivory);
+            color: var(--ivory);
+            padding: 16px 32px;
+            font-size: 1rem;
+        }
+
+        .cta-final .btn-whats:hover {
+            background: var(--ivory);
+            color: var(--terracota-deep);
+        }
+
+        .cta-final .modalidade-line {
+            margin-top: 26px;
+            font-size: .85rem;
+            color: rgba(246, 239, 228, .7);
+            letter-spacing: .03em;
+        }
+
+        .cta-ring {
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            border: 1px solid rgba(246, 239, 228, .18);
+            border-radius: 50%;
+            top: -260px;
+            right: -160px;
+        }
+
+        .cta-ring.two {
+            width: 320px;
+            height: 320px;
+            top: auto;
+            bottom: -220px;
+            left: -120px;
+            right: auto;
+        }
+
+        /* -------- RODAPÉ -------- */
+        footer {
+            background: var(--coffee);
+            color: #C9BEB1;
+            padding: 60px 0 34px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-bottom: 36px;
+            border-bottom: 1px solid rgba(246, 239, 228, .14);
+        }
+
+        .footer-brand .brand-name {
+            color: var(--ivory);
+        }
+
+        .footer-brand .brand-role {
+            color: #9C9187;
+        }
+
+        .footer-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: .92rem;
+        }
+
+        .footer-contacts a {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: #C9BEB1;
+            transition: color .3s var(--ease);
+        }
+
+        .footer-contacts a:hover {
+            color: var(--ivory);
+        }
+
+        .footer-contacts svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+        }
+
+        .footer-bottom {
+            margin-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: .8rem;
+            color: #8A7F73;
+        }
+
+        .footer-bottom .crise {
+            color: #C9BEB1;
+        }
+
+        @media(max-width:600px) {
+
+            .footer-inner,
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        /* -------- WHATSAPP FLUTUANTE -------- */
+        .float-whats {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            z-index: 900;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: var(--terracota-deep);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 26px -8px rgba(46, 42, 38, .5);
+            transition: transform .3s var(--ease);
+        }
+
+        .float-whats:hover {
+            transform: scale(1.08);
+        }
+
+        .float-whats svg {
+            width: 27px;
+            height: 27px;
+            fill: var(--ivory);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--terracota-deep);
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <div class="brand">
+                <span class="brand-name">Edna Cezar</span>
+                <span class="brand-role">psicóloga</span>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#como-funciona">Como funciona</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <a class="btn-whats" href="https://wa.me/5532991041776" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12c0 2.137.558 4.145 1.531 5.887L.053 23.947l6.282-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.86 9.86 0 01-5.031-1.374l-.361-.214-3.741.981.998-3.648-.235-.374A9.868 9.868 0 012.118 12C2.118 6.535 6.535 2.118 12 2.118S21.882 6.535 21.882 12 17.465 21.882 12 21.882z" />
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <span class="eyebrow">Atendimento online e presencial</span>
+                <h1>Um espaço para você se ouvir com mais calma</h1>
+                <p class="sub">Terapia com abordagem psicanalítica, para adolescentes, adultos e casais que querem
+                    entender o que se repete — e abrir caminho para algo diferente.</p>
+                <div class="hero-cta">
+                    <a class="btn-whats" href="https://wa.me/5532991041776" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                                d="M12 0C5.373 0 0 5.373 0 12c0 2.137.558 4.145 1.531 5.887L.053 23.947l6.282-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.86 9.86 0 01-5.031-1.374l-.361-.214-3.741.981.998-3.648-.235-.374A9.868 9.868 0 012.118 12C2.118 6.535 6.535 2.118 12 2.118S21.882 6.535 21.882 12 17.465 21.882 12 21.882z" />
+                        </svg>
+                        Falar pelo WhatsApp
+                    </a>
+                </div>
+                <div class="badges">
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+                            <circle cx="12" cy="12" r="4" />
+                        </svg>
+                        Sessões online
+                    </div>
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 7v5l3 3" />
+                        </svg>
+                        Sessões de 50 minutos
+                    </div>
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 21s-7-4.35-9.5-9C.5 7.5 3 3.5 7 4c2 .2 3.5 1.6 5 3.5C13.5 5.6 15 4.2 17 4c4-.5 6.5 3.5 4.5 8-2.5 4.65-9.5 9-9.5 9z" />
+                        </svg>
+                        Sigilo profissional
+                    </div>
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                        CRP 00/000000
+                    </div>
+                </div>
+            </div>
+            <div class="hero-photo-wrap">
+                <div class="hero-photo-ring"></div>
+                <div class="hero-photo">
+                    <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/5442a6fd-51f4-450e-a022-60a7030b2b0d/hero-1782933472812.png" alt="Foto de Edna Cezar, psicóloga">
+                </div>
+            </div>
+        </div>
+        <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none">
+            <path fill="currentColor" d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,40 L1440,90 L0,90 Z" />
+        </svg>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section class="section especialidades" id="especialidades">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">O que costuma trazer as pessoas até aqui</span>
+                <h2>Questões que ganham espaço para serem ouvidas</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="tag">Ansiedade</span>
+                    <h3>Aquele aperto no peito que não passa?</h3>
+                    <p class="queixa">"Sinto uma inquietação constante, como se algo ruim fosse acontecer, mesmo sem
+                        motivo claro."</p>
+                    <p class="transformacao">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke="currentColor"
+                            fill="none">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                        Respirar com mais presença no seu dia
+                    </p>
+                </div>
+                <div class="card">
+                    <span class="tag">Relacionamentos</span>
+                    <h3>Os mesmos padrões se repetem?</h3>
+                    <p class="queixa">"Sempre acabo nas mesmas situações, com as mesmas pessoas, do mesmo jeito."</p>
+                    <p class="transformacao">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke="currentColor"
+                            fill="none">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                        Vínculos mais conscientes e honestos
+                    </p>
+                </div>
+                <div class="card">
+                    <span class="tag">Casais</span>
+                    <h3>A conversa virou distância?</h3>
+                    <p class="queixa">"A gente se ama, mas parece que fala línguas diferentes o tempo todo."</p>
+                    <p class="transformacao">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke="currentColor"
+                            fill="none">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                        Um espaço comum para se escutarem de novo
+                    </p>
+                </div>
+                <div class="card">
+                    <span class="tag">Autoconhecimento</span>
+                    <h3>Sente que não sabe mais o que quer?</h3>
+                    <p class="queixa">"Sigo o que esperam de mim, mas não sei mais o que é meu de verdade."</p>
+                    <p class="transformacao">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke="currentColor"
+                            fill="none">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                        Clareza sobre quem você é hoje
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section" id="sobre">
+        <div class="container sobre-inner">
+            <div class="sobre-photo-wrap">
+                <div class="sobre-photo">
+                    <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/5442a6fd-51f4-450e-a022-60a7030b2b0d/sobre-1782933588576.png" alt="Foto de Edna Cezar em seu espaço de atendimento">
+                </div>
+                <div class="sobre-photo-accent"></div>
+            </div>
+            <div class="sobre-text">
+                <span class="eyebrow">Sobre mim</span>
+                <h2 style="margin-top:14px; margin-bottom:24px;">Uma escuta que respeita o seu tempo</h2>
+                <p>Escolhi a psicanálise porque acredito que muito do que nos incomoda hoje tem raízes em histórias que
+                    a gente nem sempre consegue nomear sozinho. Meu trabalho é oferecer um espaço de escuta cuidadosa,
+                    sem pressa e sem julgamento, para que essas histórias possam ganhar sentido.</p>
+                <p>Atendo adolescentes, adultos e casais — cada processo no seu próprio ritmo, respeitando o que cada
+                    pessoa traz.</p>
+                <div class="sobre-list">
+                    <div class="sobre-list-item">
+                        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 21s-7-4.35-9.5-9C.5 7.5 3 3.5 7 4c2 .2 3.5 1.6 5 3.5C13.5 5.6 15 4.2 17 4c4-.5 6.5 3.5 4.5 8-2.5 4.65-9.5 9-9.5 9z" />
+                        </svg>
+                        Abordagem psicanalítica
+                    </div>
+                    <div class="sobre-list-item">
+                        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M8 12h8M12 8v8" />
+                        </svg>
+                        Atendimento individual e de casais
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section como-funciona" id="como-funciona">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Como funciona</span>
+                <h2>Três passos simples para começar</h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-num">01</span>
+                    <h3>Contato inicial</h3>
+                    <p>Você me chama no WhatsApp e conta um pouco do que te trouxe até aqui.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">02</span>
+                    <h3>Combinamos os detalhes</h3>
+                    <p>Definimos juntos a modalidade — online ou presencial — e os horários das sessões de 50 minutos.
+                    </p>
+                </div>
+                <div class="step">
+                    <span class="step-num">03</span>
+                    <h3>O processo começa</h3>
+                    <p>No seu tempo, construímos um espaço de escuta que faça sentido para a sua história.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRASES DE ACOLHIMENTO -->
+    <section class="section" style="padding-top:90px; padding-bottom:90px;">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Palavras que uso na prática</span>
+                <h2>Um pouco de como eu penso a terapia</h2>
+            </div>
+            <div class="frases-inner">
+                <div class="frase">
+                    <p>"Aqui você encontra um espaço seguro para falar, refletir e compreender melhor seus sentimentos."
+                    </p>
+                    <span>— Edna, Psicóloga</span>
+                </div>
+                <div class="frase">
+                    <p>"O processo é construído com escuta atenta, respeito e no ritmo de cada pessoa."</p>
+                    <span>— Edna, Psicóloga</span>
+                </div>
+                <div class="frase">
+                    <p>"Meu trabalho é te ajudar a desenvolver clareza, autonomia emocional e caminhos possíveis."</p>
+                    <span>— Edna, Psicóloga</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section cta-final" id="contato">
+        <div class="cta-ring"></div>
+        <div class="cta-ring two"></div>
+        <div class="container">
+            <span class="eyebrow">Dar o primeiro passo é a parte mais difícil</span>
+            <h2>Você não precisa ter tudo resolvido para começar</h2>
+            <p>Me manda uma mensagem quando estiver pronta — a gente conversa sobre como seguir.</p>
+            <a class="btn-whats" href="https://wa.me/5532991041776" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path
+                        d="M12 0C5.373 0 0 5.373 0 12c0 2.137.558 4.145 1.531 5.887L.053 23.947l6.282-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.86 9.86 0 01-5.031-1.374l-.361-.214-3.741.981.998-3.648-.235-.374A9.868 9.868 0 012.118 12C2.118 6.535 6.535 2.118 12 2.118S21.882 6.535 21.882 12 17.465 21.882 12 21.882z" />
+                </svg>
+                Falar pelo WhatsApp
+            </a>
+            <p class="modalidade-line">Atendimento online e presencial · sessões de 50 minutos</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="brand-name" style="font-family:'Fraunces',serif; font-size:1.3rem;">Edna Cezar</span>
+                    <div class="brand-role" style="margin-top:6px;">psicóloga · psicanálise · CRP 00/000000</div>
+                </div>
+                <div class="footer-contacts">
+                    <a href="https://wa.me/5532991041776" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" stroke-width="1.6">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                                fill="currentColor" stroke="none" />
+                            <path
+                                d="M12 0C5.373 0 0 5.373 0 12c0 2.137.558 4.145 1.531 5.887L.053 23.947l6.282-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.86 9.86 0 01-5.031-1.374l-.361-.214-3.741.981.998-3.648-.235-.374A9.868 9.868 0 012.118 12C2.118 6.535 6.535 2.118 12 2.118S21.882 6.535 21.882 12 17.465 21.882 12 21.882z"
+                                fill="currentColor" stroke="none" />
+                        </svg>
+                        (32) 99104-1776
+                    </a>
+                    <a href="https://instagram.com/edna.cezar.psi" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1" />
+                        </svg>
+                        @edna.cezar.psi
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="crise">Este site é informativo e não substitui uma consulta profissional. Em caso de crise,
+                    ligue para o CVV — 188, 24h, gratuito.</span>
+                <div style="display:flex; gap:18px; align-items:center;">
+                    <span>© <span id="year"></span> Edna Cezar</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a class="float-whats" href="https://wa.me/5532991041776" target="_blank" rel="noopener"
+        aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.137.558 4.145 1.531 5.887L.053 23.947l6.282-1.648A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.86 9.86 0 01-5.031-1.374l-.361-.214-3.741.981.998-3.648-.235-.374A9.868 9.868 0 012.118 12C2.118 6.535 6.535 2.118 12 2.118S21.882 6.535 21.882 12 17.465 21.882 12 21.882z" />
+        </svg>
+    </a>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.card, .step, .frase').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>
