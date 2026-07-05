@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cassandra Figueredo | Psicóloga Online — TCC e Terapia do Esquema</title>
+    <meta name="description"
+        content="Cassandra Figueredo, psicóloga online especializada em TCC e Terapia do Esquema. Atendimento para adolescentes, adultos, casais e regulação emocional. CRP 00/000000.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+        :root {
+            --bg: #F7F3EE;
+            --bg-alt: #F0EBE3;
+            --bg-dark: #2C1F14;
+            --text: #2C1F14;
+            --text-muted: #7A6A5A;
+            --accent: #C4795A;
+            --accent-hover: #B0673F;
+            --sage: #8A9E8C;
+            --sage-light: #C8D6C9;
+            --sage-pale: #EAF0EA;
+            --border: #DDD5CA;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+            --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* GRAIN TEXTURE */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.028;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+
+        /* ============ NAV ============ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+            transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease), padding 0.3s var(--ease);
+        }
+
+        nav.scrolled {
+            background: rgba(247, 243, 238, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 var(--border);
+            padding: 0.8rem 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-brand-name {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-brand-label {
+            font-family: var(--font-body);
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1.15rem;
+            border: 1.5px solid var(--accent);
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 0.83rem;
+            font-weight: 500;
+            color: var(--accent) !important;
+            text-decoration: none;
+            transition: background 0.25s, color 0.25s;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent);
+            color: white !important;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+        }
+
+        /* ============ HERO ============ */
+        #hero {
+            min-height: 100dvh;
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding-top: 5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-content {
+            padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 5vw, 5rem) clamp(3rem, 8vw, 6rem) clamp(2rem, 7vw, 7rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 1.8rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--sage);
+        }
+
+        .hero-h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 4.5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 1.4vw, 1.12rem);
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 400px;
+            margin-bottom: 2.4rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3.5rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.8rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.25s var(--ease), transform 0.25s var(--ease-bounce);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .hero-seals {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .seal {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .seal svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--sage);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* HERO PHOTO */
+        .hero-photo-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-photo-wrap {
+            position: relative;
+        }
+
+        .hero-photo-frame {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border-radius: 4px 40px 4px 4px;
+            position: relative;
+            box-shadow: 0 30px 60px -28px rgba(43, 32, 15, 0.35);
+        }
+
+        .hero-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-photo-accent {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            width: 130px;
+            height: 130px;
+            background: var(--sage-light);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .hero-crp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            box-shadow: 0 2px 8px rgba(44, 31, 20, 0.07);
+        }
+
+        .hero-crp-badge span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-content {
+                padding: 7rem 1.5rem 2.5rem;
+                order: 2;
+            }
+
+            .hero-photo-col {
+                order: 1;
+            }
+
+            .hero-photo-frame {
+                max-width: 260px;
+                margin: 0 auto;
+            }
+
+            .hero-h1 {
+                font-size: clamp(2rem, 8vw, 2.8rem);
+            }
+        }
+
+        /* ============ DORES / ESPECIALIDADES ============ */
+        #especialidades {
+            padding-block: clamp(5rem, 10vw, 9rem);
+            padding-inline: max(clamp(1.5rem, 6vw, 6rem), calc((100% - 1280px) / 2));
+            background-color: var(--bg);
+            position: relative;
+        }
+
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.025em;
+            color: var(--text);
+            max-width: 520px;
+            margin-bottom: 3.5rem;
+        }
+
+        .especialidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0;
+            position: relative;
+        }
+
+        /* linha vertical de assinatura */
+        .especialidades-grid::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--sage-light) 20%, var(--sage-light) 80%, transparent);
+        }
+
+        .espec-card {
+            padding: 2.2rem 2rem 2.2rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            transition: padding-left 0.35s var(--ease);
+        }
+
+        .espec-card:last-child {
+            border-bottom: none;
+        }
+
+        .espec-card::before {
+            content: '';
+            position: absolute;
+            left: -2.45rem;
+            top: 2.4rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--sage-light);
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .espec-card:hover::before {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .espec-card:hover {
+            padding-left: 0.5rem;
+        }
+
+        .espec-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 0.7rem;
+        }
+
+        .espec-question {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--text);
+            margin-bottom: 0.65rem;
+        }
+
+        .espec-queixa {
+            font-size: 0.88rem;
+            font-style: italic;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .espec-transf {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .espec-transf svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            #especialidades {
+                padding-left: 3rem;
+            }
+        }
+
+        /* ============ SOBRE ============ */
+        #sobre {
+            padding-block: clamp(5rem, 10vw, 9rem);
+            padding-inline: max(clamp(1.5rem, 6vw, 6rem), calc((100% - 1280px) / 2));
+            background-color: var(--bg-alt);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* onda divisória topo */
+        #sobre::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--bg);
+            clip-path: ellipse(55% 100% at 50% 0%);
+        }
+
+        .sobre-inner {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: clamp(3rem, 6vw, 6rem);
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .sobre-photo-wrap {
+            position: relative;
+        }
+
+        .sobre-photo-frame {
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border-radius: 4px 40px 4px 4px;
+            position: relative;
+        }
+
+        .sobre-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .sobre-accent-blob {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            width: 120px;
+            height: 120px;
+            background: var(--sage-light);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .sobre-crp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            box-shadow: 0 2px 8px rgba(44, 31, 20, 0.07);
+        }
+
+        .sobre-crp span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .sobre-content {}
+
+        .sobre-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.75;
+            color: var(--text);
+            margin-bottom: 2rem;
+        }
+
+        .sobre-formacao {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .formacao-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .formacao-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-top: 0.45rem;
+            flex-shrink: 0;
+        }
+
+        .formacao-item p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .formacao-item strong {
+            display: block;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .sobre-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-photo-frame {
+                max-width: 260px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ============ COMO FUNCIONA ============ */
+        #como-funciona {
+            padding-block: clamp(5rem, 10vw, 9rem);
+            padding-inline: max(clamp(1.5rem, 6vw, 6rem), calc((100% - 1280px) / 2));
+            background-color: var(--bg-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #como-funciona::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--bg-alt);
+            clip-path: ellipse(55% 100% at 50% 0%);
+        }
+
+        #como-funciona .section-eyebrow {
+            color: var(--sage-light);
+        }
+
+        #como-funciona .section-title {
+            color: white;
+        }
+
+        .passos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+            position: relative;
+        }
+
+        .passos-grid::before {
+            content: '';
+            position: absolute;
+            top: 2.2rem;
+            left: 16%;
+            right: 16%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(200, 214, 201, 0.3), rgba(200, 214, 201, 0.3), transparent);
+        }
+
+        .passo {
+            text-align: center;
+            position: relative;
+        }
+
+        .passo-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(138, 158, 140, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--sage-light);
+            background: rgba(138, 158, 140, 0.08);
+        }
+
+        .passo-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.7rem;
+        }
+
+        .passo-desc {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.65;
+        }
+
+        @media (max-width: 768px) {
+            .passos-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .passos-grid::before {
+                display: none;
+            }
+        }
+
+        /* ============ FRASES ============ */
+        #frases {
+            padding-block: clamp(5rem, 10vw, 9rem);
+            padding-inline: max(clamp(1.5rem, 6vw, 6rem), calc((100% - 1280px) / 2));
+            background-color: var(--bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #frases::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--bg-dark);
+            clip-path: ellipse(55% 100% at 50% 0%);
+        }
+
+        .frases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .frase-item {
+            padding: 2.2rem;
+            background: var(--bg-alt);
+            border-radius: 2px 2px 16px 2px;
+            border-left: 3px solid var(--sage-light);
+            transition: border-color 0.3s, transform 0.3s var(--ease);
+        }
+
+        .frase-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .frase-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 1.2rem;
+        }
+
+        .frase-attr {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .frases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============ CTA FINAL ============ */
+        #cta {
+            padding-block: clamp(5rem, 10vw, 9rem);
+            padding-inline: max(clamp(1.5rem, 6vw, 6rem), calc((100% - 1280px) / 2));
+            background-color: var(--sage-pale);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-inner {
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .cta-lead {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 1.2rem;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            color: var(--text);
+            margin-bottom: 1.2rem;
+        }
+
+        .cta-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .cta-sub {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-info {
+            margin-top: 1.5rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+
+        .cta-info svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--sage);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+        }
+
+        /* ============ RODAPÉ ============ */
+        footer {
+            background: var(--bg-dark);
+            color: rgba(255, 255, 255, 0.6);
+            padding-block: 3rem 2rem;
+            padding-inline: max(clamp(1.5rem, 6vw, 6rem), calc((100% - 1280px) / 2));
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-crp {
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-contatos {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .footer-contatos a {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .footer-contatos a:hover {
+            color: var(--accent);
+        }
+
+        .footer-contatos svg {
+            width: 13px;
+            height: 13px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-legal {
+            font-size: 0.72rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.3);
+            max-width: 500px;
+        }
+
+        .footer-cvv {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .footer-cvv strong {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        /* ============ WHATSAPP FLOAT ============ */
+        #wpp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            transition: transform 0.3s var(--ease-bounce), box-shadow 0.3s;
+        }
+
+        #wpp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+        }
+
+        #wpp-float svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* ============ ANIMATIONS ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-brand" aria-label="Início">
+                <span class="nav-brand-name">Cassandra Figueredo</span>
+                <span class="nav-brand-label">Psicóloga</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#especialidades">Especialidades</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#como-funciona">Como funciona</a></li>
+                <li>
+                    <a href="#cta" class="nav-cta">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                                d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L0 24l6.334-1.489A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.375l-.36-.214-3.728.877.893-3.636-.235-.374A9.818 9.818 0 1112 21.818z" />
+                        </svg>
+                        Agendar consulta
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow reveal">Atendimento Online</div>
+            <h1 class="hero-h1 reveal">
+                Um espaço seguro<br>para você se <em>entender</em><br>melhor
+            </h1>
+            <p class="hero-sub reveal">
+                Acompanhamento psicológico com escuta atenta, sem julgamento — para adolescentes, adultos e casais que
+                querem reconectar com quem são.
+            </p>
+            <div class="hero-actions reveal">
+                <a href="https://wa.me/55" class="btn-primary">
+                    <!-- WhatsApp SVG oficial -->
+                    <svg viewBox="0 0 24 24" fill="white" width="18" height="18">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L0 24l6.334-1.489A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.375l-.36-.214-3.728.877.893-3.636-.235-.374A9.818 9.818 0 1112 21.818z" />
+                    </svg>
+                    Falar pelo WhatsApp
+                </a>
+            </div>
+            <div class="hero-seals reveal">
+                <div class="seal">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 3H3v18l9-4 9 4V3z" />
+                    </svg>
+                    Online
+                </div>
+                <div class="seal">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 8v4l3 3" />
+                    </svg>
+                    50 min / sessão
+                </div>
+                <div class="seal">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    CRP 00/000000
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-photo-col">
+            <div class="hero-photo-wrap">
+                <div class="hero-photo-frame">
+                    <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/07a4469c-0458-4427-89e3-f500486fa9d4/hero-1780629244143.png" alt="Cassandra Figueredo, psicóloga">
+                </div>
+                <div class="hero-photo-accent"></div>
+                <div class="hero-crp-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        width="14" height="14">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Registro: <span>CRP 00/000000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades">
+        <p class="section-eyebrow reveal">Com o que trabalho</p>
+        <h2 class="section-title reveal">Pode ser que você se reconheça em algum destes momentos</h2>
+
+        <div class="especialidades-grid">
+
+            <div class="espec-card reveal">
+                <span class="espec-tag">Adolescentes</span>
+                <h3 class="espec-question">Crescer dói — e nem sempre alguém entende?</h3>
+                <p class="espec-queixa">"Sinto que ninguém me entende de verdade, nem eu mesma sei o que quero."</p>
+                <div class="espec-transf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Construir identidade com mais segurança e clareza
+                </div>
+            </div>
+
+            <div class="espec-card reveal">
+                <span class="espec-tag">Adultos</span>
+                <h3 class="espec-question">Ansiedade e sobrecarga tomando conta?</h3>
+                <p class="espec-queixa">"Aquele aperto no peito constante, a mente que não para, o cansaço que nunca
+                    passa."</p>
+                <div class="espec-transf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Respirar, viver com mais presença e leveza
+                </div>
+            </div>
+
+            <div class="espec-card reveal">
+                <span class="espec-tag">Casais</span>
+                <h3 class="espec-question">Conversar virou brigar?</h3>
+                <p class="espec-queixa">"Os mesmos conflitos se repetem e parece que a gente fala línguas diferentes."
+                </p>
+                <div class="espec-transf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Vínculos mais seguros, comunicação mais honesta
+                </div>
+            </div>
+
+            <div class="espec-card reveal">
+                <span class="espec-tag">Regulação Emocional</span>
+                <h3 class="espec-question">As emoções parecem maiores do que você?</h3>
+                <p class="espec-queixa">"Reajo de formas que me arrependerei depois — e não sei como mudar."</p>
+                <div class="espec-transf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                    Compreender e manejar suas emoções com mais autonomia
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="sobre-inner">
+            <div class="sobre-photo-wrap reveal">
+                <div class="sobre-photo-frame">
+                    <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/07a4469c-0458-4427-89e3-f500486fa9d4/sobre-1780923867097.png" alt="Cassandra Figueredo">
+                </div>
+                <div class="sobre-accent-blob"></div>
+                <div class="sobre-crp">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        width="14" height="14">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Registro: <span>CRP 00/000000</span>
+                </div>
+            </div>
+
+            <div class="sobre-content">
+                <p class="section-eyebrow reveal">Quem sou</p>
+                <h2 class="section-title reveal" style="margin-bottom:1.5rem;">Cassandra<br>Figueredo</h2>
+                <p class="sobre-text reveal">
+                    "Escolhi a psicologia porque acredito que todo mundo merece um espaço honesto para se entender — sem
+                    pressa e sem julgamentos. Meu trabalho é caminhar junto com você, respeitando o seu ritmo."
+                </p>
+
+                <div class="sobre-formacao reveal">
+                    <div class="formacao-item">
+                        <div class="formacao-dot"></div>
+                        <p>
+                            <strong>Terapia Cognitivo-Comportamental (TCC)</strong>
+                            Abordagem baseada em evidências para compreender e transformar padrões de pensamento e
+                            comportamento
+                        </p>
+                    </div>
+                    <div class="formacao-item">
+                        <div class="formacao-dot"></div>
+                        <p>
+                            <strong>Terapia do Esquema</strong>
+                            Trabalho profundo com padrões emocionais que se repetem desde a infância e impactam a vida
+                            adulta
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+        <p class="section-eyebrow reveal">O processo</p>
+        <h2 class="section-title reveal">Simples de começar,<br>significativo no caminho</h2>
+
+        <div class="passos-grid">
+            <div class="passo reveal">
+                <div class="passo-num">01</div>
+                <h3 class="passo-title">Entre em contato</h3>
+                <p class="passo-desc">Manda uma mensagem pelo WhatsApp. Sem formulários, sem burocracia — uma conversa
+                    simples para entender o que você precisa.</p>
+            </div>
+            <div class="passo reveal">
+                <div class="passo-num">02</div>
+                <h3 class="passo-title">Primeira sessão online</h3>
+                <p class="passo-desc">50 minutos, de onde você estiver. Conversamos sobre o que te trouxe até aqui e o
+                    que você espera do processo.</p>
+            </div>
+            <div class="passo reveal">
+                <div class="passo-num">03</div>
+                <h3 class="passo-title">Construímos juntos</h3>
+                <p class="passo-desc">Com escuta, ferramentas da TCC e Terapia do Esquema, trabalhamos no seu ritmo —
+                    sem pressa, com consistência.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRASES DE ACOLHIMENTO -->
+    <section id="frases">
+        <div class="frases-grid">
+            <div class="frase-item reveal">
+                <p class="frase-text">"Aqui você encontra um espaço seguro para falar, refletir e começar a se entender
+                    de um jeito diferente."</p>
+                <span class="frase-attr">— Cassandra Figueredo, Psicóloga</span>
+            </div>
+            <div class="frase-item reveal">
+                <p class="frase-text">"O processo é construído com escuta atenta, respeito e foco no seu ritmo — não
+                    existe resposta certa ou errada aqui."</p>
+                <span class="frase-attr">— Cassandra Figueredo, Psicóloga</span>
+            </div>
+            <div class="frase-item reveal">
+                <p class="frase-text">"Meu trabalho é te ajudar a desenvolver clareza, autonomia emocional e caminhos
+                    possíveis para a sua vida."</p>
+                <span class="frase-attr">— Cassandra Figueredo, Psicóloga</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="cta">
+        <div class="cta-inner">
+            <p class="cta-lead reveal">Pronta para começar?</p>
+            <h2 class="cta-title reveal">
+                Dar o primeiro passo<br>é a parte <em>mais difícil</em>
+            </h2>
+            <p class="cta-sub reveal">
+                Se você chegou até aqui, talvez já seja a hora. Me manda uma mensagem quando estiver pronta — sem
+                pressa, sem pressão.
+            </p>
+            <a href="https://wa.me/55" class="btn-primary reveal"
+                style="font-size:1rem; padding:1rem 2.2rem; margin:0 auto; display:inline-flex;">
+                <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path
+                        d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L0 24l6.334-1.489A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.375l-.36-.214-3.728.877.893-3.636-.235-.374A9.818 9.818 0 1112 21.818z" />
+                </svg>
+                Falar pelo WhatsApp
+            </a>
+            <p class="cta-info reveal">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v4M12 16h.01" />
+                </svg>
+                Atendimento online · sessões de 50 minutos
+            </p>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <p class="footer-brand-name">Cassandra Figueredo</p>
+                <p class="footer-crp">Psicóloga · CRP 00/000000</p>
+                <div class="footer-contatos">
+                    <a href="https://instagram.com/psi.cassfigueredo" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                        </svg>
+                        @psi.cassfigueredo
+                    </a>
+                    <a href="https://wa.me/55">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                                fill="currentColor" />
+                            <path
+                                d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L0 24l6.334-1.489A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.375l-.36-.214-3.728.877.893-3.636-.235-.374A9.818 9.818 0 1112 21.818z"
+                                fill="currentColor" />
+                        </svg>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-cvv">
+                Em caso de crise: <strong>CVV 188</strong> — gratuito, 24h
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-legal">
+                Este site tem caráter informativo e não substitui consulta psicológica.
+            </p>
+            <p class="footer-legal">© 2026 Cassandra Figueredo · CRP 00/000000</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a id="wpp-float" href="https://wa.me/55" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="white">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L0 24l6.334-1.489A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.375l-.36-.214-3.728.877.893-3.636-.235-.374A9.818 9.818 0 1112 21.818z" />
+        </svg>
+    </a>
+
+    <script>
+        // NAV scroll
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+                    const delay = siblings.indexOf(entry.target) * 80;
+                    setTimeout(() => entry.target.classList.add('visible'), delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
