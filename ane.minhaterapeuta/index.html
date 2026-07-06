@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adriane Batista | Psicóloga Clínica | Atendimento Online e Presencial</title>
+    <meta name="description"
+        content="Adriane Batista, psicóloga clínica (CRP 00/000000). Especialista em emocional feminino, traumas, relacionamentos abusivos e autoestima. Atendimento online e presencial.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+        :root {
+            --cream: #F5EFE4;
+            --cream-dark: #EDE4D4;
+            --rose: #C4856A;
+            --rose-dark: #A86D53;
+            --brown: #3D2B1F;
+            --brown-mid: #6B4A36;
+            --brown-light: #9C7060;
+            --white: #FDFAF6;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+            --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--cream);
+            color: var(--brown);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grão global */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.028;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.2rem 2.5rem;
+            transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav.scrolled {
+            background: rgba(245, 239, 228, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 rgba(61, 43, 31, 0.08);
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            text-decoration: none;
+            color: var(--brown);
+        }
+
+        .nav-brand .name {
+            font-family: var(--font-display);
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-brand .role {
+            font-family: var(--font-body);
+            font-size: 0.62rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--brown-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            color: var(--brown-mid);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.5rem 1.15rem;
+            border: 1.5px solid var(--rose);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            color: var(--rose);
+            transition: background 0.3s var(--ease), color 0.3s var(--ease);
+        }
+
+        .nav-cta:hover {
+            background: var(--rose);
+            color: var(--white);
+        }
+
+        .nav-cta svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        /* ── HERO ── */
+        #hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 0;
+            padding-top: 5rem;
+            max-width: 1440px;
+            margin: 0 auto;
+            background-color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-shape {
+            position: absolute;
+            right: -10%;
+            top: -15%;
+            width: 65%;
+            height: 120%;
+            background-color: var(--cream-dark);
+            border-radius: 50% 0 0 45%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            padding: clamp(3rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem) clamp(3rem, 8vw, 7rem) clamp(2rem, 7vw, 8rem);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--rose);
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 1px;
+            background: var(--rose);
+        }
+
+        .hero-h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: var(--brown);
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-h1 em {
+            font-style: italic;
+            color: var(--rose);
+        }
+
+        .hero-sub {
+            font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+            font-weight: 300;
+            color: var(--brown-mid);
+            line-height: 1.7;
+            max-width: 420px;
+            margin-bottom: 2.4rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.85rem 1.8rem;
+            background: var(--rose);
+            color: var(--white);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: background 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+            box-shadow: 0 4px 20px rgba(196, 133, 106, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--rose-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(196, 133, 106, 0.38);
+        }
+
+        .btn-primary svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-seals {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .seal {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: var(--brown-light);
+        }
+
+        .seal svg {
+            width: 14px;
+            height: 14px;
+            color: var(--rose);
+            flex-shrink: 0;
+        }
+
+        .seal::after {
+            content: '·';
+            margin-left: 0.8rem;
+            color: var(--cream-dark);
+        }
+
+        .seal:last-child::after {
+            display: none;
+        }
+
+        .hero-photo-wrap {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(2rem, 5vw, 5rem) clamp(2rem, 5vw, 5rem) clamp(2rem, 5vw, 5rem) 0;
+        }
+
+        .hero-photo-frame {
+            position: relative;
+            width: clamp(280px, 38vw, 480px);
+            aspect-ratio: 3/4;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            overflow: hidden;
+            background-color: var(--cream-dark);
+        }
+
+        .hero-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .photo-accent {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--rose);
+            border-radius: 50%;
+            opacity: 0.35;
+        }
+
+        .photo-crp {
+            position: absolute;
+            top: 1.5rem;
+            left: -1rem;
+            background: var(--white);
+            border: 1px solid rgba(196, 133, 106, 0.2);
+            border-radius: 8px;
+            padding: 0.5rem 0.85rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: var(--rose);
+            box-shadow: 0 4px 16px rgba(61, 43, 31, 0.08);
+        }
+
+        /* ── WAVE DIVIDER ── */
+        .wave-divider {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            margin: 0;
+        }
+
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+        }
+
+        /* ── SEÇÃO GERAL ── */
+        section {
+            padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 5rem);
+        }
+
+        .section-inner {
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--rose);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .section-label::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 1px;
+            background: var(--rose);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.15;
+            color: var(--brown);
+            margin-bottom: 3rem;
+        }
+
+        /* ── ESPECIALIDADES ── */
+        #especialidades {
+            background-color: var(--white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            padding: 2rem 1.8rem;
+            background-color: var(--cream);
+            border-radius: 4px;
+            border-left: 3px solid var(--rose);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(196, 133, 106, 0.05) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(61, 43, 31, 0.1);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-tag {
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--rose);
+            font-weight: 500;
+            margin-bottom: 0.9rem;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--brown);
+            margin-bottom: 0.7rem;
+            line-height: 1.2;
+        }
+
+        .card-queixa {
+            font-size: 0.88rem;
+            font-style: italic;
+            color: var(--brown-light);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .card-transformacao {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.88rem;
+            color: var(--brown-mid);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .card-transformacao .arrow {
+            color: var(--rose);
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+
+        /* ── SOBRE ── */
+        #sobre {
+            background-color: var(--cream);
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: clamp(3rem, 6vw, 6rem);
+            align-items: center;
+        }
+
+        .sobre-photo-frame {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 4/5;
+            background-color: var(--cream-dark);
+            position: relative;
+            clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 0 100%);
+            overflow: hidden;
+        }
+
+        .sobre-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .sobre-photo-wrap {
+            position: relative;
+        }
+
+        .sobre-photo-detail {
+            position: absolute;
+            bottom: -1rem;
+            left: -1rem;
+            width: 80px;
+            height: 80px;
+            background-color: var(--rose);
+            opacity: 0.18;
+            clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 0 100%);
+        }
+
+        .sobre-content {}
+
+        .sobre-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--brown-mid);
+            margin-bottom: 2rem;
+        }
+
+        .sobre-text strong {
+            font-weight: 500;
+            color: var(--brown);
+        }
+
+        .sobre-form {
+            font-size: 0.9rem;
+            color: var(--brown-mid);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .crp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1rem;
+            background: var(--white);
+            border: 1px solid rgba(196, 133, 106, 0.3);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--rose);
+        }
+
+        /* ── COMO FUNCIONA ── */
+        #como-funciona {
+            background-color: var(--white);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 2.2rem;
+            left: calc(16.66% + 1rem);
+            right: calc(16.66% + 1rem);
+            height: 1px;
+            background: linear-gradient(90deg, var(--rose) 0%, rgba(196, 133, 106, 0.2) 50%, var(--rose) 100%);
+        }
+
+        .step {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--rose);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--brown);
+            margin-bottom: 0.7rem;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--brown-mid);
+            line-height: 1.65;
+        }
+
+        /* ── FRASES ── */
+        #frases {
+            background-color: var(--brown);
+            color: var(--cream);
+        }
+
+        #frases .section-label {
+            color: var(--rose);
+        }
+
+        #frases .section-label::before {
+            background: var(--rose);
+        }
+
+        .frases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .frase-item {
+            padding: 2rem;
+            border-top: 1px solid rgba(245, 239, 228, 0.12);
+            position: relative;
+        }
+
+        .frase-mark {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            line-height: 0.6;
+            color: var(--rose);
+            opacity: 0.4;
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 300;
+        }
+
+        .frase-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.65;
+            color: var(--cream);
+            margin-bottom: 1.2rem;
+        }
+
+        .frase-author {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--rose);
+            font-weight: 400;
+        }
+
+        /* ── CTA FINAL ── */
+        #cta-final {
+            background-color: var(--cream-dark);
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .cta-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--brown);
+            margin-bottom: 1.2rem;
+        }
+
+        .cta-headline em {
+            font-style: italic;
+            color: var(--rose);
+        }
+
+        .cta-sub {
+            font-size: 1rem;
+            color: var(--brown-mid);
+            line-height: 1.7;
+            margin-bottom: 2.4rem;
+        }
+
+        .cta-meta {
+            margin-top: 1.6rem;
+            font-size: 0.82rem;
+            color: var(--brown-light);
+            letter-spacing: 0.05em;
+        }
+
+        /* ── RODAPÉ ── */
+        footer {
+            background-color: var(--brown);
+            color: rgba(245, 239, 228, 0.6);
+            padding: 3rem clamp(1.5rem, 5vw, 5rem);
+        }
+
+        .footer-inner {
+            max-width: 1160px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--cream);
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-crp {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--rose);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-contact {
+            font-size: 0.82rem;
+            line-height: 1.8;
+        }
+
+        .footer-contact a {
+            color: rgba(245, 239, 228, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--rose);
+        }
+
+        .footer-legal {
+            text-align: right;
+        }
+
+        .footer-aviso {
+            font-size: 0.75rem;
+            line-height: 1.7;
+            max-width: 380px;
+            text-align: right;
+        }
+
+        .cvv-link {
+            color: var(--rose);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-copy {
+            font-size: 0.72rem;
+            margin-top: 1rem;
+            opacity: 0.5;
+            text-align: right;
+        }
+
+        /* ── WHATSAPP FLOAT ── */
+        .wpp-float {
+            position: fixed;
+            bottom: 1.8rem;
+            right: 1.8rem;
+            z-index: 50;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25D366;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+            text-decoration: none;
+        }
+
+        .wpp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+        }
+
+        .wpp-float svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* ── REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* ── RESPONSIVO ── */
+        @media (max-width: 1024px) {
+            .frases-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .frases-grid .frase-item:last-child {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-bg-shape {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 7rem 1.5rem 2rem;
+            }
+
+            .hero-photo-wrap {
+                padding: 1rem 1.5rem 3rem;
+                justify-content: flex-start;
+            }
+
+            .hero-photo-frame {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .photo-crp {
+                left: 0.5rem;
+            }
+
+            .sobre-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-photo-frame {
+                max-width: 100%;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid::before {
+                display: none;
+            }
+
+            .frases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .frases-grid .frase-item:last-child {
+                grid-column: auto;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-aviso,
+            .footer-copy {
+                text-align: left;
+            }
+
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <div class="nav-inner">
+        <a href="#hero" class="nav-brand">
+            <span class="name">Adriane Batista</span>
+            <span class="role">Psicóloga</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li>
+                <a href="https://wa.me/5575981385599?text=Olá%2C%20Adriane!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+                    class="nav-cta" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Agendar
+                </a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-bg-shape"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Online &amp; Presencial</div>
+            <h1 class="hero-h1">
+                Um espaço para você<br>
+                <em>se entender melhor</em>
+            </h1>
+            <p class="hero-sub">Atendimento clínico com escuta atenta, sem julgamento. Para mulheres que carregam muito
+                — e merecem um lugar seguro para pousar.</p>
+            <div class="hero-actions">
+                <a href="https://wa.me/5575981385599?text=Olá%2C%20Adriane!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+                    class="btn-primary" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Falar pelo WhatsApp
+                </a>
+            </div>
+            <div class="hero-seals">
+                <span class="seal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Ética CFP
+                </span>
+                <span class="seal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                    Atendimento Online
+                </span>
+                <span class="seal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    50 minutos
+                </span>
+            </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+            <div class="hero-photo-frame">
+                <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/5676f822-1ef4-4c47-8746-c998da5ad045/hero-1782932866276.png" alt="Adriane Batista, psicóloga clínica">
+            </div>
+            <div class="photo-accent"></div>
+            <div class="photo-crp">CRP 00/000000</div>
+        </div>
+    </section>
+
+    <!-- WAVE DIVIDER -->
+    <div class="wave-divider" style="background:var(--cream); margin-bottom:-2px;">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,30 C240,55 480,5 720,30 C960,55 1200,5 1440,30 L1440,60 L0,60 Z" fill="#FDFAF6" />
+        </svg>
+    </div>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades">
+        <div class="section-inner">
+            <div class="section-label reveal">Com o que trabalho</div>
+            <h2 class="section-title reveal reveal-delay-1">Talvez você se reconheça<br>em algum desses lugares</h2>
+            <div class="cards-grid">
+
+                <div class="card reveal reveal-delay-1">
+                    <div class="card-tag">Emocional Feminino</div>
+                    <h3 class="card-title">Você sente, mas não sabe nomear</h3>
+                    <p class="card-queixa">"Fico sobrecarregada, mas não consigo pedir ajuda — parece que tenho que dar
+                        conta de tudo."</p>
+                    <div class="card-transformacao">
+                        <span class="arrow">→</span>
+                        <span>Reconhecer suas emoções, entender de onde vêm e criar espaço para si mesma</span>
+                    </div>
+                </div>
+
+                <div class="card reveal reveal-delay-2">
+                    <div class="card-tag">Traumas</div>
+                    <h3 class="card-title">O passado aparece sem avisar</h3>
+                    <p class="card-queixa">"Achei que tinha superado, mas ainda reage em mim como se estivesse
+                        acontecendo agora."</p>
+                    <div class="card-transformacao">
+                        <span class="arrow">→</span>
+                        <span>Processar experiências difíceis sem que elas continuem ditando o presente</span>
+                    </div>
+                </div>
+
+                <div class="card reveal reveal-delay-3">
+                    <div class="card-tag">Relacionamentos Abusivos</div>
+                    <h3 class="card-title">Dói ficar, mas dói sair</h3>
+                    <p class="card-queixa">"Sei que esse relacionamento não me faz bem, mas tenho medo de estar errada —
+                        ou de ficar sozinha."</p>
+                    <div class="card-transformacao">
+                        <span class="arrow">→</span>
+                        <span>Clareza sobre seus vínculos, limites mais sólidos e confiança nas próprias
+                            percepções</span>
+                    </div>
+                </div>
+
+                <div class="card reveal reveal-delay-4">
+                    <div class="card-tag">Autoestima e Identidade</div>
+                    <h3 class="card-title">Você não se reconhece mais</h3>
+                    <p class="card-queixa">"Parece que fui me perdendo — não sei bem o que quero ou quem sou fora do que
+                        os outros esperam de mim."</p>
+                    <div class="card-transformacao">
+                        <span class="arrow">→</span>
+                        <span>Reencontrar o que é seu, fortalecer sua identidade e se relacionar a partir de um lugar
+                            mais inteiro</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WAVE DIVIDER -->
+    <div class="wave-divider" style="background:var(--white);">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,20 C360,50 1080,-10 1440,20 L1440,60 L0,60 Z" fill="var(--cream)" />
+        </svg>
+    </div>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="section-inner">
+            <div class="sobre-grid">
+                <div class="sobre-photo-wrap reveal">
+                    <div class="sobre-photo-frame">
+                        <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/5676f822-1ef4-4c47-8746-c998da5ad045/sobre-1782932901208.jpg" alt="Adriane Batista, psicóloga">
+                    </div>
+                    <div class="sobre-photo-detail"></div>
+                </div>
+                <div class="sobre-content">
+                    <div class="section-label reveal">Sobre mim</div>
+                    <p class="sobre-text reveal reveal-delay-1">
+                        Escolhi a psicologia porque acredito que <strong>todo mundo merece um espaço honesto para se
+                            entender</strong>. Um lugar onde você pode ser o que é — sem precisar se encaixar, se
+                        justificar ou se diminuir.
+                    </p>
+                    <p class="sobre-text reveal reveal-delay-2">
+                        Trabalho especialmente com mulheres que carregam muito e pouco espaço encontraram para pousar.
+                        Minha abordagem é de <strong>escuta atenta, presença e respeito pelo seu tempo e ritmo</strong>.
+                    </p>
+                    <p class="sobre-form reveal reveal-delay-3">Psicologia Clínica · Atendimento Online e Presencial</p>
+                    <div class="crp-badge reveal reveal-delay-4">CRP 00/000000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAVE DIVIDER -->
+    <div class="wave-divider" style="background:var(--cream);">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="var(--white)" />
+        </svg>
+    </div>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona">
+        <div class="section-inner">
+            <div class="section-label reveal">Como funciona</div>
+            <h2 class="section-title reveal reveal-delay-1">Três passos simples<br>para começar</h2>
+            <div class="steps-grid">
+                <div class="step reveal reveal-delay-1">
+                    <div class="step-num">1</div>
+                    <h3 class="step-title">Entre em contato</h3>
+                    <p class="step-desc">Me manda uma mensagem pelo WhatsApp. Você não precisa saber exatamente o que
+                        dizer — pode começar com o que está sentindo.</p>
+                </div>
+                <div class="step reveal reveal-delay-2">
+                    <div class="step-num">2</div>
+                    <h3 class="step-title">Combinamos os detalhes</h3>
+                    <p class="step-desc">Agendamos uma sessão de 50 minutos, online ou presencial, no horário que
+                        funciona pra você.</p>
+                </div>
+                <div class="step reveal reveal-delay-3">
+                    <div class="step-num">3</div>
+                    <h3 class="step-title">Construímos juntas</h3>
+                    <p class="step-desc">O processo é construído no seu ritmo, com escuta atenta e sem julgamento. Você
+                        não precisa ter tudo organizado para começar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRASES -->
+    <section id="frases">
+        <div class="section-inner">
+            <div class="section-label reveal">Palavras de Adriane</div>
+            <div class="frases-grid">
+                <div class="frase-item reveal reveal-delay-1">
+                    <span class="frase-mark">"</span>
+                    <p class="frase-text">Aqui você encontra um espaço seguro para falar, refletir e compreender melhor
+                        o que sente — no seu tempo, sem pressa.</p>
+                    <span class="frase-author">— Adriane Batista, Psicóloga</span>
+                </div>
+                <div class="frase-item reveal reveal-delay-2">
+                    <span class="frase-mark">"</span>
+                    <p class="frase-text">Terapia não é sobre ter respostas prontas. É sobre criar espaço para que as
+                        suas próprias respostas possam aparecer.</p>
+                    <span class="frase-author">— Adriane Batista, Psicóloga</span>
+                </div>
+                <div class="frase-item reveal reveal-delay-3">
+                    <span class="frase-mark">"</span>
+                    <p class="frase-text">Meu trabalho é caminhar com você — com escuta genuína, respeito pela sua
+                        história e fé na sua capacidade de se entender.</p>
+                    <span class="frase-author">— Adriane Batista, Psicóloga</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="cta-final">
+        <div class="section-inner">
+            <div class="cta-inner">
+                <h2 class="cta-headline reveal">Dar o primeiro passo<br>é a parte mais <em>difícil.</em></h2>
+                <p class="cta-sub reveal reveal-delay-1">E está tudo bem se você ainda não tem certeza. Me manda uma
+                    mensagem quando sentir que está pronta — ou quase. Estou aqui.</p>
+                <a href="https://wa.me/5575981385599?text=Olá%2C%20Adriane!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+                    class="btn-primary reveal reveal-delay-2" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Falar pelo WhatsApp
+                </a>
+                <p class="cta-meta reveal reveal-delay-3">Atendimento Online &amp; Presencial · 50 minutos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">Adriane Batista</div>
+                <div class="footer-crp">CRP 00/000000 · Psicóloga Clínica</div>
+                <div class="footer-contact">
+                    <a href="https://wa.me/5575981385599" target="_blank" rel="noopener">+55 75 98138-5599
+                        (WhatsApp)</a><br>
+                    <a href="https://instagram.com/ane.minhaterapeuta" target="_blank"
+                        rel="noopener">@ane.minhaterapeuta</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p class="footer-aviso">Este site tem caráter informativo e não substitui a consulta psicológica. Em
+                    caso de crise, ligue para o <a href="tel:188" class="cvv-link">CVV 188</a> — gratuito, 24 horas,
+                    sigiloso.</p>
+                <p class="footer-copy">© 2026 Adriane Batista. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/5575981385599?text=Olá%2C%20Adriane!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+        class="wpp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // Reveal on scroll
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
