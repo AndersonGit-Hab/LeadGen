@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilson Antonio Ribeiro | Psicólogo em Dracena e Irapuru</title>
+    <meta name="description"
+        content="Gilson Antonio Ribeiro, psicólogo (CRP 06/212793) em Dracena e Irapuru. Atendimento online e presencial em Terapia Cognitivo-Comportamental para ansiedade, autoconhecimento, relacionamentos e causa autista.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+        :root {
+            --cream: #f7f2ea;
+            --cream-2: #efe7d8;
+            --ink: #2c2a24;
+            --ink-soft: #56503f;
+            --forest: #38473b;
+            --forest-deep: #263129;
+            --terracotta: #bd6a45;
+            --terracotta-deep: #a4552f;
+            --gold: #c69a52;
+            --line: rgba(44, 42, 36, 0.12);
+            --ease: cubic-bezier(.22, .68, 0, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--ink);
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        .brand-name {
+            font-family: 'Fraunces', serif;
+            color: var(--forest-deep);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        section {
+            position: relative;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* grain texture overlay */
+        .grain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.035;
+            mix-blend-mode: multiply;
+        }
+
+        /* ---------- NAV ---------- */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 500;
+            padding: 22px 0;
+            transition: all .5s var(--ease);
+        }
+
+        .nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav.scrolled {
+            background: rgba(247, 242, 234, 0.86);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+            padding: 14px 0;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
+        }
+
+        .brand-role {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--terracotta-deep);
+            font-weight: 600;
+            margin-top: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+        }
+
+        .nav-links a {
+            font-size: 0.92rem;
+            color: var(--ink-soft);
+            transition: color .3s var(--ease);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta-deep);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 1.5px solid var(--terracotta);
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--terracotta-deep);
+            transition: all .35s var(--ease);
+        }
+
+        .nav-cta svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--terracotta-deep);
+            transition: fill .35s var(--ease);
+        }
+
+        .nav-cta:hover {
+            background: var(--terracotta);
+            color: #fff;
+        }
+
+        .nav-cta:hover svg {
+            fill: #fff;
+        }
+
+        @media (max-width:768px) {
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+
+            .nav-links {
+                gap: 0;
+            }
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            padding: 170px 0 110px;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1.05fr 0.85fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--terracotta-deep);
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 26px;
+            height: 1.5px;
+            background: var(--terracotta);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.3rem, 4.4vw, 3.5rem);
+            line-height: 1.12;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--terracotta-deep);
+        }
+
+        .hero-sub {
+            font-size: 1.08rem;
+            color: var(--ink-soft);
+            max-width: 480px;
+            margin-bottom: 34px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 30px;
+            background: var(--forest-deep);
+            color: #fdfaf4;
+            border-radius: 100px;
+            font-size: 0.98rem;
+            font-weight: 500;
+            transition: all .4s var(--ease);
+            box-shadow: 0 10px 30px -12px rgba(38, 49, 41, 0.5);
+        }
+
+        .btn-primary svg {
+            width: 19px;
+            height: 19px;
+            fill: #fdfaf4;
+        }
+
+        .btn-primary:hover {
+            background: var(--terracotta-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 34px -10px rgba(164, 85, 47, 0.55);
+        }
+
+        .badges {
+            display: flex;
+            gap: 28px;
+            margin-top: 46px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--forest);
+            flex-shrink: 0;
+        }
+
+        .badge span {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            font-weight: 500;
+        }
+
+        .hero-copy {
+            position: relative;
+        }
+
+        .hero-photo-wrap {
+            position: relative;
+        }
+
+        .breathing-ring {
+            position: absolute;
+            inset: -26px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold);
+            opacity: 0.55;
+            animation: breathe 6s ease-in-out infinite;
+        }
+
+        .breathing-ring.r2 {
+            inset: -52px;
+            animation-delay: 1s;
+            opacity: 0.3;
+        }
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.045);
+                opacity: 0.15;
+            }
+        }
+
+        .hero-photo {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: 50% 50% 46% 46% / 60% 60% 40% 40%;
+            overflow: hidden;
+            background: var(--cream-2);
+            box-shadow: 0 30px 60px -20px rgba(44, 42, 36, 0.28);
+        }
+
+        @media (max-width:1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .hero-photo-wrap {
+                max-width: 340px;
+                order: -1;
+                margin-bottom: 12px;
+            }
+        }
+
+        /* ---------- WAVE DIVIDER ---------- */
+        .wave {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin-bottom: -2px;
+        }
+
+        /* ---------- DORES ---------- */
+        .dores {
+            background: var(--forest-deep);
+            padding: 100px 0 110px;
+            color: #f2ede1;
+        }
+
+        .dores h2 {
+            color: #f2ede1;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 14px;
+        }
+
+        .section-lead {
+            color: rgba(242, 237, 225, 0.7);
+            max-width: 520px;
+            margin-bottom: 56px;
+            font-size: 1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: rgba(247, 242, 234, 0.05);
+            border: 1px solid rgba(242, 237, 225, 0.14);
+            border-radius: 4px 22px 4px 22px;
+            padding: 32px 30px;
+            transition: all .5s var(--ease);
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            background: rgba(247, 242, 234, 0.09);
+            border-color: rgba(198, 154, 82, 0.5);
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            color: #f2ede1;
+            font-size: 1.28rem;
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+
+        .card-queixa {
+            font-style: italic;
+            color: rgba(242, 237, 225, 0.65);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .card-transform {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #f2ede1;
+            font-weight: 500;
+        }
+
+        .card-transform svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--terracotta);
+            flex-shrink: 0;
+        }
+
+        @media (max-width:768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ---------- SOBRE ---------- */
+        .sobre {
+            padding: 120px 0;
+        }
+
+        .sobre .container {
+            display: grid;
+            grid-template-columns: 0.75fr 1.1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .sobre-photo {
+            position: relative;
+            aspect-ratio: 3/4;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 84% 100%, 0 100%);
+            overflow: hidden;
+            background: var(--cream-2);
+        }
+
+        .crp-badge {
+            position: absolute;
+            bottom: 18px;
+            left: -18px;
+            background: var(--forest-deep);
+            color: #f2ede1;
+            padding: 12px 20px;
+            border-radius: 2px;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            box-shadow: 0 14px 30px -12px rgba(44, 42, 36, 0.4);
+        }
+
+        .crp-badge strong {
+            display: block;
+            font-size: 0.95rem;
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+        }
+
+        .sobre-texto {
+            position: relative;
+        }
+
+        .sobre h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            margin-bottom: 22px;
+        }
+
+        .sobre p {
+            color: var(--ink-soft);
+            font-size: 1.03rem;
+            margin-bottom: 18px;
+            max-width: 520px;
+        }
+
+        @media (max-width:1024px) {
+            .sobre .container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .sobre-photo {
+                max-width: 300px;
+            }
+
+            .crp-badge {
+                left: 0;
+            }
+        }
+
+        /* ---------- COMO FUNCIONA ---------- */
+        .como {
+            background: var(--cream-2);
+            padding: 110px 0;
+        }
+
+        .como h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            margin-bottom: 56px;
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+            position: relative;
+        }
+
+        .step {
+            text-align: left;
+            padding: 0 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all .6s var(--ease);
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-num {
+            font-family: 'Fraunces', serif;
+            font-size: 2.6rem;
+            color: var(--terracotta);
+            opacity: 0.5;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .step h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .step p {
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width:768px) {
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* ---------- FRASES ---------- */
+        .frases {
+            padding: 120px 0;
+            background: var(--forest);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .frases::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(198, 154, 82, 0.14), transparent 70%);
+        }
+
+        .frases-track {
+            display: flex;
+            gap: 28px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 8px;
+            scrollbar-width: none;
+        }
+
+        .frases-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .frase-card {
+            scroll-snap-align: start;
+            flex: 0 0 min(430px, 84vw);
+            background: rgba(247, 242, 234, 0.06);
+            border: 1px solid rgba(242, 237, 225, 0.15);
+            border-radius: 22px;
+            padding: 38px 34px;
+        }
+
+        .frase-card p {
+            font-family: 'Fraunces', serif;
+            font-size: 1.28rem;
+            line-height: 1.5;
+            color: #f2ede1;
+            font-weight: 400;
+            margin-bottom: 22px;
+        }
+
+        .frase-attr {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* ---------- CTA FINAL ---------- */
+        .cta-final {
+            padding: 130px 0;
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            font-size: clamp(1.9rem, 4vw, 2.9rem);
+            max-width: 680px;
+            margin: 0 auto 20px;
+        }
+
+        .cta-final p.lead {
+            color: var(--ink-soft);
+            max-width: 480px;
+            margin: 0 auto 40px;
+            font-size: 1.05rem;
+        }
+
+        .cta-final .modalidade-line {
+            margin-top: 22px;
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            letter-spacing: 0.02em;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: var(--forest-deep);
+            color: rgba(242, 237, 225, 0.75);
+            padding: 64px 0 32px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(242, 237, 225, 0.14);
+        }
+
+        .footer-brand .brand-name {
+            color: #f2ede1;
+        }
+
+        .footer-brand .brand-role {
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: rgba(242, 237, 225, 0.55);
+            max-width: 280px;
+        }
+
+        .footer-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contacts a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+            transition: color .3s var(--ease);
+        }
+
+        .footer-contacts a:hover {
+            color: var(--gold);
+        }
+
+        .footer-contacts svg {
+            width: 17px;
+            height: 17px;
+            stroke: currentColor;
+        }
+
+        .footer-contacts a[href*="wa.me"] svg {
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .footer-notice {
+            padding-top: 28px;
+            font-size: 0.82rem;
+            color: rgba(242, 237, 225, 0.55);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-notice a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        @media (max-width:600px) {
+            .footer-notice {
+                flex-direction: column;
+            }
+        }
+
+        /* ---------- WHATSAPP FLOAT ---------- */
+        .wa-float {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: var(--terracotta);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 14px 30px -10px rgba(164, 85, 47, 0.6);
+            z-index: 400;
+            transition: transform .35s var(--ease);
+        }
+
+        .wa-float svg {
+            width: 27px;
+            height: 27px;
+            fill: #fff;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.08);
+        }
+
+        /* focus visible */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--terracotta);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        @media (max-width:600px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 130px 0 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <svg class="grain" aria-hidden="true">
+        <filter id="grainFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grainFilter)" />
+    </svg>
+
+    <nav class="nav" id="nav">
+        <div class="container">
+            <div class="brand">
+                <span class="brand-name">Gilson Ribeiro</span>
+                <span class="brand-role">Psicólogo</span>
+            </div>
+            <div class="nav-links">
+                <a href="#dores">Especialidades</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a class="nav-cta" href="https://wa.me/5518996942486" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.463 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-copy">
+                <span class="eyebrow">Dracena e Irapuru &middot; Online e Presencial</span>
+                <h1>Existe um jeito mais <em>leve</em> de lidar com o que você sente</h1>
+                <p class="hero-sub">Um espaço de escuta atenta e sem julgamentos, para você se entender melhor e
+                    construir novos caminhos, no seu tempo.</p>
+                <a class="btn-primary" href="https://wa.me/5518996942486" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.463 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                    </svg>
+                    Falar pelo WhatsApp
+                </a>
+                <div class="badges">
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                            <path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.5-4 8-8 11-.6.5-1.4.5-2 0Z"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Online e presencial</span>
+                    </div>
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                            <path d="M12 2 2 7l10 5 10-5-10-5Z" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>CRP 06/212793</span>
+                    </div>
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 7v5l3.5 2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Sessões de 50 min</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-photo-wrap">
+                <div class="breathing-ring"></div>
+                <div class="breathing-ring r2"></div>
+                <div class="hero-photo">
+                    <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/c2fe3637-a3e4-49a3-bd58-19a7bc8fce50/hero-1782948801639.png" alt="Gilson Antonio Ribeiro, psicólogo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C320,100 1120,-20 1440,50 L1440,90 L0,90 Z" fill="#263129"></path>
+    </svg>
+
+    <section class="dores" id="dores">
+        <div class="container">
+            <h2>Se algo disso soa familiar</h2>
+            <p class="section-lead">Cada pessoa chega até a terapia por um motivo diferente. Estes são alguns dos temas
+                que mais trago para a sala de escuta.</p>
+            <div class="cards-grid">
+
+                <div class="card">
+                    <span class="card-tag">Ansiedade</span>
+                    <h3>Aquele aperto no peito sem motivo aparente?</h3>
+                    <p class="card-queixa">"Sinto uma tensão constante, como se algo ruim fosse acontecer, mesmo sem
+                        saber o quê."</p>
+                    <div class="card-transform">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Respirar e viver mais presente
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">Autoconhecimento</span>
+                    <h3>Sente que reage no automático, sem entender por quê?</h3>
+                    <p class="card-queixa">"Percebo que repito os mesmos padrões, mas não sei de onde eles vêm."</p>
+                    <div class="card-transform">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Compreender suas escolhas e histórias
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">Relacionamentos</span>
+                    <h3>Os mesmos conflitos continuam se repetindo?</h3>
+                    <p class="card-queixa">"Sempre chego ao mesmo tipo de desentendimento, em relações diferentes."</p>
+                    <div class="card-transform">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Vínculos mais claros e seguros
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">Causa Autista</span>
+                    <h3>Sente que seu jeito de ser nunca é compreendido?</h3>
+                    <p class="card-queixa">"Já ouvi muitas vezes que eu deveria me esforçar para ser diferente do que
+                        sou."</p>
+                    <div class="card-transform">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Um espaço que valida sua neurodivergência
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <div class="sobre-photo">
+                <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/c2fe3637-a3e4-49a3-bd58-19a7bc8fce50/sobre-1782948907350.png" alt="Gilson Antonio Ribeiro em seu consultório">
+                <div class="crp-badge">
+                    Registro profissional
+                    <strong>CRP 06/212793</strong>
+                </div>
+            </div>
+            <div class="sobre-texto">
+                <h2>Sobre o meu trabalho</h2>
+                <p>Escolhi a psicologia porque acredito que todo mundo merece um espaço honesto para se entender.
+                    Trabalho com escuta atenta, sem julgamento, no seu ritmo.</p>
+                <p>Utilizo a Terapia Cognitivo-Comportamental como base para o processo terapêutico: um método
+                    estruturado, colaborativo, que te ajuda a identificar padrões de pensamento e construir novas formas
+                    de lidar com o que te incomoda.</p>
+                <p>Atendo em Dracena e Irapuru, de forma presencial, e também online para todo o Brasil.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="como" id="como-funciona">
+        <div class="container">
+            <h2>Como funciona o processo</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-num">01</span>
+                    <h3>Primeiro contato</h3>
+                    <p>Você me chama no WhatsApp e conversamos sobre o que te trouxe até aqui e como funciona o
+                        atendimento.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">02</span>
+                    <h3>Modalidade e horário</h3>
+                    <p>Escolhemos juntos entre atendimento online ou presencial, em Dracena ou Irapuru, e encontramos um
+                        horário fixo semanal.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">03</span>
+                    <h3>O processo</h3>
+                    <p>Sessões de 50 minutos, num ritmo humano, construindo junto ferramentas para lidar com o que você
+                        traz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="frases">
+        <div class="container">
+            <div class="frases-track">
+                <div class="frase-card">
+                    <p>"Aqui você encontra um espaço seguro para falar, refletir e compreender melhor seus sentimentos."
+                    </p>
+                    <span class="frase-attr">— Gilson, Psicólogo</span>
+                </div>
+                <div class="frase-card">
+                    <p>"O processo é construído com escuta atenta, respeito e foco no seu ritmo."</p>
+                    <span class="frase-attr">— Gilson, Psicólogo</span>
+                </div>
+                <div class="frase-card">
+                    <p>"Meu trabalho é te ajudar a desenvolver clareza, autonomia emocional e caminhos possíveis."</p>
+                    <span class="frase-attr">— Gilson, Psicólogo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container">
+            <h2>Dar o primeiro passo é a parte mais difícil</h2>
+            <p class="lead">Não precisa ter tudo resolvido nem saber exatamente o que dizer. Me manda uma mensagem
+                quando estiver pronto.</p>
+            <a class="btn-primary" href="https://wa.me/5518996942486" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.463 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                </svg>
+                Falar pelo WhatsApp
+            </a>
+            <p class="modalidade-line">Atendimento online e presencial &middot; Dracena e Irapuru</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="brand-name">Gilson Ribeiro</span><br>
+                    <span class="brand-role">Psicólogo &middot; CRP 06/212793</span>
+                    <p>Atendimento online e presencial em Dracena e Irapuru, com base na Terapia
+                        Cognitivo-Comportamental.</p>
+                </div>
+                <div class="footer-contacts">
+                    <a href="https://wa.me/5518996942486" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.463 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                        </svg>
+                        (18) 99694-2486
+                    </a>
+                    <a href="https://instagram.com/psicogilsonribeiro" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                            <rect x="3" y="3" width="18" height="18" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+                        </svg>
+                        @psicogilsonribeiro
+                    </a>
+                </div>
+            </div>
+            <div class="footer-notice">
+                <span>Site informativo — não substitui consulta profissional. Em caso de crise, ligue para o CVV: 188,
+                    24h, gratuito.</span>
+                <span>&copy; 2026 Gilson Antonio Ribeiro</span>
+            </div>
+        </div>
+    </footer>
+
+    <a class="wa-float" href="https://wa.me/5518996942486" target="_blank" rel="noopener"
+        aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.463 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        // Nav scroll state
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // Reveal on scroll
+        const revealEls = document.querySelectorAll('.card, .step');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => io.observe(el));
+    </script>
+
+</body>
+
+</html>
