@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabela Christofano Junqueira — Psicóloga Clínica em Araçatuba-SP | Crianças, Adolescentes, Adultos, TDAH
+    </title>
+    <meta name="description"
+        content="Psicóloga clínica em Araçatuba-SP. Atendimento presencial para crianças, adolescentes, adultos e TDAH. CRP 06/143755. Agende sua consulta.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+        :root {
+            --bg: #F5EFE6;
+            --bg-dark: #2C1F14;
+            --accent: #B85C3A;
+            --accent-soft: #D4A882;
+            --text: #2C1F14;
+            --text-muted: #7A6555;
+            --cream: #EDE5D8;
+            --white: #FDFAF6;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+            --ease: cubic-bezier(.4, 0, .2, 1);
+            --ease-out: cubic-bezier(0, .55, .45, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* GRAIN */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: .035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-size: 256px;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 2.5rem;
+            transition: background .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav.scrolled {
+            background: rgba(245, 239, 230, .92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 rgba(44, 31, 20, .1);
+            padding: .9rem 2.5rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-brand span:first-child {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 1.4vw, 1.2rem);
+            font-weight: 500;
+            letter-spacing: -.01em;
+        }
+
+        .nav-brand span:last-child {
+            font-family: var(--font-body);
+            font-size: .62rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: .85rem;
+            font-weight: 400;
+            letter-spacing: .01em;
+            transition: color .25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .52rem 1.25rem;
+            border: 1.5px solid var(--accent);
+            border-radius: 100px;
+            text-decoration: none;
+            color: var(--accent);
+            font-size: .82rem;
+            font-weight: 500;
+            letter-spacing: .01em;
+            transition: background .25s, color .25s;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .nav-cta svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.25rem;
+            }
+
+            nav.scrolled {
+                padding: .75rem 1.25rem;
+            }
+
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+        }
+
+        /* HERO */
+        #hero {
+            min-height: 100svh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 7rem 2.5rem 4rem;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hero-eyebrow span {
+            width: 28px;
+            height: 1px;
+            background: var(--accent-soft);
+            display: inline-block;
+        }
+
+        .hero-h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 5.5vw, 5rem);
+            font-weight: 300;
+            line-height: 1.08;
+            letter-spacing: -.02em;
+            color: var(--text);
+        }
+
+        .hero-h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* Assinatura SVG decorativa */
+        .hero-signature {
+            width: 120px;
+            height: 32px;
+            margin-top: -.5rem;
+        }
+
+        .hero-sub {
+            font-size: clamp(.95rem, 1.2vw, 1.08rem);
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 420px;
+            font-weight: 300;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            background: var(--bg-dark);
+            color: var(--white);
+            text-decoration: none;
+            padding: .9rem 1.8rem;
+            border-radius: 100px;
+            font-size: .9rem;
+            font-weight: 500;
+            width: fit-content;
+            transition: background .3s, transform .3s var(--ease-out);
+        }
+
+        .btn-wa:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-wa svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .hero-selos {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .selo {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .75rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .selo-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            flex-shrink: 0;
+        }
+
+        /* Foto hero */
+        .hero-photo-wrap {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-photo-bg {
+            position: absolute;
+            top: 2rem;
+            right: -1rem;
+            width: 85%;
+            height: 90%;
+            background: var(--cream);
+            border-radius: 2px 140px 2px 2px;
+            z-index: 0;
+        }
+
+        .hero-photo-frame {
+            position: relative;
+            z-index: 1;
+            width: 88%;
+            aspect-ratio: 3/4;
+            border-radius: 2px 120px 2px 2px;
+            overflow: hidden;
+            background: var(--accent-soft);
+        }
+
+        .hero-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-crp-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: -.5rem;
+            z-index: 2;
+            background: var(--white);
+            border: 1px solid rgba(44, 31, 20, .12);
+            border-radius: 100px;
+            padding: .45rem 1rem;
+            font-size: .72rem;
+            font-family: var(--font-body);
+            color: var(--text-muted);
+            letter-spacing: .04em;
+            box-shadow: 0 4px 20px rgba(44, 31, 20, .1);
+        }
+
+        @media (max-width: 900px) {
+            #hero {
+                grid-template-columns: 1fr;
+                padding: 6rem 1.5rem 3rem;
+                gap: 2.5rem;
+            }
+
+            .hero-photo-wrap {
+                order: -1;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .hero-photo-bg {
+                right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-photo-wrap {
+                max-width: 260px;
+            }
+        }
+
+        /* SECTION BASE */
+        section {
+            position: relative;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-inner {
+                padding: 4rem 1.25rem;
+            }
+        }
+
+        /* ESPECIALIDADES */
+        #especialidades {
+            background: var(--bg-dark);
+        }
+
+        .esp-header {
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-tag {
+            font-size: .72rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--accent-soft);
+            font-weight: 400;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 300;
+            color: var(--white);
+            line-height: 1.15;
+            letter-spacing: -.02em;
+            max-width: 520px;
+        }
+
+        .section-title.dark {
+            color: var(--text);
+        }
+
+        .esp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25px;
+            background: rgba(255, 255, 255, .06);
+        }
+
+        .esp-card {
+            background: var(--bg-dark);
+            padding: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: background .3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .esp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--accent);
+            transition: height .5s var(--ease-out);
+        }
+
+        .esp-card:hover::before {
+            height: 100%;
+        }
+
+        .esp-card:hover {
+            background: rgba(184, 92, 58, .08);
+        }
+
+        .esp-tag {
+            font-size: .68rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--accent-soft);
+            font-weight: 500;
+        }
+
+        .esp-question {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.3;
+            letter-spacing: -.01em;
+        }
+
+        .esp-queixa {
+            font-style: italic;
+            color: rgba(253, 250, 246, .5);
+            font-size: .88rem;
+            line-height: 1.6;
+        }
+
+        .esp-transform {
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            color: var(--accent-soft);
+            font-size: .88rem;
+            font-weight: 400;
+            margin-top: auto;
+            padding-top: .75rem;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .esp-arrow {
+            flex-shrink: 0;
+            margin-top: .1rem;
+        }
+
+        /* SOBRE */
+        #sobre {
+            background: var(--white);
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .sobre-photo-wrap {
+            position: relative;
+        }
+
+        .sobre-photo-frame {
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: 2px 2px 80px 2px;
+            overflow: hidden;
+            background: var(--cream);
+        }
+
+        .sobre-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .sobre-deco {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            width: 60%;
+            height: 60%;
+            border: 2px solid var(--accent-soft);
+            border-radius: 2px 2px 70px 2px;
+            z-index: -1;
+            opacity: .4;
+        }
+
+        .sobre-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .sobre-intro {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 2vw, 1.7rem);
+            font-weight: 300;
+            line-height: 1.45;
+            letter-spacing: -.01em;
+            color: var(--text);
+        }
+
+        .sobre-body {
+            font-size: .95rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .sobre-formacao {
+            display: flex;
+            flex-direction: column;
+            gap: .6rem;
+            padding-top: .5rem;
+            border-top: 1px solid var(--cream);
+        }
+
+        .formacao-label {
+            font-size: .68rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--accent-soft);
+            font-weight: 500;
+        }
+
+        .formacao-item {
+            display: flex;
+            align-items: flex-start;
+            gap: .75rem;
+            font-size: .88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .formacao-item::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            flex-shrink: 0;
+            margin-top: .45rem;
+        }
+
+        .crp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .55rem 1.1rem;
+            border: 1.5px solid var(--accent-soft);
+            border-radius: 100px;
+            font-size: .78rem;
+            color: var(--text-muted);
+            width: fit-content;
+            font-weight: 400;
+        }
+
+        @media (max-width: 900px) {
+            .sobre-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .sobre-photo-wrap {
+                max-width: 320px;
+            }
+        }
+
+        /* COMO FUNCIONA */
+        #como {
+            background: var(--bg);
+        }
+
+        .como-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3.5rem;
+            position: relative;
+        }
+
+        .como-grid::before {
+            content: '';
+            position: absolute;
+            top: 2.5rem;
+            left: calc(100% / 6);
+            right: calc(100% / 6);
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-soft), transparent 40%, var(--accent-soft) 100%);
+            opacity: .4;
+        }
+
+        .como-step {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .como-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1.5px solid var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--accent);
+            background: var(--white);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .como-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .como-body {
+            font-size: .88rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .como-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .como-grid::before {
+                display: none;
+            }
+        }
+
+        /* FRASES */
+        #frases {
+            background: var(--cream);
+            overflow: hidden;
+        }
+
+        .frases-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .frase-item {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(44, 31, 20, .1);
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .frase-item:last-child {
+            border-bottom: none;
+        }
+
+        .frase-num {
+            font-family: var(--font-display);
+            font-size: .8rem;
+            color: var(--accent-soft);
+            font-style: italic;
+            padding-top: .35rem;
+        }
+
+        .frase-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2vw, 1.55rem);
+            font-weight: 300;
+            color: var(--text);
+            line-height: 1.55;
+            font-style: italic;
+            letter-spacing: -.01em;
+        }
+
+        .frase-atrib {
+            grid-column: 2;
+            font-size: .78rem;
+            color: var(--text-muted);
+            margin-top: .75rem;
+            letter-spacing: .04em;
+        }
+
+        /* CTA FINAL */
+        #cta {
+            background: var(--bg-dark);
+        }
+
+        .cta-inner {
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 7rem 2.5rem;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            color: var(--white);
+            line-height: 1.2;
+            letter-spacing: -.02em;
+        }
+
+        .cta-title em {
+            color: var(--accent-soft);
+            font-style: italic;
+        }
+
+        .cta-sub {
+            font-size: .95rem;
+            color: rgba(253, 250, 246, .6);
+            line-height: 1.75;
+            max-width: 480px;
+            font-weight: 300;
+        }
+
+        .btn-wa-light {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            background: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-size: .92rem;
+            font-weight: 500;
+            transition: background .3s, transform .3s var(--ease-out);
+        }
+
+        .btn-wa-light:hover {
+            background: #a04d2e;
+            transform: translateY(-2px);
+        }
+
+        .btn-wa-light svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .cta-info {
+            font-size: .78rem;
+            color: rgba(253, 250, 246, .4);
+            letter-spacing: .04em;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background: #1E1409;
+            padding: 3rem 2.5rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: start;
+            border-bottom: 1px solid rgba(255, 255, 255, .07);
+            padding-bottom: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .footer-name {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--white);
+            letter-spacing: -.01em;
+        }
+
+        .footer-crp {
+            font-size: .75rem;
+            color: rgba(253, 250, 246, .4);
+            letter-spacing: .04em;
+        }
+
+        .footer-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: .6rem;
+            align-items: flex-end;
+        }
+
+        .footer-link {
+            font-size: .82rem;
+            color: rgba(253, 250, 246, .5);
+            text-decoration: none;
+            transition: color .25s;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-soft);
+        }
+
+        .footer-link svg {
+            width: 14px;
+            height: 14px;
+            opacity: .7;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .footer-aviso {
+            font-size: .72rem;
+            color: rgba(253, 250, 246, .3);
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .footer-copy {
+            font-size: .7rem;
+            color: rgba(253, 250, 246, .2);
+        }
+
+        @media (max-width: 600px) {
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-contacts {
+                align-items: flex-start;
+            }
+
+            footer {
+                padding: 2.5rem 1.25rem 1.5rem;
+            }
+        }
+
+        /* WA FLOAT */
+        .wa-float {
+            position: fixed;
+            bottom: 1.75rem;
+            right: 1.75rem;
+            z-index: 90;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .35);
+            transition: transform .3s var(--ease-out), box-shadow .3s;
+            text-decoration: none;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, .45);
+        }
+
+        .wa-float svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <div class="nav-inner">
+        <a href="#hero" class="nav-brand" aria-label="Isabela Christofano Junqueira — Psicóloga">
+            <span>Isabela Christofano Junqueira</span>
+            <span>Psicóloga Clínica</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#como">Como funciona</a></li>
+            <a href="https://wa.me/5518981452897?text=Olá%2C%20Isabela!%20Vi%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento."
+                class="nav-cta" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Agendar conversa
+            </a>
+        </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero-section">
+        <div id="hero">
+            <div class="hero-text reveal">
+                <div class="hero-eyebrow">
+                    <span></span>
+                    Araçatuba · SP &nbsp;·&nbsp; Atendimento Presencial
+                </div>
+                <h1 class="hero-h1">
+                    Um espaço seguro para<br>
+                    <em>você se entender</em><br>
+                    melhor
+                </h1>
+
+                <!-- Assinatura decorativa -->
+                <svg class="hero-signature" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path d="M4 24 C20 8, 40 28, 60 16 C80 4, 100 22, 116 14" stroke="#D4A882" stroke-width="1.4"
+                        stroke-linecap="round" fill="none" opacity=".6" />
+                    <path d="M8 28 C28 20, 50 30, 72 22 C94 14, 108 26, 116 22" stroke="#B85C3A" stroke-width=".7"
+                        stroke-linecap="round" fill="none" opacity=".35" />
+                </svg>
+
+                <p class="hero-sub">Atendimento clínico para crianças, adolescentes e adultos. Se você está carregando
+                    um peso que não sabe bem como nomear, pode ser hora de conversar.</p>
+
+                <div class="hero-actions">
+                    <a href="https://wa.me/5518981452897?text=Olá%2C%20Isabela!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20consulta."
+                        class="btn-wa" target="_blank" rel="noopener" aria-label="Falar com Isabela pelo WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Falar pelo WhatsApp
+                    </a>
+                    <div class="hero-selos">
+                        <div class="selo"><span class="selo-dot"></span> Presencial</div>
+                        <div class="selo"><span class="selo-dot"></span> CRP 06/143755</div>
+                        <div class="selo"><span class="selo-dot"></span> 50 minutos</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-photo-wrap reveal" style="transition-delay:.18s">
+                <div class="hero-photo-bg"></div>
+                <div class="hero-photo-frame">
+                    <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/f4a4af57-ac8b-4cf0-995c-fce2415a7513/hero-1782950522798.png" alt="Isabela Christofano Junqueira, psicóloga clínica em Araçatuba-SP">
+                </div>
+                <span class="hero-crp-badge">CRP 06/143755</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section id="especialidades">
+        <div class="section-inner">
+            <div class="esp-header reveal">
+                <span class="section-tag">Com quem trabalho</span>
+                <h2 class="section-title">Você reconhece<br>alguma dessas histórias?</h2>
+            </div>
+            <div class="esp-grid">
+                <div class="esp-card reveal">
+                    <span class="esp-tag">Crianças</span>
+                    <h3 class="esp-question">Seu filho está diferente e você não sabe o que fazer?</h3>
+                    <p class="esp-queixa">"Ele não quer mais ir à escola, tem chorado muito e eu não consigo ajudar."
+                    </p>
+                    <div class="esp-transform">
+                        <svg class="esp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M3 8h10M9 4l4 4-4 4" />
+                        </svg>
+                        uma criança que se expressa, brinca e cresce com mais confiança
+                    </div>
+                </div>
+                <div class="esp-card reveal" style="transition-delay:.1s">
+                    <span class="esp-tag">Adolescentes</span>
+                    <h3 class="esp-question">A adolescência parece uma fase impossível de atravessar?</h3>
+                    <p class="esp-queixa">"Não sei quem sou, não sei o que sinto, e acho que ninguém me entende de
+                        verdade."</p>
+                    <div class="esp-transform">
+                        <svg class="esp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M3 8h10M9 4l4 4-4 4" />
+                        </svg>
+                        um jovem que se reconhece, se respeita e constrói sua identidade
+                    </div>
+                </div>
+                <div class="esp-card reveal" style="transition-delay:.2s">
+                    <span class="esp-tag">Adultos</span>
+                    <h3 class="esp-question">A vida foi mudando e você foi perdendo o fio?</h3>
+                    <p class="esp-queixa">"Acordo cansada, cumpro tudo, mas sinto que falta alguma coisa que não consigo
+                        nomear."</p>
+                    <div class="esp-transform">
+                        <svg class="esp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M3 8h10M9 4l4 4-4 4" />
+                        </svg>
+                        mais clareza sobre si mesmo e equilíbrio no dia a dia
+                    </div>
+                </div>
+                <div class="esp-card reveal" style="transition-delay:.3s">
+                    <span class="esp-tag">TDAH</span>
+                    <h3 class="esp-question">Sua mente não para — e isso cansa mais que tudo?</h3>
+                    <p class="esp-queixa">"Começo mil coisas, não termino nenhuma. Sinto que falhei de novo e não sei
+                        por quê."</p>
+                    <div class="esp-transform">
+                        <svg class="esp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M3 8h10M9 4l4 4-4 4" />
+                        </svg>
+                        entender como sua mente funciona e criar estratégias que funcionam pra você
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="section-inner">
+            <div class="sobre-grid">
+                <div class="sobre-photo-wrap reveal">
+                    <div class="sobre-photo-frame">
+                        <img src="https://snaxwleexsqdychezxrc.supabase.co/storage/v1/object/public/lead-images/f4a4af57-ac8b-4cf0-995c-fce2415a7513/sobre-1782950586558.png" alt="Isabela Christofano Junqueira em seu consultório">
+                    </div>
+                    <div class="sobre-deco" aria-hidden="true"></div>
+                </div>
+                <div class="sobre-text reveal" style="transition-delay:.15s">
+                    <span class="section-tag">Sobre mim</span>
+                    <p class="sobre-intro">Escolhi a psicologia porque acredito que todo mundo merece um espaço honesto
+                        para se entender.</p>
+                    <p class="sobre-body">Trabalho com escuta atenta, sem julgamento e no seu ritmo — seja com crianças
+                        que ainda estão aprendendo a nomear o que sentem, adolescentes em busca de si mesmos, ou adultos
+                        que carregam mais do que conseguem nomear. Para quem vive com TDAH, ofereço um olhar que não
+                        confunde diferença com falha.</p>
+                    <div class="sobre-formacao">
+                        <span class="formacao-label">Formação</span>
+                        <div class="formacao-item">Graduação em Psicologia — Psicologia Clínica</div>
+                        <div class="formacao-item">Atendimento a Crianças, Adolescentes, Adultos e TDAH</div>
+                    </div>
+                    <div class="crp-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                        CRP 06/143755
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como">
+        <div class="section-inner">
+            <div class="reveal">
+                <span class="section-tag">Como funciona</span>
+                <h2 class="section-title dark" style="margin-top:.6rem">O caminho começa<br>com uma mensagem</h2>
+            </div>
+            <div class="como-grid">
+                <div class="como-step reveal" style="transition-delay:.1s">
+                    <div class="como-num">01</div>
+                    <h3 class="como-title">Você entra em contato</h3>
+                    <p class="como-body">Me manda uma mensagem pelo WhatsApp. Sem formulário, sem burocracia.
+                        Conversamos brevemente para entender o que você precisa e combinamos um horário.</p>
+                </div>
+                <div class="como-step reveal" style="transition-delay:.2s">
+                    <div class="como-num">02</div>
+                    <h3 class="como-title">Primeira sessão presencial</h3>
+                    <p class="como-body">Nos encontramos no consultório em Araçatuba. As sessões têm 50 minutos. É um
+                        espaço seu — para falar no seu tempo, sem pressa de chegar a lugar nenhum.</p>
+                </div>
+                <div class="como-step reveal" style="transition-delay:.3s">
+                    <div class="como-num">03</div>
+                    <h3 class="como-title">Um processo construído junto</h3>
+                    <p class="como-body">A terapia não é linear, e tudo bem. Cada encontro é um espaço para se entender
+                        um pouco mais — e os avanços aparecem quando você menos espera.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRASES -->
+    <section id="frases">
+        <div class="section-inner">
+            <div class="frases-inner">
+                <div class="frase-item reveal">
+                    <span class="frase-num">01</span>
+                    <div>
+                        <p class="frase-text">"Aqui você encontra um espaço seguro para falar, refletir e compreender
+                            melhor seus sentimentos — sem julgamento."</p>
+                        <p class="frase-atrib">— Isabela Christofano Junqueira, Psicóloga Clínica</p>
+                    </div>
+                </div>
+                <div class="frase-item reveal" style="transition-delay:.12s">
+                    <span class="frase-num">02</span>
+                    <div>
+                        <p class="frase-text">"O processo terapêutico é construído com escuta atenta, respeito e foco no
+                            seu ritmo. Você não precisa ter tudo resolvido para começar."</p>
+                        <p class="frase-atrib">— Isabela Christofano Junqueira, Psicóloga Clínica</p>
+                    </div>
+                </div>
+                <div class="frase-item reveal" style="transition-delay:.24s">
+                    <span class="frase-num">03</span>
+                    <div>
+                        <p class="frase-text">"Meu trabalho é te ajudar a entender o que está acontecendo dentro de você
+                            — e criar caminhos possíveis, do seu jeito."</p>
+                        <p class="frase-atrib">— Isabela Christofano Junqueira, Psicóloga Clínica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="cta">
+        <div class="cta-inner">
+            <h2 class="cta-title reveal">Dar o primeiro passo<br>é a parte <em>mais difícil.</em></h2>
+            <p class="cta-sub reveal" style="transition-delay:.12s">Se você chegou até aqui, talvez já seja a hora. Me
+                manda uma mensagem quando estiver pronta — ou quando quiser só entender como funciona.</p>
+            <a href="https://wa.me/5518981452897?text=Olá%2C%20Isabela!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20atendimento."
+                class="btn-wa-light reveal" style="transition-delay:.2s" target="_blank" rel="noopener"
+                aria-label="Agendar pelo WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Agendar pelo WhatsApp
+            </a>
+            <p class="cta-info reveal" style="transition-delay:.28s">Presencial · Araçatuba, SP</p>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-name">Isabela Christofano Junqueira</span>
+                <span class="footer-crp">Psicóloga Clínica · CRP 06/143755</span>
+            </div>
+            <div class="footer-contacts">
+                <a href="https://wa.me/5518981452897" class="footer-link" target="_blank" rel="noopener"
+                    aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    (18) 98145-2897
+                </a>
+                <a href="mailto:psicologaisabelaa@gmail.com" class="footer-link" aria-label="E-mail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    psicologaisabelaa@gmail.com
+                </a>
+                <a href="https://instagram.com/psicologaisabelajunqueira" class="footer-link" target="_blank"
+                    rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                    @psicologaisabelajunqueira
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-aviso">Este site tem caráter informativo e não substitui a consulta com um profissional de
+                saúde mental. Em caso de crise, ligue para o CVV: 188 (24h, gratuito).</p>
+            <p class="footer-copy">&copy; 2026 Isabela Christofano Junqueira. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WA FLOAT -->
+    <a href="https://wa.me/5518981452897?text=Olá%2C%20Isabela!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar."
+        class="wa-float" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+        <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        // NAV scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // REVEAL
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    revealObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => revealObs.observe(el));
+    </script>
+</body>
+
+</html>
